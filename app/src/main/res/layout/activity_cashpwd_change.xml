@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_register"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_cashpwd_change_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="修改交易密码"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:background="@color/color_gray_default"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/et_cashpwd_change_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:hint="输入6位密码"
+            android:inputType="numberPassword"
+            android:maxLength="6"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_major"
+            android:textColorHint="#70c1fd"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:background="@color/color_gray_default"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/et_cashpwd_change_pwd2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:hint="输入确认密码"
+            android:inputType="numberPassword"
+            android:maxLength="6"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_major"
+            android:textColorHint="#70c1fd"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.6" />
+
+    <Button
+        android:id="@+id/btn_cashpwd_change_ok"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="0.8"
+        android:background="@drawable/btn_round"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_tab" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+</LinearLayout>

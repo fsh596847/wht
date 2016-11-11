@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white"
+    android:padding="8dp" >
+
+    <com.xiaowei.android.wht.views.CircularImage
+        android:id="@+id/pic_imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:src="@null" />
+
+
+    <TextView
+        android:id="@+id/nameLabel_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/pic_imageView"
+        android:padding="8dp"
+        android:text="接诊医生"
+        android:textColor="@color/color_333"
+        android:textSize="@dimen/activity_main" />
+    
+    <TextView
+        android:id="@+id/name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/nameLabel_textView"
+        android:layout_alignBaseline="@+id/nameLabel_textView"
+        android:text=""
+        android:textColor="@color/color_333"
+        android:textSize="@dimen/activity_main" />
+
+    <TextView
+        android:id="@+id/status_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="待挂号"
+        android:textSize="@dimen/activity_main" />
+
+    <TextView
+        android:id="@+id/hospitalName_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLabel_textView"
+        android:layout_toRightOf="@id/pic_imageView"
+        android:paddingLeft="8dp"
+        android:text=""
+        android:singleLine="true"
+        android:textColor="@color/color_light_gray" />
+
+    <TextView
+        android:id="@+id/date_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLabel_textView"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/color_light_gray"
+         />
+
+
+</RelativeLayout>

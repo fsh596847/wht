@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_patient_state"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+    
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="8dp" >
+
+        <ImageView
+            android:id="@+id/iv_patient_state_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:layout_centerVertical="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab" />
+        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="姓名" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="性别" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="所在地区" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="出生年月" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_brithday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.4"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="top"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="病情描述" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_describe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/corners_patient_add_edittext"
+            android:gravity="top"
+            android:hint=""
+            android:lineSpacingExtra="4dp"
+            android:padding="4dp"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.2"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="top"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="影像资料" />
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+                
+                <ImageView
+                    android:id="@+id/iv_patient_state_image1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:contentDescription="@null"
+                    android:src="@null" />
+                
+                <ImageView
+                    android:id="@+id/iv_patient_state_image2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    android:src="@null" />
+                
+                <ImageView
+                    android:id="@+id/iv_patient_state_image3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:contentDescription="@null"
+                    android:src="@null" />
+                
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="转诊医生" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_referdoctorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_patient_state_acceptdoctorname"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="接诊专家" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_acceptdoctorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_patient_state_state"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:paddingRight="8dp"
+            android:text="状态" />
+
+        <ImageView
+            android:id="@+id/iv_patient_state_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_time_pick" 
+            android:contentDescription="@null"/>
+        
+        <TextView
+            android:id="@+id/tv_patient_state_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main"
+            android:paddingLeft="16dp"/>
+        
+        <TextView
+            android:id="@+id/tv_patient_state_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main"
+            android:paddingLeft="16dp"/>
+        
+        <TextView
+            android:id="@+id/tv_patient_state_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_main"
+            android:visibility="gone"
+            android:layout_marginLeft="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:background="@color/color_major"
+            android:text="完成"/>
+        
+        <TextView
+            android:id="@+id/tv_patient_state_re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_main"
+            android:visibility="gone"
+            android:layout_marginLeft="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:background="@color/color_major"
+            android:text="转诊"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_patient_state_accept"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:text="是否接诊" />
+
+        <TextView
+            android:id="@+id/tv_patient_state_accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_main"
+            android:layout_marginLeft="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/color_major"
+            android:text="接诊"/>
+        
+        <TextView
+            android:id="@+id/tv_patient_state_refuse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_main"
+            android:layout_marginLeft="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="#ff0000"
+            android:text="拒绝"/>
+        
+        <TextView
+            android:id="@+id/tv_patient_state_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_main"
+            android:layout_marginLeft="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="#e978c1"
+            android:text="转诊"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+</com.xiaowei.android.wht.views.SildingFinishLayout>

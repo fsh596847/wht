@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_expert_infor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_expert_infor_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:layout_centerVertical="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab"
+            android:text="专家信息" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/ScrollView_expert_infor"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:background="#ffffff"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f7f7f7"
+            android:orientation="vertical" >
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingTop="20dp"
+                android:paddingBottom="4dp"
+                android:gravity="center" >
+
+                <com.xiaowei.android.wht.views.CircularImage
+                    android:id="@+id/iv_expert_infor_headphoto"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_head" >
+                </com.xiaowei.android.wht.views.CircularImage>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff" >
+                
+                <TextView
+                    android:id="@+id/tv_expert_infor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:padding="16dp"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_tab" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_expert_infor_name"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/expert_box_o"
+                    android:text="专家"
+                    android:padding="4dp"
+                    android:textColor="@color/color_minor"
+                    android:textSize="@dimen/activity_default" />
+                
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:layout_marginBottom="2dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/tv_expert_infor_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_default" />
+
+                <TextView
+                    android:id="@+id/tv_expert_infor_district"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_default"
+                    android:paddingLeft="4dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/expert_infor_left_padding"
+                android:drawablePadding="10dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:text="基本信息"
+                android:textColor="@color/color_major"
+                android:textSize="@dimen/activity_main" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="24dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="16dp"
+                    android:text="医院"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:id="@+id/tv_expert_infor_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="16dp"
+                    android:paddingLeft="24dp"
+                    android:text="科室"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:id="@+id/tv_expert_infor_detp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="16dp"
+                    android:paddingLeft="24dp"
+                    android:text="职称"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:id="@+id/tv_expert_infor_jobtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="16dp"
+                    android:text="职务"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:id="@+id/tv_expert_infor_duty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="12dp"
+                    android:text="擅长领域"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+
+                <TextView
+                    android:id="@+id/tv_expert_infor_goodfield"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingRight="24dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:gravity="center_vertical"
+                android:drawableLeft="@drawable/expert_infor_left_padding"
+                android:drawablePadding="10dp"
+                    android:text="学术成果"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:id="@+id/tv_expert_infor_jobresult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                android:paddingLeft="24dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="4dp"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingRight="24dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:gravity="center_vertical"
+                android:drawableLeft="@drawable/expert_infor_left_padding"
+                android:drawablePadding="10dp"
+                    android:text="社会职务"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:id="@+id/tv_expert_infor_paper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                android:paddingLeft="24dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="4dp"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

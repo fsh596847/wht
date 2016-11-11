@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp" >
+
+        <TextView
+            android:id="@+id/tv_meeting_ed_meetingname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main_x" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="16dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <!--  android:drawableLeft="@drawable/date_meeting"-->
+            <TextView
+                android:id="@+id/tv_meeting_ed_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="4dp"
+                android:textColor="@color/color_light_gray"
+                android:textSize="@dimen/activity_main" />
+
+            <TextView
+                android:id="@+id/tv_meeting_ed_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:textColor="@color/color_major"
+                android:textSize="@dimen/activity_main" />
+            
+            <Button
+                android:id="@+id/tv_meeting_ed_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawableRight="@drawable/go_gs"
+                android:gravity="right|center_vertical"
+                android:paddingBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:text="会议详情"
+                android:textColor="@color/color_light_gray"
+                android:textSize="@dimen/activity_default" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_meeting_ed_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/addr"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/host_g"
+            android:drawablePadding="4dp"
+            android:text="主办方："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_meeting_ed_host"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+    </LinearLayout>
+
+</LinearLayout>

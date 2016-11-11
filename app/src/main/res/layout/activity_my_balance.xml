@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_my_balance"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_balance_my_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab"
+            android:text="我的收入" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#e0efff"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@color/color_major"
+            android:textSize="@dimen/activity_main"
+            android:text="账户余额" />
+        
+        <TextView
+            android:id="@+id/tv_my_balance_balance"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@color/color_major"
+            android:gravity="center_horizontal|top"
+            android:textSize="@dimen/activity_big" />
+
+        <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="#50ffffff"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" 
+            android:gravity="center_vertical"
+            android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+            android:background="@color/color_major">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_my_balance_tadaymny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/activity_default" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今日收入"
+                    android:textColor="#ffffff"
+                    android:paddingTop="4dp"
+                    android:textSize="@dimen/activity_small" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/line_vertical_white" />
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center" >
+                
+                <TextView
+                    android:id="@+id/tv_my_balance_accountmny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/activity_default" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可提收入"
+                    android:textColor="#ffffff"
+                    android:paddingTop="4dp"
+                    android:textSize="@dimen/activity_small" />
+            </LinearLayout>
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/line_vertical_white" />
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center" >
+                
+                <TextView
+                    android:id="@+id/tv_my_balance_takemny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/activity_default" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已提收入"
+                    android:textColor="#ffffff"
+                    android:paddingTop="4dp"
+                    android:textSize="@dimen/activity_small" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_balance_my_cash"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@drawable/cash"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:text="余额提现"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@null"
+            android:src="@drawable/go_gs" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_balance_my_bank_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@drawable/bank_card"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:text="绑定银行卡"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@null"
+            android:src="@drawable/go_gs" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="#ffffff" />
+
+</LinearLayout>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/title_div"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/patien_title_bg" >
+
+        <!-- <ImageView
+            android:id="@+id/iv_homepage_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:src="@drawable/icon_logo" /> -->
+
+        <TextView
+            android:id="@+id/et_homepage_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/color_white"
+            android:textColorHint="@color/color_gray"
+            android:textSize="@dimen/activity_title_text" />
+    </RelativeLayout>
+
+    <!-- <RelativeLayout
+        android:id="@+id/ad_div"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/title_div" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_homepage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/viewGroup_homepage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="4dp" >
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/corners_white"
+            android:drawableLeft="@drawable/icon_search_blue"
+            android:drawablePadding="6dp"
+            android:gravity="center_vertical"
+            android:hint="搜索疾病、医生或者医院名称"
+            android:padding="2dp" />
+    </RelativeLayout> -->
+
+    <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ad_div"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_white"
+        android:paddingBottom="20dp"
+        android:paddingTop="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
+
+            <TextView
+                android:id="@+id/my_sick_log"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/corners_sick_log"
+                android:drawableLeft="@drawable/patient_home_sick_doc"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="我的病例"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/activity_main" />
+
+            <TextView
+                android:id="@+id/my_doctor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/corners_h_b1"
+                android:drawableLeft="@drawable/patient_home_my_doctor"
+                android:drawablePadding="2dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="我的医生"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/activity_main" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
+
+            <TextView
+                android:id="@+id/my_2_hospital"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/corners_my_hospital"
+                android:drawableLeft="@drawable/patient_home_2_hospital"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="我的转诊"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/activity_main" />
+
+            <TextView
+                android:id="@+id/my_invite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/corners_h_b2"
+                android:drawableLeft="@drawable/patient_home_my_invite"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="邀请好友"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/activity_main" />
+        </LinearLayout>
+    </LinearLayout> -->
+    
+    <ScrollView
+        android:id="@+id/scrollView_homepg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@id/title_div" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+        android:id="@+id/ad_div"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+         >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_homepage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/viewGroup_homepage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="4dp" >
+        </LinearLayout>
+
+        <!-- <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/corners_white"
+            android:drawableLeft="@drawable/icon_search_blue"
+            android:drawablePadding="6dp"
+            android:gravity="center_vertical"
+            android:hint="搜索疾病、医生或者医院名称"
+            android:padding="2dp" /> -->
+    </RelativeLayout>
+
+            <!-- <LinearLayout
+                android:id="@+id/ll_homepage_meetname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp" >
+
+                <TextView
+                    android:id="@+id/tv_homepage_meetname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main_x" />
+
+                <TextView
+                    android:id="@+id/tv_homepage_host"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/color_divider_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:visibility="gone" />
+
+            </LinearLayout> -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp" >
+
+                <Button
+                    android:id="@+id/my_2_hospital"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/h_b_referral"
+                    android:gravity="center_horizontal"
+                    android:text="我的转诊"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <Button
+                    android:id="@+id/my_sick_log"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/h_b_medical_history"
+                    android:gravity="center_horizontal"
+                    android:text="我的病历"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <Button
+                    android:id="@+id/my_doctor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/h_b_expert"
+                    android:gravity="center_horizontal"
+                    android:text="我的医生"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp" >
+                
+                <Button
+                    android:id="@+id/my_invite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/h_b_share"
+                    android:gravity="center_horizontal"
+                    android:text="好友邀请"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/h_b_health"
+                    android:gravity="center_horizontal"
+                    android:text="健康教育"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@drawable/h_b_community"
+                    android:gravity="center_horizontal"
+                    android:text="患者社区"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+            
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_marginBottom="1dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:background="#ffffff"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:text="健康知识" />
+            
+            <com.xiaowei.android.wht.views.ListViewInScrollView
+                android:id="@+id/listview_patient_homepage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:divider="@color/color_gray_default"
+                android:dividerHeight="1dp"
+                android:scrollbars="none" >
+            </com.xiaowei.android.wht.views.ListViewInScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

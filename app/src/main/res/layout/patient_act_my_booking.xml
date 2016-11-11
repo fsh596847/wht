@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default" >
+
+    <RelativeLayout
+        android:id="@+id/patient_act_my_booking_title_div"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/color_major" >
+
+        <ImageView
+            android:id="@+id/patient_act_my_booking_back_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/icon_return" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="预约时间"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/activity_tab" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/patient_act_my_booking_doctor_div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_act_my_booking_title_div"
+        android:background="@color/color_white"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp" >
+
+        <com.xiaowei.android.wht.views.CircularImage
+            android:id="@+id/patient_act_my_booking_pic_imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@null" />
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/patient_act_my_booking_pic_imageView"
+            android:padding="10dp"
+            android:text="张三"
+            android:textColor="@color/color_333"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_hospitalName_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/patient_act_my_booking_name_textView"
+            android:layout_toRightOf="@id/patient_act_my_booking_pic_imageView"
+            android:paddingLeft="10dp"
+            android:text="XXX医院..."
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+        <ImageView
+            android:id="@+id/patient_act_my_booking_resumeIcon_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/patient_act_my_booking_hospitalName_textView"
+            android:contentDescription="@null"
+            android:src="@drawable/go_gs" />
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_doctorInfo_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/patient_act_my_booking_resumeIcon_imageView"
+            android:layout_below="@id/patient_act_my_booking_hospitalName_textView"
+            android:layout_toLeftOf="@id/patient_act_my_booking_resumeIcon_imageView"
+            android:gravity="center_vertical"
+            android:text="详情 "
+            android:textColor="@color/color_light_gray" />
+
+
+        <ImageView
+            android:id="@+id/patient_act_my_booking_locIcon_imageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/patient_act_my_booking_doctorInfo_textView"
+            android:layout_toRightOf="@id/patient_act_my_booking_pic_imageView"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_doctor_loc"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_city_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/patient_act_my_booking_locIcon_imageView"
+            android:layout_below="@id/patient_act_my_booking_doctorInfo_textView"
+            android:layout_toRightOf="@id/patient_act_my_booking_locIcon_imageView"
+            android:gravity="bottom"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/color_light_gray"
+            android:visibility="gone"  />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/patient_act_my_booking_dateLabel_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_act_my_booking_doctor_div"
+        android:padding="10dp"
+        android:textColor="@color/color_light_gray"
+        android:text="可预约时间" />
+
+    <LinearLayout
+        android:id="@+id/patient_act_my_booking_dateDuaration_div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_act_my_booking_dateLabel_textView"
+        android:background="#FFFFFF"
+        android:paddingTop="10dp" 
+        android:visibility="invisible"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/patient_act_my_booking_left_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_arrow_l" />
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_date1_textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:background="@drawable/btn_round"
+            android:padding="5dp"
+            android:textColor="@color/color_light_gray"
+            android:text="12\n日" />
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_date2_textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textColor="@color/color_light_gray"
+            android:text="12\n日"  />
+        <TextView
+            android:id="@+id/patient_act_my_booking_date3_textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textColor="@color/color_light_gray"
+            android:text="12\n日"  />
+        <TextView
+            android:id="@+id/patient_act_my_booking_date4_textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textColor="@color/color_light_gray"
+            android:text="12\n日"  />
+        <TextView
+            android:id="@+id/patient_act_my_booking_date5_textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textColor="@color/color_light_gray"
+            android:text="12\n日"  />
+        <TextView
+            android:id="@+id/patient_act_my_booking_date6_textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textColor="@color/color_light_gray"
+            android:text="12\n日"  />
+        <TextView
+            android:id="@+id/patient_act_my_booking_date7_textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textColor="@color/color_light_gray"
+            android:text="12\n日"  />
+        <ImageView
+            android:id="@+id/patient_act_my_booking_right_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:padding="10dp"
+            android:src="@drawable/icon_arrow" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/patient_act_my_booking_datePick_div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_act_my_booking_dateDuaration_div"
+        android:layout_marginTop="1dp"
+        android:background="#FFFFFF"
+        android:padding="5dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/patient_act_my_booking_time_div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_act_my_booking_datePick_div"
+        android:layout_marginTop="1dp"
+        android:visibility="gone"
+        android:background="#FFFFFF"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_timeLabel_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="就诊时间" />
+
+        <TextView
+            android:id="@+id/patient_act_my_booking_timeSelect_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/patient_act_my_booking_timeLabel_textView"
+            android:text="10：00--12：:0" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/patient_act_my_booking_pickedLabel_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_act_my_booking_time_div"
+        android:visibility="gone"
+        android:padding="10dp"
+        android:text="可选时间" />
+
+    <TextView
+        android:id="@+id/patient_act_my_booking_pickResult_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_act_my_booking_pickedLabel_textView"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/color_major"
+        android:text="就诊时间" />
+    <TextView
+        android:id="@+id/patient_act_my_booking_submit_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/color_major"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="挂号支付"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_tab" />
+    
+    <LinearLayout
+        android:id="@+id/ll_patient_act_my_booking_agreement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/patient_act_my_booking_submit_textView"
+        android:layout_marginBottom="1dp"
+        android:gravity="center_vertical"
+        android:paddingRight="16dp" >
+
+        <ToggleButton
+            android:id="@+id/toggleButton_patient_act_my_booking_agreement"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/choose_selector"
+            android:textOff=""
+            android:textOn="" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="我同意"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_default_x" />
+
+        <TextView
+            android:id="@+id/textView_patient_act_my_booking_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="8dp"
+            android:text="《预约时间协议》"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_default_x" />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/tv_patient_act_my_booking_choosetime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="@color/color_major"
+        android:layout_above="@id/ll_patient_act_my_booking_agreement" />
+    
+    <TextView
+        android:id="@+id/tv_patient_act_my_booking_t"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_gray_default"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="已选时间"
+        android:textColor="@color/color_light_gray"
+        android:layout_above="@id/tv_patient_act_my_booking_choosetime" />
+
+	<ListView 
+	    android:id="@+id/patient_act_my_booking_time_listView"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/patient_act_my_booking_pickResult_textView"
+	    android:dividerHeight="1dp"
+	    android:divider="@color/color_gray_default"
+	    android:background="@color/color_white"
+	    android:layout_above="@id/tv_patient_act_my_booking_t">
+	    
+	</ListView>
+</RelativeLayout>

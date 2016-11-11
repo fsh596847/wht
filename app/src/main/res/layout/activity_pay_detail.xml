@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_pay_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+
+    <RelativeLayout
+        android:id="@+id/rl_pay_detail"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/color_major" >
+
+        <ImageView
+            android:id="@+id/iv_pay_detail_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/icon_return" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_tab"
+            android:text="支付明细" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView_pay_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_pay_detail"
+        android:scrollbars="none"
+        android:background="@null"
+        android:divider="@color/color_gray_default"
+        android:dividerHeight="1dp" >
+    </ListView>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+
+	<TextView
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="0.6"
+	    android:background="@color/color_bottom_bg"
+	    android:drawableLeft="@drawable/register_hint"
+	    android:text="成为认证医生需要您提供有效的资料，谢谢合作。"
+	    android:textColor="#ffffff"
+	    android:gravity="center_vertical"
+	    android:textSize="@dimen/activity_default" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="2"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:paddingLeft="24dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓名"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+                <EditText
+                    android:id="@+id/et_register_info1_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:lines="1"
+                    android:maxLength="20"
+                    android:hint="（必填）"
+                    android:paddingLeft="8dp"
+                    android:imeOptions="actionNext"
+                    android:textColor="@color/color_deep_gray"
+                    android:textColorHint="@color/color_minor"
+                    android:textSize="@dimen/activity_main" >
+                </EditText>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:paddingLeft="24dp" >
+
+                <TextView
+                    android:id="@+id/tv_register_info1_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="性别"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" />
+
+                <TextView
+                    android:id="@+id/tv_register_info1_sex_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_register_info1_sex"
+                    android:paddingLeft="8dp"
+                    android:text="女"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" />
+
+                <Button
+                    android:id="@+id/btn_register_info1_sex_cut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/tv_register_info1_sex_value"
+                    android:background="@null"
+                    android:paddingLeft="12dp"
+                    android:text="切换"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="left|bottom"
+            android:paddingLeft="8dp" >
+
+            <ImageView
+                android:id="@+id/iv_register_info1_headphoto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_head" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info1_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="所属医院"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_register_info1_hospital"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_register_info1_hospital"
+            android:background="@null"
+            android:lines="1"
+            android:maxLength="20"
+            android:hint="（必填）"
+            android:inputType="none"
+            android:imeOptions="actionNext"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_minor"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_register_info1_administrative_office"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info1_administrative_office"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="所属科室"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/et_register_info1_administrative_office"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:hint="（必填）"
+            android:paddingRight="12dp"
+            android:textColor="@color/color_major"
+            android:textColorHint="@color/color_minor"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_register_info1_area"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info1_area_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="所属地区"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_register_info1_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:hint="（必填）"
+            android:paddingRight="12dp"
+            android:textColor="@color/color_major"
+            android:textColorHint="@color/color_minor"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_register_info1_job_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info1_job_title_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="职称"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_register_info1_job_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:paddingRight="12dp"
+            android:hint="（必填）"
+            android:textColor="@color/color_major"
+            android:textColorHint="@color/color_minor"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_register_info1_job"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info1_job_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="职务"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_register_info1_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:paddingRight="12dp"
+            android:hint="（必填）"
+            android:textColorHint="@color/color_minor"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+
+    <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="工作证编码"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_register_info1_work_permit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:lines="1"
+            android:maxLength="30"
+            android:hint="请输入证件编码"
+            android:paddingLeft="8dp"
+            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout> -->
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="12dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医师资格证书编码"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_register_info1_certification"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/corners_patient_add_edittext"
+            android:lines="1"
+            android:maxLength="27"
+            android:imeOptions="actionNext"
+            android:hint=""
+            android:paddingLeft="8dp"
+            android:inputType="number"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="12dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医师执业证书编码"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_register_info1_execute_permit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/corners_patient_add_edittext"
+            android:lines="1"
+            android:imeOptions="actionDone"
+            android:maxLength="15"
+            android:hint=""
+            android:inputType="number"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+
+</LinearLayout>

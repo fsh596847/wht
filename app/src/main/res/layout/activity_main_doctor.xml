@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <FrameLayout
+        android:id="@+id/frameLayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9" >
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <Button
+            android:id="@+id/btn_main_homepage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/tab_main_zyb"
+            android:gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="首页"
+            android:textColor="@color/color_major"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:background="@null"
+            android:textSize="@dimen/activity_default" />
+        
+        <Button
+            android:id="@+id/btn_main_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/tab_main_fxg"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:text="发现"
+            android:textColor="@color/color_light_gray"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:background="@null"
+            android:textSize="@dimen/activity_default" />
+        
+        <Button
+            android:id="@+id/btn_main_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/tab_main_wdg"
+            android:gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="我的"
+            android:textColor="@color/color_light_gray"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:background="@null"
+            android:textSize="@dimen/activity_default" />
+        
+        <TextView
+            android:id="@+id/tv_main_my"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#ffffff"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:gravity="center"
+            android:background="@drawable/round_red"
+            android:textSize="@dimen/activity_small_"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

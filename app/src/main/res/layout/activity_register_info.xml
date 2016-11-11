@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_register_info_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:id="@+id/tv_register_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="填写资料"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab" />
+    </RelativeLayout>
+
+    <com.xiaowei.android.wht.views.CustomViewPager
+        android:id="@+id/viewpager_register_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7.2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="#ffffff"
+        android:gravity="bottom" >
+
+        <ToggleButton
+            android:id="@+id/toggleButton_register"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:textOff=""
+            android:textOn=""
+            android:background="@drawable/choose_selector" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:gravity="center_vertical"
+            android:text="我同意"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_default_x" />
+
+        <TextView
+            android:id="@+id/textView_register_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginRight="4dp"
+            android:gravity="center_vertical"
+            android:text="《转诊协议》"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_default_x" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <Button
+            android:id="@+id/btn_register_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/color_bottom_bg"
+            android:text="下一步"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_tab" />
+    </LinearLayout>
+    
+</LinearLayout>

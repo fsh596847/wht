@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_transfer_treatment_result"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#ffffff">
+    
+    <LinearLayout 
+        android:id="@+id/LinearLayout_transfer_treatment_result"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#ffffff">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="2dp" >
+
+        <ImageView
+            android:id="@+id/iv_transfer_treatment_result_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:id="@+id/tv_transfer_treatment_result_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab" />
+        
+        <!-- <ImageView
+            android:id="@+id/iv_transfer_treatment_result_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@null"
+            android:src="@drawable/search_b" /> -->
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_transfer_treatment_result"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:contentDescription="@null"
+        android:src="@drawable/tt_result_ask" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5" >
+
+        <TextView
+            android:id="@+id/tv_transfer_treatment_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/corners_green"
+            android:lineSpacingExtra="4dp"
+            android:padding="24dp"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/activity_main" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:contentDescription="@null"
+                android:src="@drawable/round_g_big" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:contentDescription="@null"
+                android:src="@drawable/round_g_big" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1" >
+        
+        <Button
+        android:id="@+id/btn_transfer_treatment_result_back_homepage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/btn_green"
+        android:layout_marginRight="2dp"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_tab"
+        android:text="返回首页" />
+
+    <Button
+        android:id="@+id/btn_transfer_treatment_result_add"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/btn_green"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_tab"
+        android:text="添加新患者" />
+        
+    </LinearLayout>
+
+</LinearLayout>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

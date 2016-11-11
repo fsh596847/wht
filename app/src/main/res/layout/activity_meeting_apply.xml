@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_meeting_apply"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+        android:id="@+id/ll_meeting_apply"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="4dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_meeting_apply_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab"
+            android:text="资料填写" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_meeting_apply_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:lines="1"
+            android:maxLength="20"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="性别"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_sex_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_meeting_apply_sex"
+            android:paddingLeft="8dp"
+            android:text="女"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <Button
+            android:id="@+id/btn_meeting_apply_sex_cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/tv_meeting_apply_sex_value"
+            android:background="@null"
+            android:paddingLeft="12dp"
+            android:text="切换"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="所属医院"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_meeting_apply_hospital"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_meeting_apply_hospital"
+            android:background="@null"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:inputType="none"
+            android:lines="1"
+            android:maxLength="20"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_meeting_apply_administrative_office"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_administrative_office"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="所属科室"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+        
+        <TextView
+            android:id="@+id/et_meeting_apply_administrative_office"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:paddingRight="12dp"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_meeting_apply_area"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_area_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="所属地区"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:paddingRight="12dp"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_meeting_apply_job_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_job_title_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="职称"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_job_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:paddingRight="12dp"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_meeting_apply_job"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_job_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="职务"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_meeting_apply_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/go_gs"
+            android:gravity="center_vertical"
+            android:paddingRight="12dp"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+
+    <!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="工作证编码"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_meeting_apply_work_permit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:lines="1"
+            android:maxLength="30"
+            android:hint="请输入证件编码"
+            android:paddingLeft="8dp"
+            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+    -->
+
+    <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医师资格证书编码"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_meeting_apply_certification"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入证件编码"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLength="27"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="12dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医师执业证书编码"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_meeting_apply_execute_permit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/corners_patient_add_edittext"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLength="15"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="0.9"
+        android:background="#ffffff"
+        android:paddingRight="12dp"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="是否住宿"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <ToggleButton
+            android:id="@+id/tbtn_meeting_apply_stay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/toggle_btn"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_meeting_apply_pay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_major"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_tab"
+        android:text="提交" />
+
+</LinearLayout>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

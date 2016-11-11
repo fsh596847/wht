@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">12dp</dimen>
+    <dimen name="titleBar_height">48dp</dimen>
+    <dimen name="bottomButton_height">45dp</dimen>
+    <dimen name="bg_corner_radius_big">20dp</dimen>
+    <dimen name="bg_corner_radius_mid">10dp</dimen>
+    <dimen name="bg_corner_radius">2dp</dimen>
+    <dimen name="default_margin">10dp</dimen>
+    <dimen name="default_margin_small">5dp</dimen>
+    <dimen name="default_margin_top">10dp</dimen>
+    <dimen name="default_margin_left">10dp</dimen>
+    <dimen name="default_margin_right">10dp</dimen>
+    <dimen name="default_margin_bottom">10dp</dimen>
+    <dimen name="title">20dp</dimen>
+    <dimen name="text_title">20dp</dimen>
+    <dimen name="text_title2">18dp</dimen>
+    <dimen name="text_content">16dp</dimen>
+    <dimen name="checkbox_padding">12dp</dimen>
+    <dimen name="checkbox_padding_top">4dp</dimen>
+    <dimen name="reservate_column_width">100dp</dimen>
+    <dimen name="reservate_row_height">40dp</dimen>
+    <dimen name="na">5sp</dimen>
+    <dimen name="font_size_button">18sp</dimen>
+    <dimen name="font_size_title">20sp</dimen>
+    <dimen name="font_size_fee">24sp</dimen>
+    <dimen name="font_size_label">20sp</dimen>
+    <dimen name="animImageWidth">100dp</dimen>
+    <dimen name="activity_title_text">20sp</dimen>
+    
+    <dimen name="activity_most">56sp</dimen>
+    <dimen name="activity_big_xx">48sp</dimen>
+    <dimen name="activity_big_x">40sp</dimen>
+    <dimen name="activity_big">28sp</dimen>
+    <dimen name="activity_tab_x">20sp</dimen>
+    <dimen name="activity_tab">18sp</dimen>
+    <dimen name="activity_main_x">16sp</dimen>
+    <dimen name="activity_main">14sp</dimen>
+    <dimen name="activity_default_x">12sp</dimen>
+    <dimen name="activity_default">10sp</dimen>
+    <dimen name="activity_small">8sp</dimen>
+    <dimen name="activity_small_">6sp</dimen>
+
+</resources>

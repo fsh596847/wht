@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_cashpwd"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/color_gray_default">
+    
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/color_gray_default">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="8dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_cashpwd_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab"
+            android:text="找回密码" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:gravity="bottom"
+        android:paddingBottom="4dp"
+        android:text="请输入持卡人本人的银行卡号"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_default" />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="8dp" >
+
+        <TextView
+            android:id="@+id/tv_cashpwd_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="卡号："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_cashpwd_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_cashpwd_number"
+            android:background="@null"
+            android:hint=""
+            android:inputType="number"
+            android:maxLength="20"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="#cccccc"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:gravity="top|center_horizontal"
+        android:paddingTop="4dp"
+        android:text="校验卡号"
+        android:textColor="#000000"
+        android:textSize="@dimen/activity_default" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:gravity="bottom"
+        android:paddingBottom="4dp"
+        android:text=""
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_default" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="8dp" >
+
+        <TextView
+            android:id="@+id/tv_cashpwd_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="姓名："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_cashpwd_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_cashpwd_name"
+            android:background="@null"
+            android:hint=""
+            android:lines="1"
+            android:imeOptions="actionNext"
+            android:inputType="none"
+            android:maxLength="15"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="#cccccc"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="8dp" >
+
+        <TextView
+            android:id="@+id/tv_cashpwd_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="手机号："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_cashpwd_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_cashpwd_phone"
+            android:background="@null"
+            android:hint=""
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="#cccccc"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:gravity="top|center_horizontal"
+        android:paddingTop="4dp"
+        android:text="信息加密处理，仅用于银行校验"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_default" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:drawableLeft="@drawable/consent_bg_grey_white"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="24dp"
+        android:text="我已阅读并同意服务协议"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_default" />
+    
+    <Button
+        android:id="@+id/btn_cashpwd_next"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="下一步"
+        android:background="@color/color_bottom_bg"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_tab" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.8" />
+    
+</LinearLayout>
+    
+</com.xiaowei.android.wht.views.SildingFinishLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:drawableLeft="@drawable/register_hint"
+        android:gravity="center_vertical"
+        android:text="成为认证医生需要您提供有效的资料，谢谢合作。"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_default" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="擅长领域"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_register_info2_good_at"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:lines="1"
+            android:maxLength="20"
+            android:hint="肿瘤手术"
+            android:paddingBottom="12dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:paddingBottom="12dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="16dp"
+        android:paddingTop="12dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info2_achievement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学术成果"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_register_info2_achievement"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/tv_register_info2_achievement"
+            android:background="@drawable/corners_patient_add_edittext"
+            android:gravity="top"
+            android:hint=""
+            android:lineSpacingExtra="4dp"
+            android:padding="4dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:paddingBottom="12dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="16dp"
+        android:paddingTop="12dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info2_accepts_that"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="社会职务"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_register_info2_accepts_that"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/tv_register_info2_accepts_that"
+            android:background="@drawable/corners_patient_add_edittext"
+            android:gravity="top"
+            android:hint=""
+            android:lineSpacingExtra="4dp"
+            android:padding="4dp"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+
+    <TextView
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    android:background="#ffffff"
+	    android:text="医师资格认证信息"
+	    android:paddingLeft="24dp"
+	    android:layout_marginBottom="1dp"
+	    android:textColor="@color/color_light_gray"
+	    android:gravity="center_vertical"
+	    android:textSize="@dimen/activity_main" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#ffffff"
+	    android:paddingLeft="24dp"
+	    android:paddingRight="24dp"
+	    android:paddingTop="4dp"
+	    android:layout_marginBottom="1dp" >
+        
+        <ImageView
+            android:id="@+id/iv_register_info2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@null"
+            android:background="@color/color_gray_default"
+            android:src="@drawable/add" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择550×240px尺寸的证书照片上传"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/color_divider_gray"
+            android:textSize="@dimen/activity_small" />
+        
+    </RelativeLayout>
+    
+</LinearLayout>

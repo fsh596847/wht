@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_my_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+    
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="8dp" >
+
+        <ImageView
+            android:id="@+id/iv_my_info_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:layout_centerVertical="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab"
+            android:text="我的资料" />
+        
+        <Button
+            android:id="@+id/btn_operate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main"
+            android:padding="8dp"
+            android:background="@null"
+            android:text="保存" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/ScrollView_my_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:layout_weight="9"
+        android:background="#ffffff" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/color_gray_default" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="1dp"
+                        android:paddingLeft="24dp" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="姓名"
+                            android:textColor="@color/color_light_gray"
+                            android:textSize="@dimen/activity_main" />
+
+                        <EditText
+                            android:id="@+id/et_my_info_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="12dp"
+                            android:textColor="@color/color_deep_gray"
+                            android:textColorHint="@color/color_light_gray"
+                            android:textSize="@dimen/activity_main" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:paddingLeft="24dp" >
+
+                        <TextView
+                            android:id="@+id/tv_my_info_sex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="性别"
+                            android:textColor="@color/color_light_gray"
+                            android:textSize="@dimen/activity_main" />
+
+                        <TextView
+                            android:id="@+id/tv_my_info_sex_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_my_info_sex"
+                            android:paddingLeft="8dp"
+                            android:text="女"
+                            android:textColor="@color/color_deep_gray"
+                            android:textSize="@dimen/activity_main" />
+
+                        <Button
+                            android:id="@+id/btn_my_info_sex_cut"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/tv_my_info_sex_value"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:background="@null"
+                            android:padding="12dp"
+                            android:text="切换"
+                            android:textColor="@color/color_major"
+                            android:textSize="@dimen/activity_main" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|bottom"
+                    android:paddingLeft="8dp"
+                    android:background="#ffffff" >
+                    
+                    <com.xiaowei.android.wht.views.CircularImage
+                        android:id="@+id/iv_my_info_headphoto"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_head" >
+                        
+                    </com.xiaowei.android.wht.views.CircularImage>
+                        
+                </LinearLayout>
+
+            </LinearLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_my_info_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="所属医院" />
+                
+                <EditText
+                    android:id="@+id/et_my_info_hospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/color_deep_gray"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_toRightOf="@id/tv_my_info_hospital"
+                    android:paddingLeft="8dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:inputType="none" >
+                
+                </EditText>
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rl_my_info_administrative_office"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="所属科室" />
+                
+                <TextView
+                    android:id="@+id/tv_my_info_administrative_office"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@drawable/go_gs"
+                    android:padding="12dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"/>
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_my_info_job_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_job_title_lb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="职称" />
+                
+                <TextView
+                    android:id="@+id/tv_job_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@drawable/go_gs"
+                    android:padding="12dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"/>
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rl_my_info_job"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_job_lb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="职务" />
+                
+                <TextView
+                    android:id="@+id/tv_job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@drawable/go_gs"
+                    android:padding="12dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"/>
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rl_my_info_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_my_info_district"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="所属地区" />
+                
+                <TextView
+                    android:id="@+id/tv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@drawable/go_gs"
+                    android:padding="12dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"/>
+                
+            </RelativeLayout>
+            
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:paddingRight="16dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_zgzbm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="医师资格证书编码" />
+                
+                <EditText
+                    android:id="@+id/et_zgzbm"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:textColorHint="@color/color_deep_gray"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_toRightOf="@id/tv_zgzbm"
+                    android:maxLength="27"
+                    android:paddingLeft="8dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:imeOptions="actionNext"
+                    android:background="@drawable/corners_patient_add_edittext"
+                    android:hint=""
+                    android:inputType="number" >
+                
+                </EditText>
+                
+            </RelativeLayout>
+            
+			<RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:paddingRight="16dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_zsbm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="医师执业证书编码" />
+                
+                <EditText
+                    android:id="@+id/et_zsbm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_zsbm"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/corners_patient_add_edittext"
+                    android:hint=""
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:maxLength="15"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="12dp"
+                    android:textColor="@color/color_deep_gray"
+                    android:textColorHint="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" >
+                
+                </EditText>
+                
+            </RelativeLayout>
+            
+			<RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:paddingRight="16dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_goodfield"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="擅长领域" />
+                
+                <EditText
+                    android:id="@+id/et_goodfield"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_goodfield"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/corners_patient_add_edittext"
+                    android:hint=""
+                    android:imeOptions="actionNext"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="12dp"
+                    android:textColor="@color/color_deep_gray"
+                    android:textColorHint="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main" >
+                
+                </EditText>
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingRight="16dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_my_info_publish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:text="学术成果" />
+                
+                
+                <EditText
+                    android:id="@+id/et_my_info_publish"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_toRightOf="@id/tv_my_info_publish"
+                    android:gravity="top"
+                    android:padding="4dp"
+                    android:background="@drawable/corners_patient_add_edittext"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:lineSpacingExtra="4dp"
+                    android:hint=""
+                    android:textColorHint="@color/color_light_gray" >
+
+                </EditText>
+                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingRight="16dp"
+                android:layout_marginBottom="1dp" >
+                
+                <TextView
+                    android:id="@+id/tv_my_info_achievement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:text="社会职务" />
+                
+                <EditText
+                    android:id="@+id/et_my_info_achievement"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/tv_my_info_achievement"
+                    android:background="@drawable/corners_patient_add_edittext"
+                    android:gravity="top"
+                    android:hint=""
+                    android:lineSpacingExtra="4dp"
+                    android:padding="4dp"
+                    android:textColor="@color/color_deep_gray"
+                    android:textColorHint="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main" >
+                </EditText>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:background="#ffffff"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
+                android:gravity="center_vertical" >
+
+                <ToggleButton
+                    android:id="@+id/toggleButton_my_info_agreement"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/choose_selector"
+                    android:textOff=""
+                    android:textOn="" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="8dp"
+                    android:gravity="center_vertical"
+                    android:text="我同意"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_default_x" />
+
+                <TextView
+                    android:id="@+id/textView_my_info_agreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:text="《转诊协议》"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_default_x" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

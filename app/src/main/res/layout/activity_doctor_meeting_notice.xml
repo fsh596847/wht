@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="2dp" >
+
+        <ImageView
+            android:id="@+id/iv_doc_meeting_notice_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab"
+            android:text="会议通知" />
+        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="#dddddd" >
+        
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+        	android:paddingRight="16dp" >
+
+            <Button
+                android:id="@+id/btn_doc_meeting_notice_will"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="会议预报" 
+                android:background="@null"
+                android:textColor="@color/color_light_gray"
+                android:textSize="@dimen/activity_main"/>
+
+            <TextView
+                android:id="@+id/tv_doc_meeting_notice_will"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:visibility="gone"
+                android:background="@color/color_major"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+        	android:paddingRight="16dp" >
+
+            <Button
+                android:id="@+id/btn_doc_meeting_notice_ing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="会议报名" 
+                android:background="@null"
+                android:textColor="@color/color_major"
+                android:textSize="@dimen/activity_main"/>
+
+            <TextView
+                android:id="@+id/tv_doc_meeting_notice_ing"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/color_major"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+        	android:paddingRight="16dp" >
+
+            <Button
+                android:id="@+id/btn_doc_meeting_notice_ed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="往期回顾" 
+                android:background="@null"
+                android:textColor="@color/color_light_gray"
+                android:textSize="@dimen/activity_main"/>
+
+            <TextView
+                android:id="@+id/tv_doc_meeting_notice_ed"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:visibility="gone"
+                android:background="@color/color_major"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    
+    <FrameLayout
+        android:id="@+id/frameLayout_doc_meeting_notice"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.2" >
+        
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_doc_meeting_notice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</LinearLayout>

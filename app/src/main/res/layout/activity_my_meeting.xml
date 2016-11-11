@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_my_conference_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的会议"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab" />
+
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="#dddddd"
+        android:layout_marginBottom="4dp" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+        	android:paddingRight="16dp" >
+
+            <Button
+                android:id="@+id/btn_my_meeting_will"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="待参会议" 
+                android:background="@null"
+                android:textColor="@color/color_major"
+                android:textSize="@dimen/activity_main"/>
+
+            <TextView
+                android:id="@+id/tv_my_meeting_will"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/color_major"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+        	android:paddingRight="16dp" >
+
+            <Button
+                android:id="@+id/btn_my_meeting_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="参会记录" 
+                android:background="@null"
+                android:textColor="@color/color_light_gray"
+                android:textSize="@dimen/activity_main"/>
+
+            <TextView
+                android:id="@+id/tv_my_meeting_record"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:visibility="gone"
+                android:background="@color/color_major"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+        
+    </LinearLayout>
+    
+    <FrameLayout
+        android:id="@+id/frameLayout_my_meeting"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.2" >
+    </FrameLayout>
+    
+    <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="2dp" >
+
+        <TextView
+            android:id="@+id/tv_my_conference_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/meeting_wait"
+            android:gravity="center_vertical"
+            android:drawablePadding="16dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="@dimen/activity_main"
+            android:textColor="@color/color_light_gray"
+            android:text="待参会议" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_my_conference_wait"
+            android:layout_alignBottom="@id/tv_my_conference_wait"
+            android:layout_marginLeft="4dp"
+            android:textSize="@dimen/activity_small"
+            android:textColor="@color/color_major"
+            android:text="1项会议" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@null"
+            android:src="@drawable/go_gs" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="2dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/meeting_record"
+            android:gravity="center_vertical"
+            android:drawablePadding="16dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="@dimen/activity_main"
+            android:textColor="@color/color_light_gray"
+            android:text="参会记录" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@null"
+            android:src="@drawable/go_gs" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="7" /> -->
+        
+</LinearLayout>

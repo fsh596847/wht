@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#f7f7f7">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="2dp" >
+
+        <ImageView
+            android:id="@+id/iv_approve_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:id="@+id/tv_approve_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab" />
+        
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_approve_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:contentDescription="@null"
+        android:src="@drawable/tt_result_ask" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/corners_white"
+            android:paddingLeft="24dp"
+            android:paddingRight="20dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_approve_text"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1.2"
+                android:lineSpacingExtra="4dp"
+                android:paddingTop="24dp"
+                android:textColor="@color/color_deep_gray"
+                android:textSize="@dimen/activity_main" />
+
+            <LinearLayout
+                android:id="@+id/tv_approve_wait"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6" 
+                android:visibility="gone"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="结果可在"
+                    android:textColor="@color/color_divider_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[我的]"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="@color/color_divider_gray"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[我的消息]"
+                    android:textColor="@color/color_major"
+                    android:textSize="@dimen/activity_main" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中查看"
+                    android:textColor="@color/color_divider_gray"
+                    android:textSize="@dimen/activity_main" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_approve_see"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawableRight="@drawable/go_gs"
+                android:gravity="center_vertical"
+                android:text="查看我的资料"
+                android:textColor="@color/color_major"
+                android:textSize="@dimen/activity_default" />
+
+        </LinearLayout>
+            
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:contentDescription="@null"
+                android:src="@drawable/round_g_big" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:contentDescription="@null"
+                android:src="@drawable/round_g_big" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+    <Button
+        android:id="@+id/btn_approve_back_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/btn_green"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_main"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="返回首页" />
+
+</LinearLayout>

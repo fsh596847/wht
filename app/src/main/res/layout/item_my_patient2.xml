@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="#ffffff"
+    android:paddingRight="8dp" >
+    
+    <LinearLayout
+        android:id="@+id/ll_item_my_patient2_image"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:padding="8dp"
+        android:background="#ffffff"
+        android:orientation="horizontal" >
+        
+        <!-- <com.xiaowei.android.wht.views.CircularImage
+            android:id="@+id/iv_item_my_patient_headphoto"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:src="@drawable/ic_head" >
+        </com.xiaowei.android.wht.views.CircularImage> -->
+        
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/tv_my_patient2_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:layout_toRightOf="@+id/ll_item_my_patient2_image"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_main" />
+
+    <TextView
+        android:id="@+id/tv_my_patient2_illnessname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+            android:singleLine="true"
+            android:paddingRight="40dp"
+        android:layout_toRightOf="@+id/ll_item_my_patient2_image"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_default" />
+    
+    <TextView
+        android:id="@+id/tv_my_patient2_patientdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+            android:singleLine="true"
+            android:paddingRight="40dp"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="16dp"
+        android:layout_toRightOf="@+id/ll_item_my_patient2_image"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_default" />
+    
+    <TextView
+        android:id="@+id/tv_my_patient2_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingTop="16dp"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_main"  />
+
+    <TextView
+        android:id="@+id/tv_my_patient2_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/activity_default"  />
+    
+    <TextView
+        android:id="@+id/tv_my_patient2_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_default"
+        android:padding="4dp" />
+
+</RelativeLayout>

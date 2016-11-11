@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:drawableLeft="@drawable/register_hint"
+        android:gravity="center_vertical"
+        android:text="为保障您的收益，请选择一种可操作的收款方式。"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_default" />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info3_way"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="选择收款方式"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main_x" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_register_info3_way"
+            android:layout_alignBottom="@id/tv_register_info3_way"
+            android:paddingLeft="4dp"
+            android:text="（只能选择一种）"
+            android:textColor="@color/color_divider_gray"
+            android:textSize="@dimen/activity_default" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_register_info3_wx"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info3_wx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="使用微信账号"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_register_info3_wx"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:padding="12dp"
+            android:src="@drawable/go_gs"
+            android:textColor="@color/color_major" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_register_info3_zfb"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info3_zfb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="使用支付宝账号"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_register_info3_zfb"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:padding="12dp"
+            android:src="@drawable/go_gs"
+            android:textColor="@color/color_major" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_register_info3_ylk"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_register_info3_ylk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="使用银联卡"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_register_info3_ylk"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:padding="12dp"
+            android:src="@drawable/go_gs"
+            android:textColor="@color/color_major" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="5" />
+
+</LinearLayout>

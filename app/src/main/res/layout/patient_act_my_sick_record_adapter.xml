@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@color/color_white" >
+
+
+        <TextView
+            android:id="@+id/nameLabel_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="疾病名称："
+            android:gravity="center"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main_x" />
+        <TextView
+            android:id="@+id/name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/nameLabel_textView"
+            android:layout_alignBaseline="@id/nameLabel_textView"
+            android:paddingRight="64dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:gravity="center"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main_x" />
+        
+        <TextView
+            android:id="@+id/status_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/nameLabel_textView"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textColor="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main_x" />
+
+        <TextView
+            android:id="@+id/date_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/nameLabel_textView"
+            android:textColor="@color/color_divider_gray"
+            android:textSize="@dimen/activity_default" />
+        
+        <TextView
+            android:id="@+id/doctorLabel_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/date_textView"
+            android:layout_alignBaseline="@id/date_textView"
+            android:text="接诊专家："
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main_x" />
+        <TextView
+            android:id="@+id/doctorName_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/doctorLabel_textView"
+            android:layout_alignBaseline="@id/date_textView"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main_x" />
+        
+        <TextView
+            android:id="@+id/doctor2Name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/date_textView"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main_x" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_textView"
+            android:layout_alignBaseline="@id/date_textView"
+            android:layout_toLeftOf="@id/doctor2Name_textView"
+            android:text="转诊专家："
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main_x" />
+
+</RelativeLayout>

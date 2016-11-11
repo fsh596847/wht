@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_gravity="bottom" >
+        
+        <com.xiaowei.android.wht.views.MyViewPageInListView
+            android:id="@+id/viewPager_item_meeting"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:gravity="bottom" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#50000000" >
+
+                <TextView
+                    android:id="@+id/tv_item_meeting_meetname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/activity_tab"
+                    android:layout_gravity="center_horizontal"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/activity_default"
+                    android:drawableRight="@drawable/go_ws"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:layout_gravity="right|bottom"
+                    android:text="会议详情"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/viewGroup_item_meeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="4dp" >
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp" >
+
+        <com.xiaowei.android.wht.views.MyViewPageInListView
+            android:id="@+id/viewPager_item_meeting"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/viewGroup_item_meeting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="4dp" >
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#50000000" >
+
+                <TextView
+                    android:id="@+id/tv_item_meeting_meetname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/activity_tab" />
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp" >
+
+        <!-- android:drawableLeft="@drawable/date_meeting"-->
+        <TextView
+            android:id="@+id/tv_item_meeting_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_item_meeting_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/addr"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/host_g"
+            android:drawablePadding="4dp"
+            android:text="主办方："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main_x" />
+
+        <TextView
+            android:id="@+id/tv_item_meeting_host"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main_x" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/btn_item_meeting_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="会议详情"
+            android:focusable="false"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_tab" />
+
+        <Button
+            android:id="@+id/btn_item_meeting_apply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="报名缴费"
+            android:focusable="false"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_tab" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_my_invite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+    android:id="@+id/ll_my_invite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_default"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_my_invite_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的邀请"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_my_invite_share"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="8dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/share_g"
+            android:gravity="center_vertical"
+            android:drawablePadding="16dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="@dimen/activity_main"
+            android:textColor="@color/color_light_gray"
+            android:text="分享" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_default"
+            android:drawableRight="@drawable/go_gs" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:layout_marginBottom="2dp" >
+
+        <TextView
+            android:id="@+id/tv_my_invite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/scan_off"
+            android:gravity="center_vertical"
+            android:drawablePadding="6dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="@dimen/activity_main"
+            android:textColor="@color/color_light_gray"
+            android:text="扫码邀请" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_my_invite"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:text="扫码"
+            android:textColor="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_my_invite_code"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:src="@drawable/code_load"
+        android:contentDescription="@null"
+        android:background="#ffffff" />
+    
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#ffffff" />
+
+</LinearLayout>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

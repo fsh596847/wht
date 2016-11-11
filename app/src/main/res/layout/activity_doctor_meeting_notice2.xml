@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_gray_default"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="#ffffff" >
+
+            <ImageView
+                android:id="@+id/iv_doc_meeting_notice_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:src="@drawable/back_b" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="会议"
+                android:textColor="@color/color_deep_gray"
+                android:textSize="@dimen/activity_tab" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView_doc_meeting_notice"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_doc_meeting_notice_meeting"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" >
+
+                    <ImageView
+                        android:id="@+id/ImageView_doc_meeting_notice"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:id="@+id/textView_doc_meeting_notice_name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp"
+                        android:textSize="@dimen/activity_default_x"
+                        android:textColor="#50333333"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp" >
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_welcome"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_welcome"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="16dp"
+                        android:text="欢迎辞"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_bg_default_activity" />
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_info"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="16dp"
+                        android:text="基本信息"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_bg_default_activity" />
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_org"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_org"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="16dp"
+                        android:text="组织结构"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_bg_default_activity" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical" >
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_content"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_content"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingTop="16dp"
+                        android:text="会议内容"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_bg_default_activity" />
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_calendar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_calendar"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingTop="16dp"
+                        android:text="日程查询"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_bg_default_activity" />
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_presenter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_presenter"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingTop="16dp"
+                        android:text="讲者主持查询"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_bg_default_activity" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="20dp" >
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_video"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_video"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="16dp"
+                        android:text="大会PPT视频"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_bg_default_activity" />
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_us"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_us"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="16dp"
+                        android:text="联系我们"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_bg_default_activity" />
+
+                    <Button
+                        android:id="@+id/btn_doc_meeting_notice_personage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/m_personage"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="16dp"
+                        android:text="个人中心"
+                        android:textColor="@color/color_deep_gray"
+                        android:textSize="@dimen/activity_main" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="16dp" >
+
+                    <TextView
+                        android:id="@+id/textView_doc_meeting_notice_name2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="@dimen/activity_default_x"
+                        android:textColor="#50333333" />
+
+                    <TextView
+                        android:id="@+id/textView_doc_meeting_notice_host"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/color_divider_gray"
+                        android:textSize="@dimen/activity_main"
+                        android:visibility="gone" />
+                </LinearLayout>
+                
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+

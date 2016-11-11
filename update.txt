@@ -1,0 +1,2 @@
+1.删除drawable-xxhdpi文件夹下面的 date_meeting.png
+2.删除drawable-xhdpi文件夹下面的 my_about.png

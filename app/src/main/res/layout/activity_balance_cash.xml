@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sildingFinishLayout_balance_cash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+    
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_default" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="8dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/iv_balance_cash_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/back_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_tab"
+            android:text="余额提现" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_balance_cash_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="银行卡："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/et_balance_cash_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_balance_cash_number"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_balance_cash_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="持卡人："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/et_balance_cash_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_balance_cash_name"
+            android:lines="1"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_balance_cash_bank"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+        
+        <TextView
+            android:id="@+id/tv_balance_cash_bank_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="开户行："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/tv_balance_cash_bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_balance_cash_bank_title"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+        
+        <TextView
+            android:id="@+id/tv_balance_cash_branch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="开户网点："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/et_balance_cash_branch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_balance_cash_branch"
+            android:lines="1"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_balance_cash_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="手机号："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/et_balance_cash_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_balance_cash_phone"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="24dp"
+        android:layout_weight="1"
+        android:background="#ffffff" >
+        
+        <TextView
+            android:id="@+id/tv_balance_cash_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="提现金额："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_balance_cash_money"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_balance_cash_money"
+            android:background="@null"
+            android:hint=""
+            android:inputType="numberDecimal"
+            android:maxLength="7"
+            android:lines="1"
+            android:imeOptions="actionNext"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="#cccccc"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingLeft="24dp"
+        android:layout_weight="1" >
+        
+        <TextView
+            android:id="@+id/tv_balance_cash_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="账户余额："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <TextView
+            android:id="@+id/et_balance_cash_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_balance_cash_balance"
+            android:lines="1"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_minor"
+            android:textSize="@dimen/activity_main" />
+
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="8dp"
+        android:background="#ffffff" >
+        
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="5"
+            android:paddingLeft="24dp" >
+
+        <TextView
+            android:id="@+id/tv_balance_cash_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="交易密码："
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main" />
+
+        <EditText
+            android:id="@+id/et_balance_cash_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_balance_cash_pwd"
+            android:background="@null"
+            android:hint=""
+            android:lines="1"
+            android:imeOptions="actionDone"
+            android:inputType="numberPassword"
+            android:maxLength="6"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_deep_gray"
+            android:textColorHint="#cccccc"
+            android:textSize="@dimen/activity_main" >
+        </EditText>
+    </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_balance_cash_forgetpwd"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@null"
+            android:textColor="@color/color_major"
+            android:textSize="@dimen/activity_main"
+            android:drawableLeft="@drawable/line_vertical_grey"
+            android:text="忘记密码？" />
+        
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/btn_balance_cash_submit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="提交"
+        android:background="@color/color_bottom_bg"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/activity_tab" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_marginLeft="8dp"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="提现需要1-3个工作日内到账，如遇节假日顺延，请注意查收。"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_small" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</com.xiaowei.android.wht.views.SildingFinishLayout>

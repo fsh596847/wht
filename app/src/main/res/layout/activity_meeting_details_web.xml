@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_gray_default"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#ffffff" >
+
+            <ImageView
+                android:id="@+id/iv_meeting_details_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:src="@drawable/back_b" />
+
+            <TextView
+                android:id="@+id/tv_meeting_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="会议详情"
+                android:textColor="@color/color_deep_gray"
+                android:textSize="@dimen/activity_tab" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/framelayout_meeting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" 
+            android:visibility="gone">
+        </FrameLayout>
+
+        <WebView
+            android:id="@+id/webView_meeting_details"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:scrollbars="none" />
+    </LinearLayout>
+
