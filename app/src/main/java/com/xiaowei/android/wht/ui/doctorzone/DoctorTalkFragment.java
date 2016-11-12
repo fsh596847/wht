@@ -1,6 +1,5 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,18 +8,19 @@ import android.view.ViewGroup;
 import com.xiaowei.android.wht.R;
 
 
-public class SavehispitalFragment extends BaseFragment {
+public class DoctorTalkFragment extends BaseFragment {
 
 
-    View view;
+    public static DoctorTalkFragment newInstance() {
+        DoctorTalkFragment f = new DoctorTalkFragment();
 
-    public SavehispitalFragment() {
-
+        return f;
     }
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_doctor, container, false);
+        View view = inflater.inflate(R.layout.fragment_doctor, container, false);
+
         return view;
     }
 
@@ -33,7 +33,6 @@ public class SavehispitalFragment extends BaseFragment {
     protected void setAdapter() {
 
     }
-
 
     @Override
     protected void setListener() {

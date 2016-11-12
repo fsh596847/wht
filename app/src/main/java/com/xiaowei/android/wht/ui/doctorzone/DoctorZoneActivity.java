@@ -14,8 +14,8 @@ import com.xiaowei.android.wht.R;
 * */
 public class DoctorZoneActivity extends BaseActivity implements View.OnClickListener {
 
-    SavedoctorFragment fragment_doctor;
-    SavehispitalFragment fragment_history;
+    DoctorTalkFragment fragment_doctor;
+    DoctorZoneFragment fragment_history;
     private TextView tv_zone;
     private TextView tv_talk;
 
@@ -77,7 +77,7 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
                 tv_talk.setBackgroundResource(R.drawable.doctor_talk_press_bg);
                 if (fragment_doctor == null) {
 
-                    fragment_doctor = new SavedoctorFragment();
+                    fragment_doctor = new DoctorTalkFragment();
                 }
                 transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.frameLayout, fragment_doctor, "fragment_docotorOption");
@@ -91,7 +91,7 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
                 tv_talk.setBackgroundResource(R.drawable.doctor_talk_normal_bg);
                 tv_zone.setBackgroundResource(R.drawable.doctor_zone_press_bg);
                 if (fragment_history == null) {
-                    fragment_history = new SavehispitalFragment();
+                    fragment_history = new DoctorZoneFragment();
                 }
                 transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.frameLayout, fragment_history, "fragment_historyOption");
