@@ -361,8 +361,12 @@
         <activity
             android:name=".ui.doctorzone.DoctorZoneActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
-
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <!--病例详情-->
+        <activity
+            android:name=".ui.doctorzone.CaseDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <service android:name=".exception.ExceptionCollectorService" >
         </service>
         

@@ -191,6 +191,9 @@ public class WebHealthActivity extends Activity {
 		.putExtra("mny", mny)
 		, MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
 	}
+
+	//分享
+
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -215,7 +218,8 @@ public class WebHealthActivity extends Activity {
         if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
-	};
+	}
+
 	/**
 	 * 解决退出仍有声音的bug
 	 */
