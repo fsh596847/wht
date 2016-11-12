@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--医生社区-->
+    <color name="text_color_lowlight">#999999</color>
+    <color name="blue">#53BCE9</color>
 	<!-- 活动界面默认背景颜色 -->
     <color name="color_bg_default_activity">#F2F2F2</color>
     <color name="color_bg_white">#EBFFFFFF</color>
@@ -28,7 +31,10 @@
     <!--
 橘红色：#FF5001    (255,80,1)
 橙黄色：#FC9B1C    (252,155,28)
-海蓝色：#7DCCCF    (125,204,207)
+海蓝色：#7DCCCF    (125,204,207)
+
+
+
     -->
 
     <color name="color_orange_red">#FF5001</color>
@@ -40,7 +46,10 @@
 
 黑色：#333333    （51,51,51）
 中灰色：#666666    （102,102,102）
-灰色：#999999    （153,153,153）
+灰色：#999999    （153,153,153）
+
+
+
     -->
     <color name="font_white">#FFFFFF</color>
     <color name="font_black">#333333</color>
@@ -52,7 +61,10 @@
 分隔线颜色
 
 宽度or长度 1像素
-淡灰颜色：#dedede    (222,222,222)
+淡灰颜色：#dedede    (222,222,222)
+
+
+
     -->
 
     <color name="color_dfdfdf">#dfdfdf</color>

@@ -357,6 +357,11 @@
             android:theme="@android:style/Theme.Translucent"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" >
         </activity>
+        <!--医生社区-->
+        <activity
+            android:name=".ui.doctorzone.DoctorZoneActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
 
         <service android:name=".exception.ExceptionCollectorService" >
         </service>
