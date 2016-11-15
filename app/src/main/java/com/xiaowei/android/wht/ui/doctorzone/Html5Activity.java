@@ -24,13 +24,13 @@ public class Html5Activity extends Activity {
     setContentView(R.layout.activity_web);
 
     Bundle bundle = getIntent().getBundleExtra("bundle");
-    //if (bundle != null) {
-    //    mUrl = bundle.getString("url");
-    //} else {
-    //    mUrl = "https://wing-li.github.io/";
-    //}
-    mUrl =
-        "http://m.youku.com/video/id_XMTMyNTMwOTk3Ng==.html?refer=pc-sns-1&x=&from=singlemessage&isappinstalled=0?id=f9a8fe6556c4d7850156d4c76b680009";
+    if (bundle != null) {
+      mUrl = bundle.getString("url");
+    } else {
+      mUrl = "https://wing-li.github.io/";
+    }
+    //mUrl =
+    //    "http://m.youku.com/video/id_XMTMyNTMwOTk3Ng==.html?refer=pc-sns-1&x=&from=singlemessage&isappinstalled=0?id=f9a8fe6556c4d7850156d4c76b680009";
     //mUrl =
     //    "http://192.168.1.159:8080/wht/phone_getMeetSchedule.action?meetid=f9a8fe6557f608580157f6380e4e0001";
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
