@@ -40,6 +40,7 @@ android {
             zipAlignEnabled true
             // 移除无用的resource文件
             shrinkResources true
+            debuggable true
             resValue "string", "app_name", "华佗来了"
             buildConfigField "boolean", "RELEASED", "true"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -54,7 +55,7 @@ android {
             zipAlignEnabled true
             // 移除无用的resource文件
             shrinkResources false
-
+            debuggable true
             resValue "string", "app_name", "华佗来了"
             buildConfigField "boolean", "RELEASED", "true"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'

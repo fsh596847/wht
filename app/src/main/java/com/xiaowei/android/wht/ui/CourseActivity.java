@@ -39,6 +39,9 @@ import com.xiaowei.android.wht.views.CircularImage;
 import com.xiaowei.android.wht.views.SildingFinishLayout;
 import com.xiaowei.android.wht.views.SildingFinishLayout.OnSildingFinishListener;
 
+/**
+ * 课程资料
+ */
 public class CourseActivity extends Activity {
 	
 	private List<HealthLore> listExpert;//专家List
@@ -52,8 +55,7 @@ public class CourseActivity extends Activity {
 				expertAdapter.setList(listExpert);
 				break;
 			}
-
-		};  
+		}
 	}; 
 	
 	@Override
@@ -203,7 +205,8 @@ public class CourseActivity extends Activity {
 				default:
 					break;
 				}
-			};};
+			}
+		};
 
 		List<HealthLore> list = new ArrayList<HealthLore>();
 		ListView mListView;

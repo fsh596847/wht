@@ -1,5 +1,6 @@
 package com.xiaowei.android.wht.ui;
 
+import com.xiaowei.android.wht.ui.doctorzone.Html5Activity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -597,6 +598,14 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
 				startActivity(new Intent(getActivity(), DoctorZoneActivity.class));
 			}
 		});
+		//更多
+		view.findViewById(R.id.btn_homepage_more).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), Html5Activity.class));
+			}
+		});
+
 
 	}
 
@@ -606,7 +615,6 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
 						.putExtra("url", url));
 		getActivity().overridePendingTransition(R.anim.in_right,0);
 	}
-
 
 
 	
