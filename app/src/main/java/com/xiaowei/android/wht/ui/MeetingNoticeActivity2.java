@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.xiaowei.android.wht.ApplicationTool;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
@@ -177,6 +176,7 @@ public class MeetingNoticeActivity2 extends FragmentActivity {
     startActivityForResult(new Intent(MeetingNoticeActivity2.this, WebHealthActivity.class)
             .putExtra("title", title)
             .putExtra("mny", mny)
+            .putExtra("meetid", homeImg.getId())
             .putExtra("url", url + "?meetid=" + homeImg.getId() + "&mobile=" + phone + "&userid=" + id)
         , MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
     overridePendingTransition(R.anim.in_right, 0);

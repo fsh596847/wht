@@ -1,8 +1,5 @@
 package com.xiaowei.android.wht.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
@@ -22,14 +19,13 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewParent;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
-
 import com.alibaba.fastjson.JSON;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
@@ -42,7 +38,12 @@ import com.xiaowei.android.wht.utis.HlpUtils;
 import com.xiaowei.android.wht.utis.SyncImageLoaderListview;
 import com.xiaowei.android.wht.utis.Utils;
 import com.xiaowei.android.wht.views.CircularImage;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * 会议报名
+ */
 public class MeetingNoticeINGFragment extends Fragment {
 
 	private ListView listView;

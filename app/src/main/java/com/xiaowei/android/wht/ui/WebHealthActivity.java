@@ -17,7 +17,6 @@ import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import com.xiaowei.android.wht.ApplicationTool;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.utils.mLog;
@@ -30,7 +29,8 @@ public class WebHealthActivity extends Activity {
     private View xCustomView;
     private WebChromeClient.CustomViewCallback xCustomViewCallback;
     //double mny;
-	
+		private String mMeetid;
+	private double mMny;
 	@SuppressLint("SetJavaScriptEnabled")
 	@SuppressWarnings("deprecation")
 	@Override
@@ -42,7 +42,8 @@ public class WebHealthActivity extends Activity {
 		//mny = getIntent().getDoubleExtra("mny", 0);
 		String url = getIntent().getStringExtra("url");
 		String title = getIntent().getStringExtra("title");
-		
+		mMeetid = getIntent().getStringExtra("meetid");
+		mMny = getIntent().getDoubleExtra("mny", 0);
 		video_fullView = (FrameLayout) findViewById(R.id.framelayout_meeting);
 		controlsView = (WebView) findViewById(R.id.webView_meeting_details );
 		tvTitle = (TextView) findViewById(R.id.tv_meeting_detail_title);
@@ -186,9 +187,10 @@ public class WebHealthActivity extends Activity {
 	
 	@JavascriptInterface
 	public void appRegMeet(String meetid,double mny){
-		startActivityForResult(new Intent(WebHealthActivity.this, MeetingApply.class)
-		.putExtra("meetid",meetid)
-		.putExtra("mny", mny)
+		startActivityForResult(
+				new Intent(WebHealthActivity.this, MeetingApply.class)
+						.putExtra("meetid", mMeetid)
+						.putExtra("mny", mMny)
 		, MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
 	}
 
