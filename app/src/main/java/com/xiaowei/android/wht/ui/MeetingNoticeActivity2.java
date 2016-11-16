@@ -176,8 +176,9 @@ public class MeetingNoticeActivity2 extends FragmentActivity {
     startActivityForResult(new Intent(MeetingNoticeActivity2.this, WebHealthActivity.class)
             .putExtra("title", title)
             .putExtra("mny", mny)
-            .putExtra("meetid", homeImg.getId())
-            .putExtra("url", url + "?meetid=" + homeImg.getId() + "&mobile=" + phone + "&userid=" + id)
+            .putExtra("meetid", homeImg.getMeetid())
+            .putExtra("url",
+                url + "?meetid=" + homeImg.getMeetid() + "&mobile=" + phone + "&userid=" + id)
         , MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
     overridePendingTransition(R.anim.in_right, 0);
   }

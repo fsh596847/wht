@@ -1,7 +1,9 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,7 +11,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
@@ -114,7 +115,10 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
         viewParent = (LinearLayout) findViewById(R.id.lyt_my_invite);
         tv_zone = (TextView) findViewById(R.id.tv_zone);
         tv_talk = (TextView) findViewById(R.id.tv_talk);
-
+        AssetManager mgr = getAssets();//得到AssetManager
+        Typeface tf = Typeface.createFromAsset(mgr, "tvtype.ttf");//根据路径得到Typeface
+        tv_zone.setTypeface(tf);
+        tv_talk.setTypeface(tf);
     }
 
     @Override
