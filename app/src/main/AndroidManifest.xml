@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" /> 
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
@@ -22,7 +22,7 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    
+
     <!-- 【必须】 信鸽SDK所需权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -56,6 +56,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--测试-->
+        <activity
+            android:name=".ui.doctorzone.TestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
         <activity
             android:name=".ui.CourseActivity"
             android:screenOrientation="portrait"
@@ -88,7 +93,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" >
         </activity>
-        
+
         <activity
             android:name=".ui.BalanceDetailsActivity"
             android:screenOrientation="portrait"
@@ -377,8 +382,8 @@
         Html5Activity
         <service android:name=".exception.ExceptionCollectorService" >
         </service>
-        
-        
+
+
         <!-- 【必须】 信鸽receiver广播接收 -->
         <receiver
             android:name="com.tencent.android.tpush.XGPushReceiver"
@@ -437,17 +442,17 @@
 
         <!-- 测试环境 -->
         <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
-        <!-- 
+        <!--
         <meta-data
             android:name="XG_V2_ACCESS_ID"
             android:value="2100140542" />
              -->
         <!-- 【必须】 请修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
-       <!--  
-        <meta-data
-            android:name="XG_V2_ACCESS_KEY"
-            android:value="AQ6ST6N67Q9A" />
-        -->
+        <!--
+         <meta-data
+             android:name="XG_V2_ACCESS_KEY"
+             android:value="AQ6ST6N67Q9A" />
+         -->
         <!-- 正式环境 -->
         <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
         <meta-data
@@ -457,7 +462,7 @@
         <meta-data
             android:name="XG_V2_ACCESS_KEY"
             android:value="A58S7W78CPZD" />
-        
+
     </application>
 
 </manifest>

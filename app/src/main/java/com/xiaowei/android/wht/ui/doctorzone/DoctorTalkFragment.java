@@ -4,40 +4,50 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.webkit.WebView;
+import android.widget.LinearLayout;
 import com.xiaowei.android.wht.R;
-
+import com.xiaowei.android.wht.views.Html5WebView;
 
 public class DoctorTalkFragment extends BaseFragment {
 
+  private LinearLayout mLayout;
+  private WebView mWebView;
 
-    public static DoctorTalkFragment newInstance() {
-        DoctorTalkFragment f = new DoctorTalkFragment();
+  public static DoctorTalkFragment newInstance() {
+    DoctorTalkFragment f = new DoctorTalkFragment();
 
-        return f;
-    }
+    return f;
+  }
 
-    @Override
-    protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_doctor, container, false);
+  @Override
+  protected View createView(LayoutInflater inflater, ViewGroup container,
+      Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_doctor, container, false);
 
-        return view;
-    }
+    return view;
+  }
 
-    @Override
-    protected void init(View container, Bundle savedInstanceState) {
+  @Override
+  protected void init(View container, Bundle savedInstanceState) {
+    mLayout = (LinearLayout) container.findViewById(R.id.web_layout);
 
-    }
+    LinearLayout.LayoutParams params =
+        new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
+            .MATCH_PARENT);
+    mWebView = new Html5WebView(getContext().getApplicationContext());
+    mWebView.setLayoutParams(params);
+    mLayout.addView(mWebView);
+    mWebView.loadUrl("http://121.40.126.229:8082/wht/phone_queryshare.action");
+  }
 
-    @Override
-    protected void setAdapter() {
+  @Override
+  protected void setAdapter() {
 
-    }
+  }
 
-    @Override
-    protected void setListener() {
+  @Override
+  protected void setListener() {
 
-    }
-
-
+  }
 }

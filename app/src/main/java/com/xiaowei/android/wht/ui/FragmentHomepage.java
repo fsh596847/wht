@@ -46,6 +46,7 @@ import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity;
 import com.xiaowei.android.wht.ui.doctorzone.Html5Activity;
+import com.xiaowei.android.wht.ui.doctorzone.TestActivity;
 import com.xiaowei.android.wht.utils.Util;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
@@ -602,6 +603,13 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
         bundle.putString("url", mUrl);
         intent.putExtra("bundle", bundle);
         startActivity(intent);
+      }
+    });
+    //在线聊天
+    view.findViewById(R.id.btn_homepage_chat).setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        startActivity(new Intent(getActivity(), TestActivity.class));
       }
     });
   }

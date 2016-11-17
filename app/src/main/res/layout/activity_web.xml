@@ -5,5 +5,31 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical">
+  <RelativeLayout
+      android:visibility="gone"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginBottom="2dp">
 
+    <ImageView
+        android:onClick="backClick"
+        android:id="@+id/iv_approve_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:contentDescription="@null"
+        android:src="@drawable/back_b"/>
+
+    <TextView
+        android:id="@+id/tv_approve_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="debug"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_tab"/>
+
+  </RelativeLayout>
 </LinearLayout>
