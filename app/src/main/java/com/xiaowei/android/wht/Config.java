@@ -175,7 +175,9 @@ public class Config {
 	 * 预约微信支付接口
 	 */
 	public static final String getBookingAppPayUrl =SETTING + "/weixin/weixin_getBookingAppPay.action";
-	
-	
+	/**
+	 * 医生社区
+	 */
+	public static final String getDoctorTalk = SETTING + "/phone_queryshare.action";
 	
 }

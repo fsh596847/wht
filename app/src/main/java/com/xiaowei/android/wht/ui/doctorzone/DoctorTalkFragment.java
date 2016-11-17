@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.views.Html5WebView;
 
@@ -38,7 +39,7 @@ public class DoctorTalkFragment extends BaseFragment {
     mWebView = new Html5WebView(getContext().getApplicationContext());
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
-    mWebView.loadUrl("http://121.40.126.229:8082/wht/phone_queryshare.action");
+    mWebView.loadUrl(Config.getDoctorTalk);
   }
 
   @Override
