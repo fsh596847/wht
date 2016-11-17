@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
 
-            <TextView
+            <com.xiaowei.android.wht.views.TextFont
                 android:id="@+id/tv_talk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 android:text="病例讨论"
                 android:textColor="@android:color/white" />
 
-            <TextView
+            <com.xiaowei.android.wht.views.TextFont
                 android:id="@+id/tv_zone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

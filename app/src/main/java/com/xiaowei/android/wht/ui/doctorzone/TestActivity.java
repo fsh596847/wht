@@ -32,14 +32,19 @@ public class TestActivity extends BaseActivity {
     webview.getSettings().setDefaultTextEncodingName("utf-8");
     webview.getSettings().setJavaScriptEnabled(true);
     webview.addJavascriptInterface(new JavaScriptInterface(this), "androidjs");
-    webview.loadUrl("file:///android_asset/test.html");
+    webview.loadUrl("file:///android_asset/test2.html");
     clickjs.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        String msg = showjs.getText().toString().trim();
-        webview.loadUrl("javascript:androidGetJs('" + msg + "')");
+        //String msg = showjs.getText().toString().trim();
+        //webview.loadUrl("javascript:androidGetJs('" + msg + "')");
+        webview.loadUrl("javascript:javaCallJs(" + "'" + showjs.getText().toString() + "'" + ")");
       }
     });
+
+    //java调用JS方法
+
+
   }
 
   @Override public void setListener() {

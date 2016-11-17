@@ -1,9 +1,5 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,12 +7,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
-import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.xiaowei.android.wht.ApplicationTool;
 import com.xiaowei.android.wht.R;
-import com.xiaowei.android.wht.utils.mToast;
+import com.xiaowei.android.wht.ui.doctorzone.able.IWxShare;
+import com.xiaowei.android.wht.ui.doctorzone.able.WxShare;
 import com.xiaowei.android.wht.views.SharePopupwindow;
 
 /*
@@ -54,12 +48,16 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
 
             @Override
             public void group() {
-                wxShare(1);
+                IWxShare iWxShare = WxShare.getInstance(DoctorZoneActivity.this);
+                iWxShare.wxShare(1);
+                //wxShare(1);
             }
 
             @Override
             public void friend() {
-                wxShare(0);
+                IWxShare iWxShare = WxShare.getInstance(DoctorZoneActivity.this);
+                iWxShare.wxShare(0);
+                //wxShare(0);
             }
 
             @Override
@@ -77,33 +75,6 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
         startActivity(CaseDetailActivity.class);
     }
 
-    /**
-     * 微信分享 （这里仅提供一个分享网页的示例，其它请参看官网示例代码）
-     *
-     * @param flag(0:分享到微信好友，1：分享到微信朋友圈)
-     */
-    private void wxShare(int flag) {
-        if (!ApplicationTool.wxApi.isWXAppInstalled()) {
-            //提醒用户没有按照微信
-            mToast.showToast(this, "没有安装微信");
-            return;
-        }
-        ApplicationTool.isWxShare = true;
-        WXWebpageObject webpage = new WXWebpageObject();
-        webpage.webpageUrl = "http://fir.im/4d53";
-        WXMediaMessage msg = new WXMediaMessage(webpage);
-        msg.title = "华佗来了";
-        msg.description = "您的私人医生！";
-        //这里替换一张自己工程里的图片资源
-        Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.drawable.app_share);
-        msg.setThumbImage(thumb);
-
-        SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = String.valueOf(System.currentTimeMillis());
-        req.message = msg;
-        req.scene = flag == 0 ? SendMessageToWX.Req.WXSceneSession : SendMessageToWX.Req.WXSceneTimeline;
-        ApplicationTool.wxApi.sendReq(req);
-    }
 
     @Override
     public void setListener() {
@@ -115,10 +86,10 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
         viewParent = (LinearLayout) findViewById(R.id.lyt_my_invite);
         tv_zone = (TextView) findViewById(R.id.tv_zone);
         tv_talk = (TextView) findViewById(R.id.tv_talk);
-        AssetManager mgr = getAssets();//得到AssetManager
-        Typeface tf = Typeface.createFromAsset(mgr, "tvtype.ttf");//根据路径得到Typeface
-        tv_zone.setTypeface(tf);
-        tv_talk.setTypeface(tf);
+        //AssetManager mgr = getAssets();//得到AssetManager
+        //Typeface tf = Typeface.createFromAsset(mgr, "tvfont.ttf");//根据路径得到Typeface
+        //tv_zone.setTypeface(tf);
+        //tv_talk.setTypeface(tf);
     }
 
     @Override

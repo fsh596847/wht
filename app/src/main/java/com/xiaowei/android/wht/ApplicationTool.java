@@ -1,17 +1,12 @@
 package com.xiaowei.android.wht;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.cookie.Cookie;
-
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Handler;
-
 import com.tencent.android.tpush.XGNotifaction;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
@@ -21,6 +16,9 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.xiaowei.android.wht.exception.CrashHandler;
 import com.xiaowei.android.wht.model.UserInfo;
 import com.xiaowei.android.wht.utils.mLog;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.http.cookie.Cookie;
 
 public class ApplicationTool extends Application {
 
@@ -38,6 +36,9 @@ public class ApplicationTool extends Application {
 	public static IWXAPI wxApi;
 	public static boolean isWxShare = false;
 	public static boolean isWXLogin = false;
+
+	private Typeface typeface;
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -50,17 +51,30 @@ public class ApplicationTool extends Application {
 		mInstance = this;
 		actList = new ArrayList<Activity>();
 		spData = new SpData(getApplicationContext());
-		
+		typeface = Typeface.createFromAsset(mInstance.getAssets(), "tvfont.ttf");
 		setPush();
 	}
+
+	public static ApplicationTool getInstace() {
+		return mInstance;
+	}
+
+	public Typeface getTypeface() {
+		return typeface;
+	}
+
+	public void setTypeface(Typeface typeface) {
+		this.typeface = typeface;
+	}
+
 	Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 
 			default:
 				break;
-			} 
-		};
+			}
+		}
 	};
 	
 	

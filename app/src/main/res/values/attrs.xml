@@ -59,5 +59,7 @@
         <attr name="selectorEnabled" format="boolean" />
         <attr name="selectorDrawable" format="reference" />
     </declare-styleable>
-    
+    <declare-styleable name="RegularTextView">
+        <attr name="textIsRegular" format="boolean"/>
+    </declare-styleable>
 </resources>
