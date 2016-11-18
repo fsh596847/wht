@@ -50,7 +50,7 @@
                 android:paddingLeft="25dp"
                 android:paddingRight="25dp"
                 android:paddingTop="5dp"
-                android:text="医生社区"
+                android:text="海外病例"
                 android:textColor="@color/blue" />
         </LinearLayout>
 

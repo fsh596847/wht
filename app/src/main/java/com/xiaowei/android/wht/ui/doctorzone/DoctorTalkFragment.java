@@ -1,9 +1,11 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import com.xiaowei.android.wht.Config;
@@ -51,4 +53,28 @@ public class DoctorTalkFragment extends BaseFragment {
   protected void setListener() {
 
   }
+
+  /**
+   * 分享js调用的方法
+   */
+  public class JavaScriptInterface {
+
+    Context context;
+
+    JavaScriptInterface(Context context) {
+      this.context = context;
+    }
+
+    @JavascriptInterface
+    public void showSharePopuJs(final String name) {
+      mActivity.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+          //popup.showAtLocation(viewParent, Gravity.BOTTOM, 0, 0);
+        }
+      });
+    }
+  }
+
+
 }
