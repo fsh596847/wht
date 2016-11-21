@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <declare-styleable name="MyTitlebar" tools:ignore="ResourceName">
+    <attr format="string" name="mtb_leftTxt"/>
+    <attr format="reference" name="mtb_left_icon"/>
+    <attr format="string" name="mtb_title"/>
+    <attr format="string" name="mtb_rightTxt"/>
+    <attr format="reference" name="mtb_right_icon"/>
+  </declare-styleable>
+</resources>

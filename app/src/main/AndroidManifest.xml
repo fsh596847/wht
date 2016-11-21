@@ -374,6 +374,19 @@
             android:name=".ui.doctorzone.CaseDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <!--上传照片-->
+        <activity
+            android:name=".ui.doctorzone.UploadImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/customTheme"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+        />
         <!--事例-->
         <activity
             android:name=".ui.doctorzone.Html5Activity"

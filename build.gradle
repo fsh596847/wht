@@ -6,11 +6,17 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"
     }
 }
-
+//https://plugins.gradle.org/plugin/com.jfrog.bintray
+apply plugin: "com.jfrog.bintray"
 allprojects {
     repositories {
         jcenter()
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.13"
 }

@@ -42,5 +42,5 @@
     <dimen name="activity_default">10sp</dimen>
     <dimen name="activity_small">8sp</dimen>
     <dimen name="activity_small_">6sp</dimen>
-
+    <dimen name="actionBarSize">44dp</dimen>
 </resources>

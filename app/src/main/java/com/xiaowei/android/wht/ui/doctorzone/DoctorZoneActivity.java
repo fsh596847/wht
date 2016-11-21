@@ -72,7 +72,7 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
     }
 
     public void caseDetailClick(View view) {
-        startActivity(CaseDetailActivity.class);
+        startActivity(UploadImageActivity.class);
     }
 
 
