@@ -1,50 +1,54 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.views.Html5WebView;
 
-public class Html5Activity extends Activity {
+/**
+ * Created by HIPAA on 2016/11/24.  精选病例
+ */
 
-  private String mUrl;
-
-  private LinearLayout mLayout;
+public class CommentActivity extends BaseActivity {
   private WebView mWebView;
+  private LinearLayout mLayout;
+  private String mUrl;
+  private TextView tvTitle;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
-    setContentView(R.layout.activity_web);
+  @Override protected void setContentView() {
+    setContentView(R.layout.activity_brandcase);
+  }
 
-    Bundle bundle = getIntent().getBundleExtra("bundle");
-    if (bundle != null) {
-      mUrl = bundle.getString("url");
-    } else {
-      mUrl = "https://wing-li.github.io/";
-    }
-    //mUrl =
-    //    "http://m.youku.com/video/id_XMTMyNTMwOTk3Ng==.html?refer=pc-sns-1&x=&from=singlemessage&isappinstalled=0?id=f9a8fe6556c4d7850156d4c76b680009";
-    //mUrl =
-    //    "http://192.168.1.159:8080/wht/phone_getMeetSchedule.action?meetid=f9a8fe6557f608580157f6380e4e0001";
+  @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
+    tvTitle = (TextView) findViewById(R.id.tv_title);
+    tvTitle.setText("精选病例");
+    mWebView = new Html5WebView(getApplicationContext());
     String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
             .MATCH_PARENT);
-    mWebView = new Html5WebView(getApplicationContext());
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
+    mUrl = Config.selectCase + "" + userid;
+    Log.d(DoctorTalkFragment.class.getSimpleName(), Config.selectCase + "" + userid);
+    mWebView.loadUrl(mUrl);
+  }
 
-    mWebView.loadUrl(Config.getDoctorTalk + "" + userid);
+  @Override public void setListener() {
+
+  }
+
+  public void backClick(View view) {
+    finish();
   }
 
   private long mOldTime;
@@ -58,7 +62,7 @@ public class Html5Activity extends Activity {
       } else if (mWebView.canGoBack()) {
         mWebView.goBack();
       } else {
-        Html5Activity.this.finish();
+        CommentActivity.this.finish();
       }
       mOldTime = System.currentTimeMillis();
       return true;

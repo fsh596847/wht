@@ -1,7 +1,4 @@
-package com.xiaowei.android.wht.ui;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.xiaowei.android.wht.ui.mycenter;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -10,16 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.alibaba.fastjson.JSON;
 import com.xiaowei.android.wht.ApplicationTool;
 import com.xiaowei.android.wht.R;
@@ -29,6 +25,8 @@ import com.xiaowei.android.wht.utis.HlpUtils;
 import com.xiaowei.android.wht.utis.Utils;
 import com.xiaowei.android.wht.views.SildingFinishLayout;
 import com.xiaowei.android.wht.views.SildingFinishLayout.OnSildingFinishListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 

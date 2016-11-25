@@ -1,0 +1,185 @@
+allprojects {
+  repositories {
+    jcenter()
+    maven {
+      url "https://jitpack.io"
+    }
+  }
+}
+
+ext {
+  //Android
+  androidCompileSdkVersion = 23
+  androidBuildToolsVersion = "23.0.3"
+  androidMinSdkVersion = 15
+  androidTargetSdkVersion = 15
+
+  //Libraries
+  //  supportLibraryVersion = '24.0.0'
+  supportLibraryVersion = '23.4.0'
+
+  multidexVersion = '1.0.1'
+
+  daggerVersion = '2.2'
+  butterKnifeVersion = '7.0.1'
+  rxJavaVersion = '1.1.6'
+  rxJavaProguardRulesVersion = '1.1.6.0'
+  rxAndroidVersion = '1.2.1'
+  rxBindingVersion = '0.4.0'
+
+  javaxAnnotationVersion = '1.0'
+
+  ottoVersion = '1.3.8'
+  photoViewVersion = '1.3.0'
+
+  gsonVersion = '2.7'
+  logansquareVersion = '1.3.6'
+  logansquareRetrofitConverterVersion = '1.4.1'
+
+  okioVersion = '1.8.0'
+  okHttpVersion = '2.7.5'
+  okHttp3Version = '3.3.1'
+  retrofitVersion = '1.9.0'
+  retrofit2Version = '2.1.0'
+  circleImageViewVersion = '2.0.0'
+  phraseVersion = '1.1.0'
+  materialDialogsVersion = '0.7.8.0'
+  materialEditTextVersion = '2.1.4'
+  blurDialogFragmentVersion = '2.1.4'
+  rey5137MaterialVersion = '1.2.1'
+  parcelerVersion = '1.0.4'
+  flowLayoutVersion = '0.4.0'
+  lombokVersion = '1.16.10'
+  threeTenABPVersion = '1.0.3'
+
+  picassoVersion = '2.5.2'
+  universalImageLoaderVersion = '1.9.5'
+
+  htmlTextviewVersion = '1.4'
+
+  leakcanaryVersion = '1.4-SNAPSHOT'
+
+  timberVersion = '4.1.2'
+  stethoVersion = '1.3.1'
+
+  stringFormatVersion = '1.0.2'
+  baseAdapterHelperVersion = '1.1.11'
+
+  lightcycleVersion = '1.0.0'
+  naviVersion = '0.2.2'
+
+  errorproneVersion = '2.0.11-SNAPSHOT'
+
+  buglyVersion = '2.1.7'
+  buglyNativeCrashReportVersion = '2.2.0'
+
+  //Testing
+  robolectricVersion = '3.0'
+  jUnitVersion = '4.12'
+  assertJVersion = '1.7.1'
+  mockitoVersion = '1.9.5'
+  dexmakerVersion = '1.0'
+  espressoVersion = '2.0'
+  testingSupportLibVersion = '0.1'
+
+  // @formatter:off
+
+  appDependencies = [
+          daggerCompiler                 : "com.google.dagger:dagger-compiler:${daggerVersion}",
+          dagger                         : "com.google.dagger:dagger:${daggerVersion}",
+
+          okio                           : "com.squareup.okio:okio:${okioVersion}",
+          okHttp                         : "com.squareup.okhttp:okhttp:${okHttpVersion}",
+          okHttpUrlConnection            : "com.squareup.okhttp:okhttp-urlconnection:${okHttpVersion}",
+          okHttp3                        : "com.squareup.okhttp3:okhttp:${okHttp3Version}",
+          okHttp3_logging_interceptor    : "com.squareup.okhttp3:logging-interceptor:${okHttp3Version}",
+          okHttp3UrlConnection           : "com.squareup.okhttp3:okhttp-urlconnection:${okHttp3Version}",
+
+          butterKnife                    : "com.jakewharton:butterknife:${butterKnifeVersion}",
+          butterKnifeApt                 : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+
+          recyclerView                   : "com.android.support:recyclerview-v7:${supportLibraryVersion}",
+          supportv4                      : "com.android.support:support-v4:${supportLibraryVersion}",
+          appCompat                      : "com.android.support:appcompat-v7:${supportLibraryVersion}",
+          cardView                       : "com.android.support:cardview-v7:${supportLibraryVersion}",
+          annotations                    : "com.android.support:support-annotations:${supportLibraryVersion}",
+
+          multidex                       : "com.android.support:multidex:${multidexVersion}",
+
+          rxJava                         : "io.reactivex:rxjava:${rxJavaVersion}",
+          rxJavaProguardRules            : "com.artemzin.rxjava:proguard-rules:${rxJavaProguardRulesVersion}",
+          rxAndroid                      : "io.reactivex:rxandroid:${rxAndroidVersion}",
+          rxBinding_platform             : "com.jakewharton.rxbinding:rxbinding:${rxBindingVersion}",
+          rxBinding_support_v4           : "com.jakewharton.rxbinding:rxbinding-support-v4:${rxBindingVersion}",
+          rxBinding_appcompat_v7         : "com.jakewharton.rxbinding:rxbinding-appcompat-v7:${rxBindingVersion}",
+          rxBinding_design               : "com.jakewharton.rxbinding:rxbinding-design:${rxBindingVersion}",
+          rxBinding_recyclerview_v7      : "com.jakewharton.rxbinding:rxbinding-recyclerview-v7:${rxBindingVersion}",
+          rxBinding_leanback_v17         : "com.jakewharton.rxbinding:rxbinding-leanback-v17:${rxBindingVersion}",
+
+          javaxAnnotation                : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+
+          otto                           : "com.squareup:otto:${ottoVersion}",
+
+          photoView                      : "com.github.chrisbanes:PhotoView:${photoViewVersion}",
+          circleImageView                : "de.hdodenhof:circleimageview:${circleImageViewVersion}",
+          phrase                         : "com.squareup.phrase:phrase:${phraseVersion}",
+
+          picasso                        : "com.squareup.picasso:picasso:${picassoVersion}",
+          universalImageLoader           : "com.nostra13.universalimageloader:universal-image-loader:${universalImageLoaderVersion}",
+
+          leakcanaryDebug                : "com.squareup.leakcanary:leakcanary-android:${leakcanaryVersion}",
+          leakcanaryRelease              : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanaryVersion}",
+
+          materialDialogs                : "com.afollestad:material-dialogs:${materialDialogsVersion}",
+          materialEditText               : "com.rengwuxian.materialedittext:library:${materialEditTextVersion}",
+          blurDialogFragment             : "fr.tvbarthel.blurdialogfragment:lib:${blurDialogFragmentVersion}",
+          rey5137Material                : "com.github.rey5137:material:${rey5137MaterialVersion}",
+
+          parcelerApi                    : "org.parceler:parceler-api:${parcelerVersion}",
+          parcelerApt                    : "org.parceler:parceler:${parcelerVersion}",
+
+          flowLayout                     : "com.wefika:flowlayout:${flowLayoutVersion}",
+          lombok                         : "org.projectlombok:lombok:${lombokVersion}",
+          timber                         : "com.jakewharton.timber:timber:${timberVersion}",
+          htmlTextview                   : "org.sufficientlysecure:${htmlTextviewVersion}",
+          threeTenABP                    : "com.jakewharton.threetenabp:threetenabp:${threeTenABPVersion}",
+
+          stetho                         : "com.facebook.stetho:stetho:${stethoVersion}",
+          stetho_okhttp3                 : "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
+
+          retrofit2                      : "com.squareup.retrofit2:retrofit:${retrofit2Version}",
+          retrofit2_adapter_rxjava       : "com.squareup.retrofit2:adapter-rxjava:${retrofit2Version}",
+          retrofit2_converter_scalars    : "com.squareup.retrofit2:converter-scalars:${retrofit2Version}",
+          retrofit2_converter_gson       : "com.squareup.retrofit2:converter-gson:${retrofit2Version}",
+          retrofit2_converter_logansquare: "com.github.aurae.retrofit2:converter-logansquare:${logansquareRetrofitConverterVersion}",
+
+          gson                           : "com.google.code.gson:gson:${gsonVersion}",
+          logansquare                    : "com.bluelinelabs:logansquare:${logansquareVersion}",
+          logansquareApt                 : "com.bluelinelabs:logansquare-compiler:${logansquareVersion}",
+
+          string_format                  : "com.joanzapata.utils:string-format:${stringFormatVersion}",
+          baseAdapterHelper              : "com.joanzapata.android:base-adapter-helper:${baseAdapterHelperVersion}",
+
+          lightcycle                     : "com.soundcloud.lightcycle:lightcycle-lib:${lightcycleVersion}",
+          lightcycleApt                  : "com.soundcloud.lightcycle:lightcycle-processor:${lightcycleVersion}",
+
+          navi                           : "com.trello:navi:${naviVersion}",
+
+          errorprone                     : "com.google.errorprone:error_prone_core:${errorproneVersion}",
+
+          bugly                          : "com.tencent.bugly:crashreport:${buglyVersion}",
+          buglyNativeCrashReport         : "com.tencent.bugly:nativecrashreport:${buglyNativeCrashReportVersion}",
+  ]
+
+  appTestDependencies = [
+          junit            : "junit:junit:${jUnitVersion}",
+          robolectric      : "org.robolectric:robolectric:${robolectricVersion}",
+          mockito          : "org.mockito:mockito-core:${mockitoVersion}",
+          dexmaker         : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+          dexmakerMockito  : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+          espresso         : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+          testingSupportLib: "com.android.support.test:testing-support-lib:${testingSupportLibVersion}",
+  ]
+
+  // @formatter:on
+}

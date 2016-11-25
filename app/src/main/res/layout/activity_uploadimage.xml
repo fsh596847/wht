@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_default_background"
+    android:background="@color/color_bg_default_activity"
     android:orientation="vertical"
 >
   <RelativeLayout
@@ -10,27 +10,19 @@
       android:layout_width="match_parent"
       android:layout_height="50dp"
       android:layout_alignParentTop="true"
-      android:background="#53BCE9"
+      android:background="@android:color/white"
       android:orientation="horizontal"
   >
 
     <TextView
         android:id="@+id/top_title"
+        android:text="提交图片"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
 
     />
-    <TextView
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:gravity="center"
-        android:text="提交"
-        android:textColor="@color/blue"
-        android:textSize="17sp"
-    />
+
   </RelativeLayout>
 
 
@@ -38,12 +30,22 @@
       android:id="@+id/recycler_view"
       android:layout_below="@id/top"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="wrap_content"
       android:background="@android:color/white"
       android:paddingBottom="10dp"
       android:paddingLeft="10dp"
       android:paddingRight="10dp"
   />
-
+  <Button
+      android:layout_below="@id/recycler_view"
+      android:id="@+id/submit"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:onClick="submitClick"
+      android:text="提交"
+      android:clickable="true"
+      android:textColor="@color/blue"
+      android:textSize="16sp"
+  />
 
 </RelativeLayout>

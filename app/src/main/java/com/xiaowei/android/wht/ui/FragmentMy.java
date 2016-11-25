@@ -13,7 +13,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.alibaba.fastjson.JSON;
 import com.xiaowei.android.wht.ApplicationTool;
 import com.xiaowei.android.wht.R;
@@ -23,6 +22,7 @@ import com.xiaowei.android.wht.beans.DoctorPerson;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.service.DataService4Patient;
+import com.xiaowei.android.wht.ui.mycenter.MyInfoActivity;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
 import com.xiaowei.android.wht.utis.Utils;

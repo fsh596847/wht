@@ -10,6 +10,7 @@ android {
     targetSdkVersion rootProject.ext.android.targetSdkVersion
     versionCode rootProject.ext.android.versionCode
     versionName rootProject.ext.android.versionName
+    multiDexEnabled true
   }
   signingConfigs {
 
@@ -75,5 +76,21 @@ dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
   compile rootProject.ext.dependencies["support-v4"]
   compile rootProject.ext.dependencies["recycle-v7"]
+  //stetho
+  compile rootProject.ext.dependencies["stetho"]
+  compile rootProject.ext.dependencies["stetho-okhttp3"]
+  //retrofit
+  compile rootProject.ext.dependencies["retrofit"]
+  compile rootProject.ext.dependencies["adapter-rxjava"]
+  compile rootProject.ext.dependencies["converter-scalars"]
+  compile rootProject.ext.dependencies["converter-gson"]
+  //rxjava
+  compile rootProject.ext.dependencies["rxandroid"]
+  //ohhttp
+  compile rootProject.ext.dependencies["okhttp"]
+  compile rootProject.ext.dependencies["logging-interceptor"]
+  compile 'com.android.support:multidex:1.0.0'
+  //compile 'com.github.flavienlaurent:datetimepicker:0f5d399995'
   compile project(':PhotoPicker')
+  compile rootProject.ext.dependencies["nineoldandroids"]
 }

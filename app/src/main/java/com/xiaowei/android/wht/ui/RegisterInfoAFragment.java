@@ -13,11 +13,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.beans.Area;
 import com.xiaowei.android.wht.beans.RegisterInfo;
 import com.xiaowei.android.wht.service.DataService;
+import com.xiaowei.android.wht.ui.mycenter.JobSelectActivity;
 import com.xiaowei.android.wht.utils.Util;
 import com.xiaowei.android.wht.utis.Utils;
 
@@ -54,7 +54,7 @@ public class RegisterInfoAFragment extends Fragment {
 
 	private void initInfo() {
 		RegisterInfo info = RegisterInfo.getInstance();
-		String name = info.getDoctorname();;//姓名
+		String name = info.getDoctorname();//姓名
 		sex = info.getSex();//0；男；1女
 		String headPhoto = info.getHeadimg();//头像
 		String hospital = info.getHospital();//所属医院

@@ -1,7 +1,4 @@
-package com.xiaowei.android.wht.ui;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.xiaowei.android.wht.ui.mycenter;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -19,7 +16,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import com.alibaba.fastjson.JSON;
 import com.xiaowei.android.wht.ApplicationTool;
 import com.xiaowei.android.wht.Config;
@@ -30,6 +26,10 @@ import com.xiaowei.android.wht.beans.DoctorPerson;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.service.DataService4Patient;
+import com.xiaowei.android.wht.ui.AreaChooseActivity;
+import com.xiaowei.android.wht.ui.PhotoSetActivity;
+import com.xiaowei.android.wht.ui.SectionOfficeChooseActivity;
+import com.xiaowei.android.wht.ui.WebAgreementActivity;
 import com.xiaowei.android.wht.utils.Util;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utils.mToast;
@@ -39,6 +39,8 @@ import com.xiaowei.android.wht.utis.Utils;
 import com.xiaowei.android.wht.views.CircularImage;
 import com.xiaowei.android.wht.views.SildingFinishLayout;
 import com.xiaowei.android.wht.views.SildingFinishLayout.OnSildingFinishListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MyInfoActivity extends Activity {
 	
@@ -52,6 +54,7 @@ public class MyInfoActivity extends Activity {
 	private EditText et_my_info_hospital;//所属医院
 	private TextView et_my_info_administrative_office; //所属科室
 	private RelativeLayout rl_my_info_administrative_office,rl_my_info_job_title,rl_my_info_job,rl_my_info_district;
+	private RelativeLayout layout_info_circle;
 	private TextView tv_job_title;//职称
 	private TextView tv_job;//职务
 	private TextView tv_area; //所属地区
@@ -308,6 +311,16 @@ public class MyInfoActivity extends Activity {
 				overridePendingTransition(R.anim.in_right,0);
 			}
 		});
+
+		layout_info_circle.setOnClickListener(new OnClickListener() {
+			@Override public void onClick(View v) {
+				Intent intent = new Intent(MyInfoActivity.this, JobSelectActivity.class);
+				intent.putExtra("RESULTCODE", 512);
+				startActivityForResult(intent, 512);
+				overridePendingTransition(R.anim.in_right, 0);
+			}
+		});
+
 		
 		//男发切换
 		btn_my_info_sex_cut.setOnClickListener(new OnClickListener() {
@@ -550,6 +563,7 @@ public class MyInfoActivity extends Activity {
 		rl_my_info_job_title = (RelativeLayout) findViewById(R.id.rl_my_info_job_title);
 		rl_my_info_job = (RelativeLayout) findViewById(R.id.rl_my_info_job);
 		rl_my_info_district = (RelativeLayout) findViewById(R.id.rl_my_info_district);
+		layout_info_circle = (RelativeLayout) findViewById(R.id.layout_info_circle);
 	}
 	
 	/**

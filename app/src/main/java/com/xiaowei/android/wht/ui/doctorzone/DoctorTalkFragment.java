@@ -2,6 +2,8 @@ package com.xiaowei.android.wht.ui.doctorzone;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,18 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
+import com.xiaowei.android.wht.SpData;
+import com.xiaowei.android.wht.ui.CourseActivity;
+import com.xiaowei.android.wht.ui.doctorzone.able.IWxShare;
+import com.xiaowei.android.wht.ui.doctorzone.able.WxShare;
 import com.xiaowei.android.wht.views.Html5WebView;
+import com.xiaowei.android.wht.views.SharePopupwindow;
 
 public class DoctorTalkFragment extends BaseFragment {
 
   private LinearLayout mLayout;
   private WebView mWebView;
+  private SharePopupwindow popup;
 
   public static DoctorTalkFragment newInstance() {
     DoctorTalkFragment f = new DoctorTalkFragment();
@@ -34,14 +42,17 @@ public class DoctorTalkFragment extends BaseFragment {
   @Override
   protected void init(View container, Bundle savedInstanceState) {
     mLayout = (LinearLayout) container.findViewById(R.id.web_layout);
-
+    String userid = new SpData(mContext.getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
             .MATCH_PARENT);
     mWebView = new Html5WebView(getContext().getApplicationContext());
+    mWebView.addJavascriptInterface(new DoctorTalkFragment.JavaScriptInterface(mActivity),
+        "Android");
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
-    mWebView.loadUrl(Config.getDoctorTalk);
+    Log.d(DoctorTalkFragment.class.getSimpleName(), Config.getDoctorTalk + "" + userid);
+    mWebView.loadUrl(Config.getDoctorTalk + "" + userid);
   }
 
   @Override
@@ -51,7 +62,28 @@ public class DoctorTalkFragment extends BaseFragment {
 
   @Override
   protected void setListener() {
+    popup = new SharePopupwindow(mActivity);
+    popup.setOutsideTouchable(true);
+    popup.setCallBack(new SharePopupwindow.CallBack() {
 
+      @Override
+      public void group() {
+        IWxShare iWxShare = WxShare.getInstance(mActivity);
+        iWxShare.wxShare(1);
+        //wxShare(1);
+      }
+
+      @Override
+      public void friend() {
+        IWxShare iWxShare = WxShare.getInstance(mActivity);
+        iWxShare.wxShare(0);
+        //wxShare(0);
+      }
+
+      @Override
+      public void dismiss() {
+      }
+    });
   }
 
   /**
@@ -70,11 +102,35 @@ public class DoctorTalkFragment extends BaseFragment {
       mActivity.runOnUiThread(new Runnable() {
         @Override
         public void run() {
-          //popup.showAtLocation(viewParent, Gravity.BOTTOM, 0, 0);
+          popup.showAtLocation(mLayout, Gravity.BOTTOM, 0, 0);
         }
       });
     }
-  }
 
+    @JavascriptInterface
+    public void brandCaseIntent() {
+      startActivity(BrandCaseActivity.class);
+    }
+
+    @JavascriptInterface
+    public void selectCaseIntent() {
+      startActivity(SelectCaseActivity.class);
+    }
+
+    @JavascriptInterface
+    public void videoIntent() {
+      startActivity(CourseActivity.class);
+    }
+
+    @JavascriptInterface
+    public void classifyntent() {
+      startActivity(ClassifyActivity.class);
+    }
+
+    @JavascriptInterface
+    public void commentntent() {
+      startActivity(ClassifyActivity.class);
+    }
+  }
 
 }

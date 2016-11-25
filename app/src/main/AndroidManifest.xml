@@ -1,481 +1,501 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xiaowei.android.wht"
-     >
+>
 
 
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_GPS" />
-    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+  <uses-permission android:name="android.permission.READ_SMS"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.FLASHLIGHT"/>
+  <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_GPS"/>
+  <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS"/>
+  <uses-permission android:name="android.permission.ACCESS_LOCATION"/>
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
+  <uses-feature android:name="android.hardware.camera"/>
+  <uses-feature android:name="android.hardware.camera.autofocus"/>
 
-    <!-- 【必须】 信鸽SDK所需权限 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <!-- 【可选】 信鸽SDK所需权限 -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BATTERY_STATS" />
+  <!-- 【必须】 信鸽SDK所需权限 -->
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+  <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+  <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+  <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+  <uses-permission android:name="android.permission.GET_TASKS"/>
+  <uses-permission android:name="android.permission.READ_LOGS"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+  <!-- 【可选】 信鸽SDK所需权限 -->
+  <uses-permission android:name="android.permission.BLUETOOTH"/>
+  <uses-permission android:name="android.permission.BATTERY_STATS"/>
 
-    <application
-        android:name="com.xiaowei.android.wht.ApplicationTool"
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name=".ui.ChooseWindowActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+      android:name="com.xiaowei.android.wht.ApplicationTool"
+      android:allowBackup="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme">
+    <activity
+        android:name=".ui.ChooseWindowActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="stateHidden|adjustResize">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!--测试-->
-        <activity
-            android:name=".ui.doctorzone.TestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"/>
-        <activity
-            android:name=".ui.CourseActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.GuideActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.WebAboutUsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.WebHealthActivity"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="true"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.WebAgreementActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.ExpertKnownActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <!--测试-->
+    <activity
+        android:name=".ui.doctorzone.TestActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <activity
+        android:name=".ui.CourseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.GuideActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.WebAboutUsActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.WebHealthActivity"
+        android:screenOrientation="portrait"
+        android:hardwareAccelerated="true"
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.WebAgreementActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.ExpertKnownActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
 
-        <activity
-            android:name=".ui.BalanceDetailsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.CashPwdChangeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.CashPwdTestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.MeetingApply"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.WebMeetingDetailsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.MeetingNoticeActivity2"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.MeetingNoticeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.BankSelectActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.PatientStateActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.MainDoctorActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.AreaChooseActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.SectionOfficeChooseActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.JobSelectActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.ApproveActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.RegisterInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.RegisterActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.MyMessageActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.MyInviteActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.MyMeetingActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.MyPatientActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name=".ui.BindingBankCardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.BalanceCashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.MyBalanceActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.PhotoSetActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.MyInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.TransferTreatmentResultActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.ExpertInforActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.ExpertFindActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.PatientAddAtivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.WebBrowserActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.LoginActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".ui.PayActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:exported="true"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+    <activity
+        android:name=".ui.BalanceDetailsActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.CashPwdChangeActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.CashPwdTestActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.MeetingApply"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.WebMeetingDetailsActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.MeetingNoticeActivity2"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.MeetingNoticeActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.BankSelectActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.PatientStateActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.MainDoctorActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.AreaChooseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.SectionOfficeChooseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.mycenter.JobSelectActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.ApproveActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.RegisterInfoActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.RegisterActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.MyMessageActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.MyInviteActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.MyMeetingActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.MyPatientActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    <activity
+        android:name=".ui.BindingBankCardActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.BalanceCashActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.MyBalanceActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.PhotoSetActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.mycenter.MyInfoActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.TransferTreatmentResultActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.ExpertInforActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.ExpertFindActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.PatientAddAtivity"
+        android:windowSoftInputMode="stateHidden|adjustResize"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.WebBrowserActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.LoginActivity"
+        android:screenOrientation="portrait">
+    </activity>
+    <activity
+        android:name=".ui.PayActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".wxapi.WXEntryActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:exported="true"
+        android:launchMode="singleTop"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".wxapi.WXPayEntryActivity"
-            android:exported="true"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.patient.PatientMyInviteActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMyMessageActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PayDetailsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientSickRecordActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientSickRecordInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMyDoctorActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientDoctorInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMyReferralActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMyReferralInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMyReferralBookingActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMyReferralInfoDoneActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.BookingPayActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.BookingPayOkActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <activity
-            android:name=".ui.patient.PatientMyInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
-        </activity>
-        <!--医生社区-->
-        <activity
-            android:name=".ui.doctorzone.DoctorZoneActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar" />
-        <!--病例详情-->
-        <activity
-            android:name=".ui.doctorzone.CaseDetailActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar" />
-        <!--上传照片-->
-        <activity
-            android:name=".ui.doctorzone.UploadImageActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"/>
-        <activity
-            android:name="me.iwf.photopicker.PhotoPickerActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/customTheme"/>
-        <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:name="me.iwf.photopicker.PhotoPagerActivity"
-        />
-        <!--事例-->
-        <activity
-            android:name=".ui.doctorzone.Html5Activity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"/>
-        Html5Activity
-        <service android:name=".exception.ExceptionCollectorService" >
-        </service>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity
+        android:name=".wxapi.WXPayEntryActivity"
+        android:exported="true"
+        android:launchMode="singleTop"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.patient.PatientMyInviteActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMyMessageActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.patient.PayDetailsActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMainActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientSickRecordActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientSickRecordInfoActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMyDoctorActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientDoctorInfoActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMyReferralActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMyReferralInfoActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMyReferralBookingActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMyReferralInfoDoneActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.BookingPayActivity"
+        android:screenOrientation="portrait"
+        android:launchMode="singleTop"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.BookingPayOkActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.patient.PatientMyInfoActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <!--医生社区-->
+    <activity
+        android:name=".ui.doctorzone.DoctorZoneActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--病例详情-->
+    <activity
+        android:name=".ui.doctorzone.CaseDetailActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--品牌病例-->
+    <activity
+        android:name=".ui.doctorzone.BrandCaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--视频-->
+    <activity
+        android:name=".ui.doctorzone.VideoActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--精选病例-->
+    <activity
+        android:name=".ui.doctorzone.SelectCaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--分类浏览-->
+    <activity
+        android:name=".ui.doctorzone.ClassifyActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--上传照片-->
+    <activity
+        android:name=".ui.doctorzone.UploadImageActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <activity
+        android:name="me.iwf.photopicker.PhotoPickerActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/customTheme"/>
+    <activity
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:name="me.iwf.photopicker.PhotoPagerActivity"
+    />
+    <!--事例-->
+    <activity
+        android:name=".ui.doctorzone.Html5Activity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    Html5Activity
+    <service android:name=".exception.ExceptionCollectorService">
+    </service>
 
 
-        <!-- 【必须】 信鸽receiver广播接收 -->
-        <receiver
-            android:name="com.tencent.android.tpush.XGPushReceiver"
-            android:process=":xg_service_v2" >
-            <intent-filter android:priority="0x7fffffff" >
+    <!-- 【必须】 信鸽receiver广播接收 -->
+    <receiver
+        android:name="com.tencent.android.tpush.XGPushReceiver"
+        android:process=":xg_service_v2">
+      <intent-filter android:priority="0x7fffffff">
 
-                <!-- 【必须】 信鸽SDK的内部广播 -->
-                <action android:name="com.tencent.android.tpush.action.SDK" />
-                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
-                <!-- 【必须】 系统广播：开屏和网络切换 -->
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <!-- 【必须】 信鸽SDK的内部广播 -->
+        <action android:name="com.tencent.android.tpush.action.SDK"/>
+        <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE"/>
+        <!-- 【必须】 系统广播：开屏和网络切换 -->
+        <action android:name="android.intent.action.USER_PRESENT"/>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
 
-                <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
-                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-            </intent-filter>
-            <!-- 【可选】 usb相关的系统广播，增强信鸽service的复活机会，请根据需要添加 -->
-            <intent-filter android:priority="0x7fffffff" >
-                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
-                <action android:name="android.intent.action.MEDIA_REMOVED" />
-                <action android:name="android.intent.action.MEDIA_CHECKING" />
-                <action android:name="android.intent.action.MEDIA_EJECT" />
+        <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
+        <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+        <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+        <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+      </intent-filter>
+      <!-- 【可选】 usb相关的系统广播，增强信鸽service的复活机会，请根据需要添加 -->
+      <intent-filter android:priority="0x7fffffff">
+        <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+        <action android:name="android.intent.action.MEDIA_REMOVED"/>
+        <action android:name="android.intent.action.MEDIA_CHECKING"/>
+        <action android:name="android.intent.action.MEDIA_EJECT"/>
 
-                <data android:scheme="file" />
-            </intent-filter>
-        </receiver>
-        <!-- 【必须】 信鸽service -->
-        <service
-            android:name="com.tencent.android.tpush.service.XGPushService"
-            android:exported="true"
-            android:persistent="true"
-            android:process=":xg_service_v2" />
+        <data android:scheme="file"/>
+      </intent-filter>
+    </receiver>
+    <!-- 【必须】 信鸽service -->
+    <service
+        android:name="com.tencent.android.tpush.service.XGPushService"
+        android:exported="true"
+        android:persistent="true"
+        android:process=":xg_service_v2"/>
 
-        <!-- 【必须】 通知service，其中android:name部分要改为当前包名 -->
-        <service
-            android:name="com.tencent.android.tpush.rpc.XGRemoteService"
-            android:exported="true" >
-            <intent-filter>
-                 <!-- 【必须】 请修改为当前APP名包.PUSH_ACTION，如demo的包名为：com.qq.xgdemo -->
-                <action android:name="com.xiaowei.android.wht.PUSH_ACTION" />
-            </intent-filter>
-        </service>
+    <!-- 【必须】 通知service，其中android:name部分要改为当前包名 -->
+    <service
+        android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+        android:exported="true">
+      <intent-filter>
+        <!-- 【必须】 请修改为当前APP名包.PUSH_ACTION，如demo的包名为：com.qq.xgdemo -->
+        <action android:name="com.xiaowei.android.wht.PUSH_ACTION"/>
+      </intent-filter>
+    </service>
 
-        <!-- 【可选】APP实现的Receiver，用于接收消息透传和操作结果的回调，请根据需要添加 -->
-        <!-- YOUR_PACKAGE_PATH.CustomPushReceiver需要改为自己的Receiver： -->
-        <receiver android:name="com.xiaowei.android.wht.service.MessageReceiver" >
-            <intent-filter>
-                <!-- 接收消息透传 -->
-                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
-                <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
-                <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
-            </intent-filter>
-        </receiver>
+    <!-- 【可选】APP实现的Receiver，用于接收消息透传和操作结果的回调，请根据需要添加 -->
+    <!-- YOUR_PACKAGE_PATH.CustomPushReceiver需要改为自己的Receiver： -->
+    <receiver android:name="com.xiaowei.android.wht.service.MessageReceiver">
+      <intent-filter>
+        <!-- 接收消息透传 -->
+        <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE"/>
+        <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+        <action android:name="com.tencent.android.tpush.action.FEEDBACK"/>
+      </intent-filter>
+    </receiver>
 
-        <!-- 测试环境 -->
-        <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
-        <!--
-        <meta-data
-            android:name="XG_V2_ACCESS_ID"
-            android:value="2100140542" />
-             -->
-        <!-- 【必须】 请修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
-        <!--
-         <meta-data
-             android:name="XG_V2_ACCESS_KEY"
-             android:value="AQ6ST6N67Q9A" />
+    <!-- 测试环境 -->
+    <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+    <!--
+    <meta-data
+        android:name="XG_V2_ACCESS_ID"
+        android:value="2100140542" />
          -->
-        <!-- 正式环境 -->
-        <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
-        <meta-data
-            android:name="XG_V2_ACCESS_ID"
-            android:value="2100207665" />
-        <!-- 【必须】 请修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
-        <meta-data
-            android:name="XG_V2_ACCESS_KEY"
-            android:value="A58S7W78CPZD" />
+    <!-- 【必须】 请修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
+    <!--
+     <meta-data
+         android:name="XG_V2_ACCESS_KEY"
+         android:value="AQ6ST6N67Q9A" />
+     -->
+    <!-- 正式环境 -->
+    <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+    <meta-data
+        android:name="XG_V2_ACCESS_ID"
+        android:value="2100207665"/>
+    <!-- 【必须】 请修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
+    <meta-data
+        android:name="XG_V2_ACCESS_KEY"
+        android:value="A58S7W78CPZD"/>
 
-    </application>
+  </application>
 
 </manifest>

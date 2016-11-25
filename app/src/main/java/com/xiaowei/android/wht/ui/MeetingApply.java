@@ -23,6 +23,7 @@ import com.xiaowei.android.wht.beans.DoctorPerson;
 import com.xiaowei.android.wht.beans.MeetingNoticeDoctor;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
+import com.xiaowei.android.wht.ui.mycenter.JobSelectActivity;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utils.mToast;
 import com.xiaowei.android.wht.utis.HlpUtils;

@@ -178,6 +178,17 @@ public class Config {
 	/**
 	 * 医生社区
 	 */
-	public static final String getDoctorTalk = SETTING + "/phone_queryshare.action";
-	
+	public static final String getDoctorTalk = SETTING + "/phone_caseIndex.action?userid=";
+	/**
+	 * 海外病例
+	 */
+	public static final String breadCase = SETTING + "/phone_brandCase.action?userid=";
+	/**
+	 * 海外病例
+	 */
+	public static final String selectCase = SETTING + "/phone_selectCase.action?userid=";
+	/**
+	 * 海外病例
+	 */
+	public static final String classifyCase = SETTING + "/phone_queryclassify.action?userid=";
 }

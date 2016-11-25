@@ -7,6 +7,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Handler;
+import android.support.multidex.MultiDex;
 import com.tencent.android.tpush.XGNotifaction;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
@@ -192,5 +193,8 @@ public class ApplicationTool extends Application {
 		}
 	}
 
-	
+	@Override protected void attachBaseContext(Context base) {
+		super.attachBaseContext(base);
+		MultiDex.install(this);
+	}
 }

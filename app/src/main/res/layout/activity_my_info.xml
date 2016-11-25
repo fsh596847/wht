@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.xiaowei.android.wht.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.xiaowei.android.wht.views.SildingFinishLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/sildingFinishLayout_my_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/color_gray_default" >
+    android:background="@color/color_gray_default">
     
     <LinearLayout 
     android:layout_width="match_parent"
@@ -202,7 +202,41 @@
                 </EditText>
                 
             </RelativeLayout>
-            
+            <RelativeLayout
+                android:id="@+id/layout_info_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="24dp"
+                android:layout_marginBottom="1dp">
+
+                <TextView
+                    android:id="@+id/tv_my_info_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_light_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_centerVertical="true"
+                    android:text="圈子"/>
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/color_deep_gray"
+                    android:textColor="@color/color_deep_gray"
+                    android:textSize="@dimen/activity_main"
+                    android:layout_toRightOf="@id/tv_my_info_circle"
+                    android:paddingLeft="8dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:inputType="none">
+
+                </EditText>
+
+            </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_my_info_administrative_office"
                 android:layout_width="match_parent"

@@ -1,10 +1,5 @@
 package com.xiaowei.android.wht.ui.patient;
 
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -23,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
 import com.alibaba.fastjson.JSON;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
@@ -40,13 +34,16 @@ import com.xiaowei.android.wht.beans.PatientBooking;
 import com.xiaowei.android.wht.beans.PatientReferral;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService4Patient;
-import com.xiaowei.android.wht.ui.MyInfoActivity;
 import com.xiaowei.android.wht.ui.WebAgreementActivity;
 import com.xiaowei.android.wht.uibase.BaseNoTitleBarActivity;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utils.mToast;
 import com.xiaowei.android.wht.utis.HlpUtils;
 import com.xiaowei.android.wht.views.CircularImage;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class PatientMyReferralBookingActivity extends BaseNoTitleBarActivity implements View.OnClickListener  {
 	ImageView back_imageView;
@@ -227,7 +224,7 @@ public class PatientMyReferralBookingActivity extends BaseNoTitleBarActivity imp
 			default:
 				break;
 			}
-		};
+		}
 	};
 	String queryDate;
 	
