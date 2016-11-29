@@ -131,6 +131,11 @@ public class DoctorTalkFragment extends BaseFragment {
     public void commentntent() {
       startActivity(ClassifyActivity.class);
     }
+
+    @JavascriptInterface
+    public void zoomImageIntent(String url) {
+      startActivity(ZoomImageActivity.class);
+    }
   }
 
 }

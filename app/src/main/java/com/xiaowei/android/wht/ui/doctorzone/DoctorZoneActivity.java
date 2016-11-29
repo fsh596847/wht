@@ -3,7 +3,6 @@ package com.xiaowei.android.wht.ui.doctorzone;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -68,7 +67,8 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
     }
 
     public void shareClick(View view) {
-        popup.showAtLocation(viewParent, Gravity.BOTTOM, 0, 0);
+        //popup.showAtLocation(viewParent, Gravity.BOTTOM, 0, 0);
+        startActivity(RotationSampleActivity.class);
     }
 
     public void caseDetailClick(View view) {

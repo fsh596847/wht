@@ -89,8 +89,11 @@ dependencies {
   //ohhttp
   compile rootProject.ext.dependencies["okhttp"]
   compile rootProject.ext.dependencies["logging-interceptor"]
-  compile 'com.android.support:multidex:1.0.0'
   //compile 'com.github.flavienlaurent:datetimepicker:0f5d399995'
   compile project(':PhotoPicker')
   compile rootProject.ext.dependencies["nineoldandroids"]
+  compile rootProject.ext.dependencies["multidex"]
+  compile rootProject.ext.dependencies["picasso"]
+  compile rootProject.ext.dependencies["photoview"]
+  compile rootProject.ext.dependencies["universal-image-loader"]
 }

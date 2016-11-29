@@ -389,6 +389,16 @@
         android:name=".ui.doctorzone.SelectCaseActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--图片缩放-->
+    <activity
+        android:name=".ui.doctorzone.ZoomImageActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--图片缩放-->
+    <activity
+        android:name=".ui.doctorzone.RotationSampleActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--分类浏览-->
     <activity
         android:name=".ui.doctorzone.ClassifyActivity"

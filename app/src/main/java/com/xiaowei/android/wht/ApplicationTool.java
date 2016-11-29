@@ -17,6 +17,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.xiaowei.android.wht.exception.CrashHandler;
 import com.xiaowei.android.wht.model.UserInfo;
 import com.xiaowei.android.wht.utils.mLog;
+import com.xiaowei.android.wht.utis.ImageLoadProxy;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.cookie.Cookie;
@@ -53,6 +54,7 @@ public class ApplicationTool extends Application {
 		actList = new ArrayList<Activity>();
 		spData = new SpData(getApplicationContext());
 		typeface = Typeface.createFromAsset(mInstance.getAssets(), "tvfont.ttf");
+		ImageLoadProxy.initImageLoader(mInstance);
 		setPush();
 	}
 
