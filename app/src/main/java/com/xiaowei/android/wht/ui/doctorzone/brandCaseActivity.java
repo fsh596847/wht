@@ -29,7 +29,7 @@ public class BrandCaseActivity extends BaseActivity {
 
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
-    mWebView = new Html5WebView(getApplicationContext());
+    mWebView = new Html5WebView(activity);
     tvTitle = (TextView) findViewById(R.id.tv_title);
     tvTitle.setText("品牌病例");
     String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);

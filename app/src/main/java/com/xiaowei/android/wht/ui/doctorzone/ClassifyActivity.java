@@ -31,7 +31,7 @@ public class ClassifyActivity extends BaseActivity {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
     tvTitle = (TextView) findViewById(R.id.tv_title);
     tvTitle.setText("分类浏览");
-    mWebView = new Html5WebView(getApplicationContext());
+    mWebView = new Html5WebView(activity);
     String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
