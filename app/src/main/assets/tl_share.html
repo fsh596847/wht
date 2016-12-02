@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone = no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+  <title>病例分享</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/common.css"/>
+  <link rel="stylesheet" href="css/page.css"/>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <script src="js/jquery-3.0.0.js"></script>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.lazyload.js"></script>
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/weui.css">
+  <link rel="stylesheet" href="css/upPhoto.css">
+  <style>
+        .panel-title>a {
+            color: inherit;
+            display: block;
+        }
+        .panel-group .panel+.panel {
+             margin-top: 0;
+        }
+        .panel {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border:none;
+            border-bottom: 1px solid #e5e5e5!important;
+        }
+        .panel-group {
+            margin-bottom: 0;
+        }
+        .panel-heading{
+            padding: 4%;
+        }
+
+        .img-list li i{
+            background: url("images/5.png")no-repeat center;
+            -webkit-background-size: 1.2em;
+            background-size: 1.2em;
+            display: block;
+            width: 1.2em;
+            height: 1.2em;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .no_checkedClassify{ display: none;}
+
+  </style>
+</head>
+<body class="bgAsh95">
+<div class="radioBox bB1 bgWhite mt4"><h6 class="titleOne f14 ash20">患者性别</h6>
+  <section class="sex">
+    <input type="radio" class="radio" id="man" name="sex"><label for="man" class="f14">男</label>
+    <input type="radio" class="radio" id="woman" name="sex"><label for="woman" class="f14">女</label>
+  </section>
+  <h6 class="titleTwo f14 ash20">年龄</h6>
+  <input class="age f14" type="text" placeholder="你的年龄">
+</div>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseOne">原因</a></h4></div>
+    <div id="collapseOne" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseTwo">病史</a></h4></div>
+    <div id="collapseTwo" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseThree">查体</a></h4></div>
+    <div id="collapseThree" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseFour">诊治经过 </a></h4></div>
+    <div id="collapseFour" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseFive">诊断 </a></h4></div>
+    <div id="collapseFive" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseSix">随访 </a></h4></div>
+    <div id="collapseSix" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseSeven">知识的回顾及病例的分析 </a></h4></div>
+    <div id="collapseSeven" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a class="f14 ash20" data-toggle="collapse" data-parent=" #accordion"
+                                 href="#collapseEight">专家点评 </a></h4></div>
+    <div id="collapseEight" class="panel-collapse collapse ">
+      <textarea class="panel-body commentsC f14" placeholder="建议15个字以上"></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="bgWhite " style="overflow: hidden;">
+  <ul id="upPhotoBox" class="img-list">
+
+  </ul>
+  <div class="choose_box">
+    <input id="choose" type="file" name="file" value="选择">
+  </div>
+</div>
+
+<script>
+        document.getElementById('choose').addEventListener('change',function(e){
+            var files = this.files;
+            var img = new Image();
+            var reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+            reader.onload = function(e){
+                var mb = (e.total/1024)/1024;
+                if(mb>= 2){
+                    alert('文件大小大于2M');
+                    return;
+                }
+                var src = this.result;
+                $("#upPhotoBox").append(
+                        "<li style='background: url("+src+")no-repeat center;-webkit-background-size:cover;background-size:cover;'></li>");
+            }
+        });
+
+</script>
+<div class="navListBox">
+  <section class="list bgWhite bT1 bB1" id="addClassify">
+    <h4 class="title f14 ash11" id="classifyTxt">
+      <span class="l">添加分类</span>
+      <p class="l_txt ellipsis ash40 "></p>
+    </h4>
+  </section>
+  <section class="list bgWhite bB1" id="addClassify_n">
+    <h4 class="title f14 ash11" id="classifyTxt_n">
+      <span class="l">同步到群</span>
+      <p class="l_txt ellipsis ash40 "></p>
+    </h4>
+  </section>
+  <section class="list bgWhite bB1">
+    <h4 class="title f14 ash11">提醒谁看</h4>
+  </section>
+</div>
+<!------------------------------侧栏添加分类------------------------------>
+<div class="lucency_bg minMaxW dno"></div>
+<article class="SidebarClassify bgAsh95 dno">
+  <nav class="commentType commentType_two bgAsh95">
+    <ul class="commentCnt commentCnt_two" id="commentCnt">
+      <li href="#" class="l f13 commentSelected ">专业分类</li>
+      <li href="#" class="r f13 ">解剖分类</li>
+    </ul>
+  </nav>
+  <ol class="checkedClassify" id="classify_cnt" style="margin: 3em 0 0 0;">
+    <li class="list white">
+      <h6 class="title  f14 ellipsis">脑2</h6>
+      <i class="add" id="id3"></i>
+      <i class="subtract"></i>
+    </li>
+  </ol>
+
+  <ol class="tlDiscussListBox" id="tlDiscussListBox">
+    <li class=" dno classifySelected">
+      <section class="no_checkedClassifyBox">
+        <h1 class="title bgWhite f14 ash11 ellipsis">内科</h1>
+        <ol class="no_checkedClassify">
+
+        </ol>
+      </section>
+    </li>
+    <li class=" dno">
+      <section class="no_checkedClassifyBox">
+        <h1 class="title bgWhite f14 ash11 ellipsis">内科2</h1>
+        <ol class="no_checkedClassify">
+        </ol>
+      </section>
+      <section class="no_checkedClassifyBox">
+        <h1 class="title bgWhite f14 ash11 ellipsis">内科2</h1>
+        <ol class="no_checkedClassify">
+          <li class="list white">
+            <h6 class="title  f14 ellipsis">脑2</h6>
+            <i class="add" id="id3"></i>
+            <i class="subtract"></i>
+          </li>
+          <li class="list white">
+            <h6 class="title  f14 ellipsis">耳与颞骨2</h6>
+            <i class="add" id="id4"></i>
+            <i class="subtract"></i>
+          </li>
+        </ol>
+      </section>
+    </li>
+  </ol>
+</article>
+<div class="lucency_bg_n minMaxW dno"></div>
+<div class="SidebarClassify_n bgWhite dno">
+  <ul class="list_box">
+    <li class="list f14 selected">微信息处理机</li>
+    <li class="list f14 selected">微信息处理机</li>
+    <li class="list f14">微信息处理机</li>
+  </ul>
+</div>
+
+<script>
+            $(function(){
+                var listBox = $('#tlDiscussListBox');
+                listBox.on('click','.no_checkedClassify .list .add',function () {
+                    var this_id = $(this).attr("id");
+                    var $this=$(this).prev().text();
+                    $(this).parent().css('display','none');
+                    $("<li class='list white' ><h6 class='title  f14 ellipsis'>"+$this+"</h6><i class='add'></i><i class='subtract' name='"+this_id+"'></i></li>").appendTo("#classify_cnt");
+                });
+                $('#classify_cnt').on('click','.subtract',function(){
+                    var this_name = $(this).attr("name");
+                    listBox.find(".no_checkedClassify .list .add[id="+this_name+"]").parent().css('display','block');
+                    $(this).parent().remove();
+                })
+            });
+            $(function(){
+                $('.tlDiscussListBox').on('click','h1.title',function(){
+                    $(".no_checkedClassify").slideUp(300);
+                    $(this).next().slideDown(300);
+                    if($(this).next().children().length == 0){
+                        $(this).next().append("<li class='list white' ><h6 class='title  f14 ellipsis'>好了了</h6><i class='add' id='id5'></i><i class='subtract' ></i></li>");
+                    }
+                });
+            });
+
+            //////////////////////////////////////  侧栏顶部切换
+            $("#commentCnt li").click(function () {
+                $("#commentCnt li").removeClass("commentSelected");
+                $(this).addClass("commentSelected");
+                var index = $(this).index();
+//        alert(index);
+                $(".tlDiscussListBox>li").removeClass("classifySelected");
+                $(".tlDiscussListBox>li").eq(index).addClass("classifySelected");
+            });
+
+            //////////////////////////////////////  侧栏显示
+            $('#addClassify').on('click',function(){
+                $(".SidebarClassify,.lucency_bg").fadeIn(300);
+            });
+            $('.lucency_bg').on('click',function(){
+                var str ='';
+                $.each($("#classify_cnt .list .title"),function(){
+                    var txt = $(this).text();
+                    str += txt+ "&nbsp;&nbsp;";
+                });
+                $("#classifyTxt .l_txt").html(str);
+                $(".SidebarClassify,.lucency_bg").fadeOut(300);
+            });
+
+            /////////////////////////////圈子
+            $(function () {
+                $("#addClassify_n").on('click',function(){
+                    $(".SidebarClassify_n,.lucency_bg_n").fadeIn(300);
+                });
+                $('.lucency_bg_n').on('click',function(){
+
+                        var str ='';
+                        $(".SidebarClassify_n .list").each(function(){
+                            if($(".SidebarClassify_n .list").hasClass("selected")){
+                                var txt = $(this).text();
+                                str += txt+ "&nbsp;&nbsp;";
+                            }
+                        });
+                        $("#classifyTxt_n .l_txt").html(str);
+
+                    $(".SidebarClassify_n,.lucency_bg_n").fadeOut(300);
+                });
+                $(".SidebarClassify_n").on('click','.list',function () {
+                    if($(this).hasClass("selected")){
+                       $(this).removeClass("selected");
+                    }else{
+                        $(this).addClass("selected");
+                    }
+                })
+            });
+
+
+</script>
+</body>
+<script src="js/wht.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+</script>
+<script>
+    function deletePhoto(){
+        $(".img-list").on('click',' li i',function () {
+            $(this).parent().remove();
+        })
+    }
+    deletePhoto();
+
+</script>
+</html>

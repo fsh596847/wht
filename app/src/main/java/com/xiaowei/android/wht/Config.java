@@ -1,6 +1,5 @@
 package com.xiaowei.android.wht;
 
-
 //13924591025  1717
 //18775361646 2853
 public class Config {
@@ -178,7 +177,7 @@ public class Config {
 	/**
 	 * 医生社区
 	 */
-	public static final String getDoctorTalk = SETTING + "/phone_caseIndex.action?userid=";
+	public static final String getDoctorTalk = SETTING + "/phone_caseIndex.action?userid={USID}";
 	/**
 	 * 海外病例
 	 */
@@ -191,4 +190,28 @@ public class Config {
 	 * 海外病例
 	 */
 	public static final String classifyCase = SETTING + "/phone_queryclassify.action?userid=";
+	/**
+	 * 发布
+	 */
+	public static final String issueCase =
+			SETTING + "/phone_releaseCaseIndex.action?userid={USID}&caseclass={TYPE}";
+	/**
+	 * 发布
+	 */
+	public static final String issueCaseIss = SETTING + "/phone_querydiscuss.action?userid={USID}";
+	/**
+	 * 发布
+	 */
+	public static final String issueCaseShare = SETTING + "/phone_queryshare.action?userid={USID}";
+
+	/**
+	 * 病例详情
+	 */
+	public static final String issueCaseDetaile =
+			SETTING + "/phone_queryCaseinfo.action?id={id}&userid={userid}";
+	/**
+	 * 圈子
+	 */
+	public static final String queryCircledocUrl = SETTING + "/phone_queryBranch.action";
+	public static final String queryCompanydocUrl = SETTING + "/phone_queryCompanyGroup.action";
 }

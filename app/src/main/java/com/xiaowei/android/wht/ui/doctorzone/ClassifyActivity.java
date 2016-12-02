@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.views.Html5WebView;
+import com.xiaowei.android.wht.views.TextFont;
 
 /**
  * Created by HIPAA on 2016/11/24.  分类浏览
@@ -21,7 +21,7 @@ public class ClassifyActivity extends BaseActivity {
   private WebView mWebView;
   private LinearLayout mLayout;
   private String mUrl;
-  private TextView tvTitle;
+  private TextFont tvTitle;
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_brandcase);
@@ -29,7 +29,7 @@ public class ClassifyActivity extends BaseActivity {
 
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
-    tvTitle = (TextView) findViewById(R.id.tv_title);
+    tvTitle = (TextFont) findViewById(R.id.tv_title);
     tvTitle.setText("分类浏览");
     mWebView = new Html5WebView(activity);
     String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);

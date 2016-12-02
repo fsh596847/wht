@@ -318,7 +318,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-
+            android:drawableLeft="@drawable/my_money"
             android:gravity="center_vertical"
             android:drawablePadding="12dp"
             android:layout_marginLeft="16dp"

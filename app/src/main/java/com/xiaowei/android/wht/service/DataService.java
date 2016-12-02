@@ -1,17 +1,15 @@
 package com.xiaowei.android.wht.service;
 
+import android.content.Context;
+import com.xiaowei.android.wht.Config;
+import com.xiaowei.android.wht.utils.mLog;
+import com.xiaowei.android.wht.utis.HttpUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import android.content.Context;
-
-import com.xiaowei.android.wht.Config;
-import com.xiaowei.android.wht.utils.mLog;
-import com.xiaowei.android.wht.utis.HttpUtil;
 
 public class DataService  {
 	
@@ -857,7 +855,34 @@ public class DataService  {
 		String s = HttpUtil.postUrl(context, Config.queryPostdocUrl, null);
 		return s;
 	}
-	
+
+	/**
+	 * query queryCircletdoc
+	 *
+	 * @throws Exception
+	 */
+	public static String queryCircletdoc(Context context, String phone) throws Exception {
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		if (phone != null) {
+			params.put("mobile", phone);
+		}
+		String s = HttpUtil.postUrl(context, Config.queryCircledocUrl, params);
+		return s;
+	}
+
+	/**
+	 * query queryCircletdoc
+	 *
+	 * @throws Exception
+	 */
+	public static String queryCompanydoc(Context context, String phone) throws Exception {
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		if (phone != null) {
+			params.put("mobile", phone);
+		}
+		String s = HttpUtil.postUrl(context, Config.queryCompanydocUrl, params);
+		return s;
+	}
 	/**
 	 * query job title
 	 * @param context

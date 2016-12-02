@@ -52,7 +52,7 @@ public class DoctorTalkFragment extends BaseFragment {
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
     Log.d(DoctorTalkFragment.class.getSimpleName(), Config.getDoctorTalk + "" + userid);
-    mWebView.loadUrl(Config.getDoctorTalk + "" + userid);
+    mWebView.loadUrl(Config.getDoctorTalk.replace("{USID}", userid));
   }
 
   @Override
@@ -98,7 +98,7 @@ public class DoctorTalkFragment extends BaseFragment {
     }
 
     @JavascriptInterface
-    public void showSharePopuJs(final String name) {
+    public void showSharePopuJs() {
       mActivity.runOnUiThread(new Runnable() {
         @Override
         public void run() {
@@ -128,14 +128,11 @@ public class DoctorTalkFragment extends BaseFragment {
     }
 
     @JavascriptInterface
-    public void commentntent() {
-      startActivity(ClassifyActivity.class);
+    public void commentntent(String id) {//评论  详情
+      Log.d(DoctorTalkFragment.class.getSimpleName(), "commentntent" + id);
+      CommentActivity.getIntent(mActivity, id);
     }
 
-    @JavascriptInterface
-    public void zoomImageIntent(String url) {
-      startActivity(ZoomImageActivity.class);
-    }
   }
 
 }

@@ -1,28 +1,25 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
 import android.annotation.TargetApi;
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import com.xiaowei.android.wht.R;
-import com.xiaowei.android.wht.ui.doctorzone.able.IWxShare;
-import com.xiaowei.android.wht.ui.doctorzone.able.WxShare;
 import com.xiaowei.android.wht.views.SharePopupwindow;
 
 /**
  * Created by HIPAA on 2016/11/17.
  */
 //@SuppressLint("SetJavaScriptEnabled")
-public class TestActivity extends BaseActivity {
+public class TestActivity extends BaseActivity implements MyWebChromeClient.WebCall {
   private WebView webview;
   EditText showjs;
   EditText jsshow;
@@ -44,73 +41,88 @@ public class TestActivity extends BaseActivity {
     clickjs = (Button) findViewById(R.id.clickjs);
     webview.getSettings().setDefaultTextEncodingName("utf-8");
     webview.getSettings().setJavaScriptEnabled(true);
-    webview.addJavascriptInterface(new JavaScriptInterface(this), "Android");
-    webview.loadUrl("file:///android_asset/test2.html");
+    WebSettings webSettings = webview.getSettings();
+    // 设置WebView属性，能够执行Javascript脚本
+    webSettings.setJavaScriptEnabled(true);
+    // 设置可以访问文件
+    webSettings.setAllowFileAccess(true);
+    MyWebChromeClient myWebChromeClient = new MyWebChromeClient();
+    webview.setWebChromeClient(myWebChromeClient);
+    myWebChromeClient.setWebCall(this);
+    //webview.setWebViewClient(Html5WebView.webViewClient);
+    //webview.addJavascriptInterface(new JavaScriptInterface(this), "Android");
 
-    clickjs.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        //String msg = showjs.getText().toString().trim();
-        //webview.loadUrl("javascript:androidGetJs('" + msg + "')");
-        //webview.loadUrl("javascript:javaCallJs(" + "'" + showjs.getText().toString() + "'" + ")");
-        webview.evaluateJavascript("sum(1,2)", new ValueCallback<String>() {
-          @Override
-          public void onReceiveValue(String value) {
-            Log.e(TestActivity.class.getSimpleName(), "onReceiveValue value=" + value);
-          }
-        });
-      }
-    });
-    popup = new SharePopupwindow(this);
-    popup.setOutsideTouchable(true);
-    popup.setCallBack(new SharePopupwindow.CallBack() {
-
-      @Override
-      public void group() {
-        IWxShare iWxShare = WxShare.getInstance(TestActivity.this);
-        iWxShare.wxShare(1);
-        //wxShare(1);
-      }
-
-      @Override
-      public void friend() {
-        IWxShare iWxShare = WxShare.getInstance(TestActivity.this);
-        iWxShare.wxShare(0);
-        //wxShare(0);
-      }
-
-      @Override
-      public void dismiss() {
-      }
-    });
-
-    //java调用JS方法
-
+    //webview.loadUrl("http://121.40.126.229:8082/wht/phone_releaseCaseIndex.action?userid=f9a8fe655846b399015846c603980002&caseclass=0");
+    webview.loadUrl("file:///android_asset/tl_share.html");
   }
 
   @Override public void setListener() {
 
   }
 
-  public class JavaScriptInterface {
+  @Override public void fileChose(ValueCallback<Uri> uploadMsg) {
+    openFileChooserImpl(uploadMsg);
+  }
 
-    Context context;
+  @Override public void fileChose5(ValueCallback<Uri[]> uploadMsg) {
+    openFileChooserImplForAndroid5(uploadMsg);
+  }
 
-    JavaScriptInterface(Context context) {
-      this.context = context;
+  public final static int FILECHOOSER_RESULTCODE = 1;
+  public final static int FILECHOOSER_RESULTCODE_FOR_ANDROID_5 = 2;
+  public ValueCallback<Uri> mUploadMessage;
+  public ValueCallback<Uri[]> mUploadMessageForAndroid5;
+
+  private void openFileChooserImpl(ValueCallback<Uri> uploadMsg) {
+    mUploadMessage = uploadMsg;
+    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+    i.addCategory(Intent.CATEGORY_OPENABLE);
+    i.setType("image/*");
+    startActivityForResult(Intent.createChooser(i, "File Chooser"),
+        FILECHOOSER_RESULTCODE);
+  }
+
+  private void openFileChooserImplForAndroid5(ValueCallback<Uri[]> uploadMsg) {
+    mUploadMessageForAndroid5 = uploadMsg;
+    Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
+    contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
+    contentSelectionIntent.setType("image/*");
+
+    Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
+    chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
+    chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
+
+    startActivityForResult(chooserIntent,
+        FILECHOOSER_RESULTCODE_FOR_ANDROID_5);
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode,
+      Intent intent) {
+    if (resultCode != Activity.RESULT_OK) {
+      return;
     }
 
-    //在js中调用 androidjs.showInfoFromJs("I'M FROM JS!!!")就会出发此方法
-    @JavascriptInterface
-    public String showInfoFromJs(final String name) {
-      runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-          //jsshow.setText(name);
-          popup.showAtLocation(viewParent, Gravity.BOTTOM, 0, 0);
+    switch (requestCode) {
+      case FILECHOOSER_RESULTCODE_FOR_ANDROID_5: {
+        if (Build.VERSION.SDK_INT >= 21) {//5.0以上版本处理
+          Uri uri = intent.getData();
+          Uri[] uris = new Uri[] {uri};
+                   /* ClipData clipData = data.getClipData();  //选择多张
+                    if (clipData != null) {
+                        for (int i = 0; i < clipData.getItemCount(); i++) {
+                            ClipData.Item item = clipData.getItemAt(i);
+                            Uri uri = item.getUri();
+                            uris[i]=uri;
+                        }
+                    }*/
+          mUploadMessageForAndroid5.onReceiveValue(uris);//回调给js
+        } else {//4.4以下处理
+          Uri uri = intent.getData();
+          mUploadMessage.onReceiveValue(uri);
         }
-      });
-      return "I'M FROM ANDROID!!!";
+      }
+      break;
     }
   }
 }

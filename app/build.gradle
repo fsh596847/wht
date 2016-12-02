@@ -28,6 +28,17 @@ android {
       keyPassword '123456'
     }
   }
+  sourceSets {
+    main {
+      // @formatter:off
+      res.srcDirs = ['src/main/res',
+                     'src/main/res/layout',
+                     'src/main/res-doctorzone-layout/doctorzone',
+                     'src/main/res-doctorzone-layout/mycenter',
+                     'src/main/res-doctorzone-sources',]
+      // @formatter:on
+    }
+  }
   buildTypes {
     //        release {
     //            minifyEnabled false
@@ -35,11 +46,11 @@ android {
     //        }
     release {
       // 混淆
-      minifyEnabled true
+      minifyEnabled false
       // Zipalign优化
       zipAlignEnabled true
       // 移除无用的resource文件
-      shrinkResources true
+      shrinkResources false
       //debug调试
       debuggable true
       resValue "string", "app_name", "华佗来了"
@@ -96,4 +107,5 @@ dependencies {
   compile rootProject.ext.dependencies["picasso"]
   compile rootProject.ext.dependencies["photoview"]
   compile rootProject.ext.dependencies["universal-image-loader"]
+  provided "org.projectlombok:lombok:1.12.6"
 }

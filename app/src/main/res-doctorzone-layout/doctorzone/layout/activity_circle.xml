@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/color_bg_default_activity"
+    android:layout_height="match_parent">
+  <com.xiaowei.android.wht.views.TextFont
+      android:layout_width="match_parent"
+      android:text="圈子"
+      android:gravity="center"
+      android:background="@color/color_gray_default"
+      android:textColor="@color/color_deep_gray"
+      android:textSize="@dimen/activity_tab"
+      android:layout_height="50dp" android:id="@+id/textFont"/>
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_marginTop="1dp"
+      android:layout_height="40dp">
+
+    <com.xiaowei.android.wht.views.TextFont
+        android:id="@+id/tv_company"
+        android:text="公司"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@color/color_gray_default"
+        android:layout_width="0dp"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_tab"
+        android:layout_height="match_parent"/>
+    <com.xiaowei.android.wht.views.TextFont
+        android:id="@+id/tv_organize"
+        android:text="组织"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:background="@color/color_gray_default"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_tab"
+        android:layout_height="match_parent"/>
+  </LinearLayout>
+  <FrameLayout
+      android:id="@+id/frame_main"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+
+</LinearLayout>

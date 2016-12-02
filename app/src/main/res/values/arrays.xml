@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="options">
-        <item>选择图片</item>
-        <item>拍照</item>
+
+    <string-array name="company">
+        <item>组织</item>
+        <item>集团</item>
     </string-array>
 </resources>

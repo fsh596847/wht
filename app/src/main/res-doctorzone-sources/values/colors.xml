@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--医生社区-->
+  <color name="text_color_lowlight">#999999</color>
+  <color name="blue">#1986fb</color>
+  <color name="colorPrimary">#5677fc</color>
+  <color name="colorPrimaryDark">#3b50ce</color>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/web_layout"
+    android:orientation="vertical"
+    android:background="@color/color_bg_default_activity"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginBottom="2dp">
+
+    <ImageView
+        android:onClick="backClick"
+        android:id="@+id/iv_approve_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:contentDescription="@null"
+        android:src="@drawable/back_b"/>
+
+    <com.xiaowei.android.wht.views.TextFont
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        tools:text="debug"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_tab"/>
+
+    <TextView
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/issue"
+        android:onClick="submitClick"
+        android:clickable="true"
+        android:textSize="@dimen/title_right_size"
+        android:textColor="@color/blue"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_alignParentRight="true"
+    />
+  </RelativeLayout>
+</LinearLayout>

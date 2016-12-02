@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--医生社区-->
-    <color name="text_color_lowlight">#999999</color>
-    <color name="blue">#53BCE9</color>
-    <color name="colorPrimary">#5677fc</color>
-    <color name="colorPrimaryDark">#3b50ce</color>
-	<!-- 活动界面默认背景颜色 -->
+
+    <!-- 活动界面默认背景颜色 -->
     <color name="color_bg_default_activity">#F2F2F2</color>
     <color name="color_bg_white">#EBFFFFFF</color>
 	<!-- 标题栏默认背景颜色 -->

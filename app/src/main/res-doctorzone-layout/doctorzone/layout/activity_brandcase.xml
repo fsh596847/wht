@@ -21,7 +21,7 @@
         android:contentDescription="@null"
         android:src="@drawable/back_b"/>
 
-    <TextView
+    <com.xiaowei.android.wht.views.TextFont
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +29,7 @@
         android:text="debug"
         android:textColor="@color/color_deep_gray"
         android:textSize="@dimen/activity_tab"/>
+
 
   </RelativeLayout>
 </LinearLayout>

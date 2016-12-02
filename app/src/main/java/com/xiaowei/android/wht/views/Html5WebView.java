@@ -1,12 +1,15 @@
 package com.xiaowei.android.wht.views;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.webkit.GeolocationPermissions;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -36,15 +39,21 @@ public class Html5WebView extends WebView {
   }
 
   private void init() {
+
     WebSettings mWebSettings = getSettings();
     mWebSettings.setSupportZoom(true);
     mWebSettings.setLoadWithOverviewMode(true);
     mWebSettings.setUseWideViewPort(true);
     mWebSettings.setDefaultTextEncodingName("utf-8");
     mWebSettings.setLoadsImagesAutomatically(true);
-
+    //运行webview通过URI获取安卓文件
+    mWebSettings.setAllowFileAccess(true);
+    mWebSettings.setAllowFileAccessFromFileURLs(true);
+    mWebSettings.setAllowUniversalAccessFromFileURLs(true);
     //调用JS方法.安卓版本大于17,加上注解 @JavascriptInterface
+    //允许JavaScript执行
     mWebSettings.setJavaScriptEnabled(true);
+    mWebSettings.setLoadsImagesAutomatically(true);
     mWebSettings.setSupportMultipleWindows(true);
     //缓存数据
     saveData(mWebSettings);
@@ -82,7 +91,7 @@ public class Html5WebView extends WebView {
     mWebSettings.setAppCachePath(appCachePath);
   }
 
-  WebViewClient webViewClient = new WebViewClient() {
+  public WebViewClient webViewClient = new WebViewClient() {
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
       super.onPageStarted(view, url, favicon);
@@ -106,13 +115,80 @@ public class Html5WebView extends WebView {
     }
   };
 
-  WebChromeClient webChromeClient = new WebChromeClient() {
+  WebCall webCall;
 
-    //=========HTML5定位==========================================================
-    //需要先加入权限
-    //<uses-permission android:name="android.permission.INTERNET"/>
-    //<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    //<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  public void setCallBack(WebCall webCall) {
+    this.webCall = webCall;
+  }
+
+  public interface WebCall {
+    void fileChose3(ValueCallback<Uri> mUploadMessage);
+
+    void fileChose3(ValueCallback<Uri> mUploadMessage, String acceptType);
+
+    void fileChose4(ValueCallback<Uri> mUploadMessage);
+
+    void fileChose5(ValueCallback<Uri[]> mUploadMessage);
+  }
+
+  WebChromeClient webChromeClient = new WebChromeClient() {
+    // For Android 3.0+
+    public void openFileChooser(ValueCallback<Uri> uploadMsg) {
+      Log.d(Html5WebView.class.getSimpleName(), "onShowFileChooser");
+      if (webCall != null) {
+        webCall.fileChose3(uploadMsg);
+      }
+      //mUploadMessage = uploadMsg;
+      //Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+      //i.addCategory(Intent.CATEGORY_OPENABLE);
+      //i.setType("image/*");
+      //startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
+
+    }
+
+    // For Android 3.0+
+    public void openFileChooser(ValueCallback uploadMsg, String acceptType) {
+      Log.d(Html5WebView.class.getSimpleName(), "onShowFileChooser");
+      if (webCall != null) {
+        webCall.fileChose3(uploadMsg, acceptType);
+      }
+      //mUploadMessage = uploadMsg;
+      //Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+      //i.addCategory(Intent.CATEGORY_OPENABLE);
+      //i.setType("*/*");
+      //startActivityForResult(Intent.createChooser(i, "File Browser"), FILE_SELECT_CODE);
+    }
+
+    // For Android 4.1
+    public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+      Log.d(Html5WebView.class.getSimpleName(), "onShowFileChooser");
+      if (webCall != null) {
+        webCall.fileChose4(uploadMsg);
+      }
+      //mUploadMessage = uploadMsg;
+      //Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+      //i.addCategory(Intent.CATEGORY_OPENABLE);
+      //i.setType("image/*");
+      //startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
+    }
+
+    // For Android 5.0+
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback,
+        WebChromeClient.FileChooserParams fileChooserParams) {
+      Log.d(Html5WebView.class.getSimpleName(), "onShowFileChooser");
+      if (webCall != null) {
+        webCall.fileChose5(filePathCallback);
+      }
+      //mUploadCallbackAboveL = filePathCallback;
+      //Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+      //i.addCategory(Intent.CATEGORY_OPENABLE);
+      //i.setType("*/*");
+      //startActivityForResult(
+      //    Intent.createChooser(i, "File Browser"),
+      //    FILE_SELECT_CODE);
+      return true;
+    }
+
     @Override
     public void onReceivedIcon(WebView view, Bitmap icon) {
       super.onReceivedIcon(view, icon);
@@ -140,6 +216,7 @@ public class Html5WebView extends WebView {
       resultMsg.sendToTarget();
       return true;
     }
+
     //=========多窗口的问题==========================================================
   };
 
@@ -147,7 +224,7 @@ public class Html5WebView extends WebView {
     if (loadingDialog == null) {
       loadingDialog = Utils.createLoadingDialog(mContext, text);
     }
-    if (!loadingDialog.isShowing()) {
+    if (!loadingDialog.isShowing() && !((Activity) mContext).isFinishing()) {
       loadingDialog.show();
     }
   }

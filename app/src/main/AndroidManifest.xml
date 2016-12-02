@@ -60,7 +60,14 @@
     <activity
         android:name=".ui.doctorzone.TestActivity"
         android:screenOrientation="portrait"
+        android:hardwareAccelerated="false"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <activity
+        android:name=".ui.doctorzone.WebViewDemo"
+        android:screenOrientation="portrait"
+        android:hardwareAccelerated="false"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+
     <activity
         android:name=".ui.CourseActivity"
         android:screenOrientation="portrait"
@@ -250,6 +257,19 @@
         android:windowSoftInputMode="adjustUnspecified|stateHidden">
     </activity>
     <activity
+        android:name=".ui.WebBrowserActivity1"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+    <activity
+        android:name=".ui.WebActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden">
+    </activity>
+
+    <activity
         android:name=".ui.LoginActivity"
         android:screenOrientation="portrait">
     </activity>
@@ -389,11 +409,37 @@
         android:name=".ui.doctorzone.SelectCaseActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--病例详情-->
+    <activity
+        android:name=".ui.doctorzone.CommentActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--圈子公司-->
+    <activity
+        android:name=".ui.mycenter.CircleCompanyFragment"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"/>
+    <!--圈子组织-->
+    <activity
+        android:name=".ui.mycenter.CircleOrgnizeFragment"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent"/>
     <!--图片缩放-->
     <activity
         android:name=".ui.doctorzone.ZoomImageActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!-- 发布-->
+    <activity
+        android:name=".ui.doctorzone.IssueActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!-- 发布详情-->
+    <activity
+        android:name=".ui.doctorzone.IssueDetailActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+
     <!--图片缩放-->
     <activity
         android:name=".ui.doctorzone.RotationSampleActivity"

@@ -1,27 +1,31 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.views.Html5WebView;
+import com.xiaowei.android.wht.views.TextFont;
 
 /**
- * Created by HIPAA on 2016/11/24.  精选病例
+ * Created by HIPAA on 2016/11/24.  评论/病例详情
  */
 
 public class CommentActivity extends BaseActivity {
   private WebView mWebView;
   private LinearLayout mLayout;
   private String mUrl;
-  private TextView tvTitle;
+  private TextFont tvTitle;
+  private static String INTENT_KEY_CASE_ID = "caseid";
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_brandcase);
@@ -29,22 +33,31 @@ public class CommentActivity extends BaseActivity {
 
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
-    tvTitle = (TextView) findViewById(R.id.tv_title);
-    tvTitle.setText("精选病例");
-    mWebView = new Html5WebView(getApplicationContext());
+    tvTitle = (TextFont) findViewById(R.id.tv_title);
+    tvTitle.setText("评论详情");
+    mWebView = new Html5WebView(activity);
+    mWebView.addJavascriptInterface(new JavaScriptInterface(),
+        "Android");
     String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
             .MATCH_PARENT);
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
-    mUrl = Config.selectCase + "" + userid;
-    Log.d(DoctorTalkFragment.class.getSimpleName(), Config.selectCase + "" + userid);
+    mUrl = Config.issueCaseDetaile.replace("{userid}", userid)
+        .replace("{id}", getIntent().getStringExtra(INTENT_KEY_CASE_ID));
+    Log.d(DoctorTalkFragment.class.getSimpleName(), mUrl);
     mWebView.loadUrl(mUrl);
   }
 
   @Override public void setListener() {
 
+  }
+
+  public static void getIntent(Context context, String id) {
+    Intent intent = new Intent(context, CommentActivity.class);
+    intent.putExtra(INTENT_KEY_CASE_ID, id);
+    context.startActivity(intent);
   }
 
   public void backClick(View view) {
@@ -82,5 +95,16 @@ public class CommentActivity extends BaseActivity {
       mWebView = null;
     }
     super.onDestroy();
+  }
+
+  /**
+   * 分享js调用的方法
+   */
+  public class JavaScriptInterface {
+    @JavascriptInterface
+    public void zoomImageIntent(String url) {
+      Log.d(CommentActivity.class.getSimpleName(), url);
+      RotationSampleActivity.getIntent(activity, url);
+    }
   }
 }

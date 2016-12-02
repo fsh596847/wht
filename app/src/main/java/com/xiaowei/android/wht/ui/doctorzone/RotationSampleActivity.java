@@ -13,9 +13,12 @@
  *******************************************************************************/
 package com.xiaowei.android.wht.ui.doctorzone;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,38 +28,49 @@ import com.xiaowei.android.wht.utis.ImageLoadProxy;
 import uk.co.senab.photoview.PhotoView;
 
 public class RotationSampleActivity extends BaseActivity {
-  private String url = "http://121.40.126.229:8082/sbbx/images/wap/phone/speaker/1477541890657.jpg";
+  private String mUrl;
   private PhotoView photo;
   private final Handler handler = new Handler();
   private boolean rotating = false;
+  private static String INTENT_KEY_URL = "kEY_URL";
 
   @Override protected void setContentView() {
     photo = new PhotoView(this);
     setContentView(photo);
   }
 
+  public static void getIntent(Context context, String url) {
+    Intent intent = new Intent(context, RotationSampleActivity.class);
+    intent.putExtra(INTENT_KEY_URL, url);
+    context.startActivity(intent);
+  }
+
   @Override public void init(Bundle savedInstanceState) {
-    ImageLoadProxy.displayImage4Detail(url, photo, new SimpleImageLoadingListener() {
-      @Override
-      public void onLoadingStarted(String imageUri, View view) {
-        // Empty implementation
-      }
+    mUrl = getIntent().getStringExtra(INTENT_KEY_URL);
+    if (!TextUtils.isEmpty(mUrl)) {
+      ImageLoadProxy.displayImage4Detail(mUrl, photo, new SimpleImageLoadingListener() {
+        @Override
+        public void onLoadingStarted(String imageUri, View view) {
+          // Empty implementation
+        }
 
-      @Override
-      public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-        // Empty implementation
-      }
+        @Override
+        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+          // Empty implementation
+        }
 
-      @Override
-      public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-        // Empty implementation
-      }
+        @Override
+        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+          // Empty implementation
+        }
 
-      @Override
-      public void onLoadingCancelled(String imageUri, View view) {
-        // Empty implementation
-      }
-    });
+        @Override
+        public void onLoadingCancelled(String imageUri, View view) {
+          // Empty implementation
+        }
+      });
+    }
+
   }
 
   @Override public void setListener() {
