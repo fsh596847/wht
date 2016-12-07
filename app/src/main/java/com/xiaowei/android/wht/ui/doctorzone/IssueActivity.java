@@ -2,11 +2,16 @@ package com.xiaowei.android.wht.ui.doctorzone;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,11 +19,13 @@ import android.view.ViewGroup;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.views.Html5WebView;
 import com.xiaowei.android.wht.views.TextFont;
+import java.io.File;
 
 import static com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE;
 import static com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity.INTENT_KEY_TYPE_SHARE;
@@ -33,6 +40,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   private TextFont tvTitle;
   public static String INTENT_KEY_CASE = "casetype";
   private String intentKeyValue;
+
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_issue);
@@ -90,11 +98,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
                 }
               }
             });
-            //runOnUiThread(new Runnable() {
-            //  @Override public void run() {
-            //
-            //  }
-            //});
+
           }
         });
       } else {
@@ -156,7 +160,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   private static final int FILE_SELECT_CODE = 0;
   private ValueCallback<Uri> mUploadMessage;//回调图片选择，4.4以下
   private ValueCallback<Uri[]> mUploadCallbackAboveL;//回调图片选择，5.0以上
-
+  private static final int REQ_CAMERA = FILE_SELECT_CODE + 1;
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -196,40 +200,178 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
         }
       }
       break;
+      case REQ_CAMERA:
+        afterOpenCamera();
+        Uri uri = cameraUri;
+        if (mUploadCallbackAboveL != null) {
+          Uri[] uris = new Uri[1];
+          uris[0] = uri;
+          mUploadCallbackAboveL.onReceiveValue(uris);
+        } else {
+          mUploadMessage.onReceiveValue(uri);
+        }
+        mUploadCallbackAboveL = null;
+        mUploadMessage = null;
+        break;
     }
+  }
+
+  /**
+   * 拍照结束后
+   */
+  private void afterOpenCamera() {
+    File f = new File(imagePaths);
+    addImageGallery(f);
+  }
+
+  /** 解决拍照后在相册中找不到的问题 */
+  private void addImageGallery(File file) {
+    ContentValues values = new ContentValues();
+    values.put(MediaStore.Images.Media.DATA, file.getAbsolutePath());
+    values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+    getContentResolver().insert(
+        MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+  }
+
+  private void phone(String type) {
+    //mUploadMessage = uploadMsg;
+    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+    i.addCategory(Intent.CATEGORY_OPENABLE);
+    i.setType(type);
+    startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
   }
 
   @Override public void fileChose3(ValueCallback<Uri> uploadMsg) {
     mUploadMessage = uploadMsg;
-    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-    i.addCategory(Intent.CATEGORY_OPENABLE);
-    i.setType("image/*");
-    startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
+    //phone(uploadMsg,"image/*");
   }
 
   @Override public void fileChose3(ValueCallback<Uri> uploadMsg, String acceptType) {
     mUploadMessage = uploadMsg;
-    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-    i.addCategory(Intent.CATEGORY_OPENABLE);
-    i.setType("*/*");
-    startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
+    //phone(uploadMsg,"*/*");
   }
 
   @Override public void fileChose4(ValueCallback<Uri> uploadMsg) {
     mUploadMessage = uploadMsg;
-    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-    i.addCategory(Intent.CATEGORY_OPENABLE);
-    i.setType("image/*");
-    startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
+    selectImage();
+    //Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+    //i.addCategory(Intent.CATEGORY_OPENABLE);
+    //i.setType("image/*");
+    //startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
   }
 
   @Override public void fileChose5(ValueCallback<Uri[]> filePathCallback) {
     mUploadCallbackAboveL = filePathCallback;
+    selectImage();
+
+    //Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+    //i.addCategory(Intent.CATEGORY_OPENABLE);
+    //i.setType("*/*");
+    //startActivityForResult(
+    //    Intent.createChooser(i, "File Browser"),
+    //    FILE_SELECT_CODE);
+  }
+
+  private void phone5(String type) {
     Intent i = new Intent(Intent.ACTION_GET_CONTENT);
     i.addCategory(Intent.CATEGORY_OPENABLE);
-    i.setType("*/*");
-    startActivityForResult(
-        Intent.createChooser(i, "File Browser"),
-        FILE_SELECT_CODE);
+    i.setType(type);
+    startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
+  }
+
+  /**
+   * 检查SD卡是否存在
+   */
+  public final boolean checkSDcard() {
+    boolean flag = Environment.getExternalStorageState().equals(
+        Environment.MEDIA_MOUNTED);
+    if (!flag) {
+      Toast.makeText(this, "请插入手机存储卡再使用本功能", Toast.LENGTH_SHORT).show();
+    }
+    return flag;
+  }
+
+  String compressPath = "";
+
+  protected final void selectImage() {
+    if (!checkSDcard()) {
+      return;
+    }
+    String[] selectPicTypeStr = {"照相机", "相册"};
+    AlertDialog alertDialog = new AlertDialog.Builder(this)
+        .setItems(selectPicTypeStr,
+            new DialogInterface.OnClickListener() {
+              @Override
+              public void onClick(DialogInterface dialog,
+                  int which) {
+                switch (which) {
+                  // 相机拍摄
+                  case 0:
+                    openCarcme();
+                    break;
+                  // 手机相册
+                  case 1:
+                    if (Build.VERSION.SDK_INT >= 21) {
+                      phone5("*/*");
+                    } else {
+                      Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                      i.addCategory(Intent.CATEGORY_OPENABLE);
+                      i.setType("image/*");
+                      startActivityForResult(Intent.createChooser(i, "File Chooser"),
+                          FILE_SELECT_CODE);
+                    }
+                    break;
+                  default:
+                    break;
+                }
+                compressPath = Environment
+                    .getExternalStorageDirectory()
+                    .getPath()
+                    + "/wht";
+                new File(compressPath).mkdirs();
+                compressPath = compressPath + File.separator
+                    + "compress.jpg";
+              }
+            }).setOnCancelListener(new DialogInterface.OnCancelListener() {
+          @Override
+          public void onCancel(DialogInterface dialogInterface) {
+            if (mUploadCallbackAboveL != null) {
+              Uri[] uris = new Uri[1];
+              uris[0] = Uri.parse("");
+              mUploadCallbackAboveL.onReceiveValue(uris);
+              mUploadCallbackAboveL = null;
+            } else {
+              mUploadMessage.onReceiveValue(Uri.parse(""));
+              mUploadMessage = null;
+            }
+          }
+        }).show();
+  }
+
+  String imagePaths;
+  Uri cameraUri;
+
+  /**
+   * 打开照相机
+   */
+  private void openCarcme() {
+    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+    imagePaths = Environment.getExternalStorageDirectory().getPath()
+        + "/wht/"
+        + (System.currentTimeMillis() + ".jpg");
+    // 必须确保文件夹路径存在，否则拍照后无法完成回调
+    File vFile = new File(imagePaths);
+    if (!vFile.exists()) {
+      File vDirPath = vFile.getParentFile();
+      vDirPath.mkdirs();
+    } else {
+      if (vFile.exists()) {
+        vFile.delete();
+      }
+    }
+    cameraUri = Uri.fromFile(vFile);
+    intent.putExtra(MediaStore.EXTRA_OUTPUT, cameraUri);
+    startActivityForResult(intent, REQ_CAMERA);
   }
 }

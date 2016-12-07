@@ -57,4 +57,28 @@ public class WxShare implements IWxShare {
         flag == 0 ? SendMessageToWX.Req.WXSceneSession : SendMessageToWX.Req.WXSceneTimeline;
     ApplicationTool.wxApi.sendReq(req);
   }
+
+  @Override public void wxShare(int flag, String url) {
+    if (!ApplicationTool.wxApi.isWXAppInstalled()) {
+      //提醒用户没有按照微信
+      mToast.showToast(context, "没有安装微信");
+      return;
+    }
+    ApplicationTool.isWxShare = true;
+    WXWebpageObject webpage = new WXWebpageObject();
+    webpage.webpageUrl = url;
+    WXMediaMessage msg = new WXMediaMessage(webpage);
+    msg.title = "华佗来了";
+    msg.description = "您的私人医生！";
+    //这里替换一张自己工程里的图片资源
+    Bitmap thumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.app_share);
+    msg.setThumbImage(thumb);
+
+    SendMessageToWX.Req req = new SendMessageToWX.Req();
+    req.transaction = String.valueOf(System.currentTimeMillis());
+    req.message = msg;
+    req.scene =
+        flag == 0 ? SendMessageToWX.Req.WXSceneSession : SendMessageToWX.Req.WXSceneTimeline;
+    ApplicationTool.wxApi.sendReq(req);
+  }
 }

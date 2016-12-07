@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,9 @@ import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.Utils;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CircleOrgnizeFragment extends BaseActivity {
   private ListView listView;
@@ -34,8 +37,16 @@ public class CircleOrgnizeFragment extends BaseActivity {
   }
 
   @Override public void init(Bundle savedInstanceState) {
+    String groupIds = getIntent().getStringExtra(MyInfoActivity.INTENT_ORGNIZE_KEY);
+    Set<String> sH = new HashSet<>();
+    if (!TextUtils.isEmpty(groupIds)) {
+      String[] groupId = groupIds.split(",");
+      for (String s : groupId) {
+        sH.add(s);
+      }
+    }
     listView = (ListView) findViewById(R.id.listview);
-    adapter = new MyListViewAdapter(CircleOrgnizeFragment.this, list);
+    adapter = new MyListViewAdapter(CircleOrgnizeFragment.this, list, sH);
     listView.setAdapter(adapter);
   }
 
@@ -69,6 +80,7 @@ public class CircleOrgnizeFragment extends BaseActivity {
             public void run() {
               closeLoadingDialog();
               if (cirCleBean.getStatus() == 1) {
+                list = cirCleBean.getData();
                 adapter.setList(cirCleBean.getData());
               }
             }
@@ -101,11 +113,13 @@ public class CircleOrgnizeFragment extends BaseActivity {
 
   private class MyListViewAdapter extends BaseAdapter {
     List<CirCleBean.CirCleItemBean> list = new ArrayList<>();
-
+    private Set<String> sH;
     private LayoutInflater mInflater = null;
 
-    private MyListViewAdapter(Context context, List<CirCleBean.CirCleItemBean> list) {
+    private MyListViewAdapter(Context context, List<CirCleBean.CirCleItemBean> list,
+        Set<String> sH) {
       this.mInflater = LayoutInflater.from(context);
+      this.sH = sH;
       if (list != null) {
         this.list = list;
       }
@@ -150,10 +164,22 @@ public class CircleOrgnizeFragment extends BaseActivity {
 
       if (getCount() > 0) {
         final CirCleBean.CirCleItemBean detail = list.get(position);
+        if (sH.contains(detail.getId())) {
+          holder.checkBox.setChecked(true);
+          detail.setCheck(true);
+        } else {
+          if (detail.isCheck()) {
+            holder.checkBox.setChecked(true);
+          } else {
+            holder.checkBox.setChecked(false);
+          }
+        }
+        //holder.checkBox.setChecked(detail.isCheck());
         holder.tvText.setText(detail.getGroupname());
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
           @Override public void onClick(View v) {
             list.get(position).setCheck(!detail.isCheck());
+            sH.remove(list.get(position).getId());
             notifyDataSetChanged();
           }
         });

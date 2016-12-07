@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter @Getter
 public class CirCleBean extends BaseBean<List<CirCleBean.CirCleItemBean>> {
   @Setter @Getter
-  public class CirCleItemBean implements Serializable {
+  public static class CirCleItemBean implements Serializable {
     private String groupname;
     private String id;
     private String types;

@@ -181,7 +181,7 @@ public class Config {
 	/**
 	 * 海外病例
 	 */
-	public static final String breadCase = SETTING + "/phone_brandCase.action?userid=";
+	public static final String breadCase = SETTING + "/phone_brandCase.action?userid={USID}";
 	/**
 	 * 海外病例
 	 */
@@ -209,6 +209,8 @@ public class Config {
 	 */
 	public static final String issueCaseDetaile =
 			SETTING + "/phone_queryCaseinfo.action?id={id}&userid={userid}";
+	public static final String issueCaseHeadDetaile =
+			SETTING + "/phone_myinfo.action?userid={userid}";
 	/**
 	 * 圈子
 	 */

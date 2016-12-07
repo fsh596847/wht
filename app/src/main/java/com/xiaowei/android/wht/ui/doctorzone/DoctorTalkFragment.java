@@ -24,7 +24,7 @@ public class DoctorTalkFragment extends BaseFragment {
   private LinearLayout mLayout;
   private WebView mWebView;
   private SharePopupwindow popup;
-
+  private String mUrl;
   public static DoctorTalkFragment newInstance() {
     DoctorTalkFragment f = new DoctorTalkFragment();
 
@@ -53,6 +53,7 @@ public class DoctorTalkFragment extends BaseFragment {
     mLayout.addView(mWebView);
     Log.d(DoctorTalkFragment.class.getSimpleName(), Config.getDoctorTalk + "" + userid);
     mWebView.loadUrl(Config.getDoctorTalk.replace("{USID}", userid));
+    mUrl = Config.issueCaseDetaile.replace("{userid}", userid);
   }
 
   @Override
@@ -69,14 +70,14 @@ public class DoctorTalkFragment extends BaseFragment {
       @Override
       public void group() {
         IWxShare iWxShare = WxShare.getInstance(mActivity);
-        iWxShare.wxShare(1);
+        iWxShare.wxShare(1, mUrl);
         //wxShare(1);
       }
 
       @Override
       public void friend() {
         IWxShare iWxShare = WxShare.getInstance(mActivity);
-        iWxShare.wxShare(0);
+        iWxShare.wxShare(0, mUrl);
         //wxShare(0);
       }
 
@@ -98,7 +99,8 @@ public class DoctorTalkFragment extends BaseFragment {
     }
 
     @JavascriptInterface
-    public void showSharePopuJs() {
+    public void showSharePopuJs(String caseUrl) {
+      mUrl = mUrl.replace("{id}", caseUrl);
       mActivity.runOnUiThread(new Runnable() {
         @Override
         public void run() {
@@ -133,6 +135,9 @@ public class DoctorTalkFragment extends BaseFragment {
       CommentActivity.getIntent(mActivity, id);
     }
 
+    @JavascriptInterface
+    public void doctorHeadInfo(String doctorid) {//评论  详情
+      startActivity(DoctorHeadInfoActivity.class);
+    }
   }
-
 }

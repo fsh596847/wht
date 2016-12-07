@@ -7,4 +7,6 @@ package com.xiaowei.android.wht.ui.doctorzone.able;
 public interface IWxShare {
 
   void wxShare(int flag);
+
+  void wxShare(int flag, String url);
 }

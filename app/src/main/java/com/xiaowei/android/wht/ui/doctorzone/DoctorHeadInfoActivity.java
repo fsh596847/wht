@@ -1,29 +1,27 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.views.Html5WebView;
+import com.xiaowei.android.wht.views.TextFont;
 
 /**
- * Created by HIPAA on 2016/11/24.  品牌病例
+ * Created by HIPAA on 2016/11/24.  发布病例人头像
  */
 
-public class BrandCaseActivity extends BaseActivity {
+public class DoctorHeadInfoActivity extends BaseActivity {
   private WebView mWebView;
   private LinearLayout mLayout;
   private String mUrl;
-  private TextView tvTitle;
+  private TextFont tvTitle;
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_brandcase);
@@ -31,18 +29,16 @@ public class BrandCaseActivity extends BaseActivity {
 
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
+    tvTitle = (TextFont) findViewById(R.id.tv_title);
+    tvTitle.setText("医生");
     mWebView = new Html5WebView(activity);
-    tvTitle = (TextView) findViewById(R.id.tv_title);
-    tvTitle.setText("品牌病例");
     String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
             .MATCH_PARENT);
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
-    mWebView.addJavascriptInterface(new JavaScriptInterface(activity),
-        "Android");
-    mUrl = Config.breadCase.replace("{USID}", userid);
+    mUrl = Config.issueCaseHeadDetaile.replace("{userid}", userid);
     Log.d(DoctorTalkFragment.class.getSimpleName(), mUrl);
     mWebView.loadUrl(mUrl);
   }
@@ -66,7 +62,7 @@ public class BrandCaseActivity extends BaseActivity {
       } else if (mWebView.canGoBack()) {
         mWebView.goBack();
       } else {
-        BrandCaseActivity.this.finish();
+        DoctorHeadInfoActivity.this.finish();
       }
       mOldTime = System.currentTimeMillis();
       return true;
@@ -86,24 +82,5 @@ public class BrandCaseActivity extends BaseActivity {
       mWebView = null;
     }
     super.onDestroy();
-  }
-
-  /**
-   * 分享js调用的方法
-   */
-  public class JavaScriptInterface {
-
-    Context context;
-
-    JavaScriptInterface(Context context) {
-      this.context = context;
-    }
-
-    @JavascriptInterface
-    public void commentntent(String id) {//评论  详情
-      Log.d(DoctorTalkFragment.class.getSimpleName(), "commentntent" + id);
-      //CommentActivity.getIntent(mActivity, id);
-      startActivity(CaseDetailActivity.class);
-    }
   }
 }

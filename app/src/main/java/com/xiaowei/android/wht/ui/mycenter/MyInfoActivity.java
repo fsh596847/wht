@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -71,7 +72,7 @@ public class MyInfoActivity extends Activity {
   private Button btn_operate;//编辑或保存
 
   private ToggleButton tBtnAgreement;
-
+  private TextView tvGroup;
   private int RESULTCODE = 611;
 
   private static final int RESULTCODE_PHOTO_SET = 510;
@@ -83,9 +84,7 @@ public class MyInfoActivity extends Activity {
     setContentView(R.layout.activity_my_info);
     ApplicationTool.getInstance().activitis.add(this);//把当前Activity放入集合中
     initViews();
-
     initListeners();
-
     initData();
     //disableAll();
 
@@ -121,7 +120,7 @@ public class MyInfoActivity extends Activity {
       public void run() {
 
         try {
-          if (doctorPerson == null) {
+          if (doctorPerson != null) {
             String mobile =
                 new SpData(getApplicationContext()).getStringValue(SpData.keyPhoneUser, null);
             //Map<String, String> map = new HashMap<String, String>();
@@ -135,10 +134,8 @@ public class MyInfoActivity extends Activity {
                   if (!isDestroy) {
                     doctorPerson = JSON.parseObject(hr.getData().toString(), DoctorPerson.class);
                   }
-                } else {
                 }
               }
-            } else {
             }
           }
           if (doctorPerson != null) {
@@ -146,6 +143,19 @@ public class MyInfoActivity extends Activity {
               runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                  if (!TextUtils.isEmpty(doctorPerson.getGroupname())) {
+                    String[] Groupname = doctorPerson.getGroupname().split(",");
+                    String[] Groupids = doctorPerson.getGroupids().split(",");
+                    for (int i = 0; i < Groupname.length; i++) {
+                      mGroup.put(Groupids[i], Groupname[i]);
+                      CirCleBean.CirCleItemBean ci = new CirCleBean.CirCleItemBean();
+                      ci.setId(Groupids[i]);
+                      ci.setGroupname(Groupname[i]);
+                      listCompany.add(ci);
+                    }
+                  }
+                  tvGroup.setText(
+                      doctorPerson.getGroupname() == null ? "" : doctorPerson.getGroupname());
                   //姓名
                   et_my_info_name.setText(
                       doctorPerson.getDoctorname() == null ? "" : doctorPerson.getDoctorname());
@@ -197,8 +207,6 @@ public class MyInfoActivity extends Activity {
                 });
               }
             }
-          } else {
-            doctorPerson = new DoctorPerson();
           }
         } catch (Exception he) {
           he.printStackTrace();
@@ -383,6 +391,8 @@ public class MyInfoActivity extends Activity {
 
   private final static int REQUEST_COMANY_CODE = 514;
   private final static int REQUEST_ORGNIZE_CODE = 516;
+  public final static String INTENT_COMANY_KEY = "INTENT_COMANY_KEY";
+  public final static String INTENT_ORGNIZE_KEY = "INTENT_ORGNIZE_KEY";
 
   public void showOptions() {
     AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
@@ -391,12 +401,20 @@ public class MyInfoActivity extends Activity {
           @Override public void onClick(DialogInterface dialog, int which) {
             if (which == 0) {
               Intent intent = new Intent(MyInfoActivity.this, CircleCompanyFragment.class);
+              if (!TextUtils.isEmpty(doctorPerson.getGroupids())) {
+                intent.putExtra(INTENT_COMANY_KEY, doctorPerson.getGroupids());
+              }
               startActivityForResult(intent, REQUEST_COMANY_CODE);
+              //overridePendingTransition(R.anim.in_right, 0);
             } else {
               Intent intent = new Intent(MyInfoActivity.this, CircleOrgnizeFragment.class);
+              if (!TextUtils.isEmpty(doctorPerson.getGroupids())) {
+                intent.putExtra(INTENT_ORGNIZE_KEY, doctorPerson.getGroupids());
+              }
               startActivityForResult(intent, REQUEST_ORGNIZE_CODE);
+              //overridePendingTransition(R.anim.in_right, 0);
             }
-            overridePendingTransition(R.anim.in_right, 0);
+            dialog.dismiss();
           }
         }
     );
@@ -472,7 +490,8 @@ public class MyInfoActivity extends Activity {
       //		et_zsbm.setText(doctorPerson.getLicensecard());
       map.put("qualifiedcard", et_zgzbm.getText().toString());
       map.put("licensecard", et_zsbm.getText().toString());
-
+      map.put("groupids", mCompanyId.toString());
+      map.put("groupname", mCompanyName.toString());
       String s = HttpUtil.postUrl(MyInfoActivity.this, Config.updateDoctorPerson, map);
       if (!HlpUtils.isEmpty(s)) {
         final HttpResult hr = JSON.parseObject(s, HttpResult.class);
@@ -571,7 +590,7 @@ public class MyInfoActivity extends Activity {
   private void initViews() {
 
     tBtnAgreement = (ToggleButton) findViewById(R.id.toggleButton_my_info_agreement);
-
+    tvGroup = (TextView) findViewById(R.id.tv_group);
     ivPhoto = (CircularImage) findViewById(R.id.iv_my_info_headphoto);
     tv_job_title = (TextView) findViewById(R.id.tv_job_title);
     tv_job = (TextView) findViewById(R.id.tv_job);
@@ -648,8 +667,13 @@ public class MyInfoActivity extends Activity {
   }
 
   private List<CirCleBean.CirCleItemBean> listCompany = new ArrayList<>();
-  private List<CirCleBean.CirCleItemBean> listOrgnize = new ArrayList<>();
+  //private List<CirCleBean.CirCleItemBean> listOrgnize = new ArrayList<>();
+  private StringBuffer mCompanyId;
+  private StringBuffer mCompanyName;
+  private Map<String, String> mGroup = new HashMap<>();
 
+  //private StringBuffer mOrginzeId=new StringBuffer();
+  //private StringBuffer mOrginzeName=new StringBuffer();
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -657,12 +681,29 @@ public class MyInfoActivity extends Activity {
       return;
     }
     if (requestCode == REQUEST_COMANY_CODE) {
-      listCompany = (List<CirCleBean.CirCleItemBean>) data.getSerializableExtra(
-          CircleCompanyFragment.KEY_INTENT_LIST_COMPANY);
+      listCompany.addAll((List<CirCleBean.CirCleItemBean>) data.getSerializableExtra(
+          CircleCompanyFragment.KEY_INTENT_LIST_COMPANY));
+
     } else if (requestCode == REQUEST_ORGNIZE_CODE) {
-      listOrgnize = (List<CirCleBean.CirCleItemBean>) data.getSerializableExtra(
-          CircleCompanyFragment.KEY_INTENT_LIST_COMPANY);
+      listCompany.addAll((List<CirCleBean.CirCleItemBean>) data.getSerializableExtra(
+          CircleOrgnizeFragment.KEY_INTENT_LIST_ORGINZE));
+
     }
+    for (CirCleBean.CirCleItemBean cirCleItemBean : listCompany) {
+      if (cirCleItemBean.isCheck()) {
+        mGroup.put(cirCleItemBean.getId(), cirCleItemBean.getGroupname());
+      }
+    }
+    if (mGroup.size() > 0) {
+      mCompanyId = new StringBuffer();
+      mCompanyName = new StringBuffer();
+      for (String key : mGroup.keySet()) {
+        mCompanyId.append(key + ",");
+        mCompanyName.append(mGroup.get(key) + ",");
+      }
+      tvGroup.setText(mCompanyName.toString());
+    }
+
     switch (resultCode) {
       case RESULTCODE_PHOTO_SET:
         capturePhotoPath = data.getStringExtra("capturePhotoPath");

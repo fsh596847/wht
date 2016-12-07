@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -84,30 +85,36 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
 
   public static String INTENT_KEY_TYPE_ISSUE = "1";//求助
   public static String INTENT_KEY_TYPE_SHARE = "0";// 分享
-
+  //if (data.get(position).id.equals(INTENT_KEY_TYPE_ISSUE)) {
+  //  IssueActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
+  //} else {
+  //  IssueActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
+  //}
   /**
    * 分享
    */
   public void shareClick(View view) {
     //popup.showAtLocation(viewParent, Gravity.BOTTOM, 0, 0);
     IssueActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
+    lytCase.setVisibility(View.GONE);
   }
 
   /**
    * 发布
    */
   public void issueClick(View view) {
-
     IssueActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
+    lytCase.setVisibility(View.GONE);
   }
 
   public void caseDetailClick(View view) {
-    showPopMenu(view);
-    //if (lytCase.getVisibility() == View.VISIBLE) {
-    //  lytCase.setVisibility(View.GONE);
-    //} else {
-    //  lytCase.setVisibility(View.VISIBLE);
-    //}
+    //showPopMenu(view);
+    if (lytCase.getVisibility() == View.VISIBLE) {
+      lytCase.setVisibility(View.GONE);
+    } else {
+      lytCase.setVisibility(View.VISIBLE);
+    }
+
   }
 
   @Override
@@ -116,11 +123,17 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
     tv_zone.setOnClickListener(this);
   }
 
+  TranslateAnimation transAnim;
   private void initViews() {
     viewParent = (RelativeLayout) findViewById(R.id.lyt_my_invite);
     tv_zone = (TextView) findViewById(R.id.tv_zone);
     tv_talk = (TextView) findViewById(R.id.tv_talk);
     lytCase = (LinearLayout) findViewById(R.id.lyt_share);
+    int height = lytCase.getHeight();
+    height = DisplayUtil.dp2Px_Int(height, activity);
+    transAnim = new TranslateAnimation(0, 0, 0, height);
+    transAnim.setDuration(300);
+    lytCase.setAnimation(transAnim);
     //AssetManager mgr = getAssets();//得到AssetManager
     //Typeface tf = Typeface.createFromAsset(mgr, "tvfont.ttf");//根据路径得到Typeface
     //tv_zone.setTypeface(tf);
@@ -134,6 +147,7 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
         setTabSelection(0);
         break;
       case R.id.tv_zone:
+        lytCase.setVisibility(View.GONE);
         setTabSelection(1);
         break;
       default:

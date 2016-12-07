@@ -418,12 +418,12 @@
     <activity
         android:name=".ui.mycenter.CircleCompanyFragment"
         android:screenOrientation="portrait"
-        android:theme="@android:style/Theme.Translucent"/>
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--圈子组织-->
     <activity
         android:name=".ui.mycenter.CircleOrgnizeFragment"
         android:screenOrientation="portrait"
-        android:theme="@android:style/Theme.Translucent"/>
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--图片缩放-->
     <activity
         android:name=".ui.doctorzone.ZoomImageActivity"

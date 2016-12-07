@@ -46,7 +46,6 @@ import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity;
 import com.xiaowei.android.wht.ui.doctorzone.Html5Activity;
-import com.xiaowei.android.wht.ui.doctorzone.TestActivity;
 import com.xiaowei.android.wht.ui.doctorzone.WebViewDemo;
 import com.xiaowei.android.wht.utils.Util;
 import com.xiaowei.android.wht.utils.mLog;
@@ -610,7 +609,7 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
     view.findViewById(R.id.btn_homepage_chat).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        startActivity(new Intent(getActivity(), TestActivity.class));
+        startActivity(new Intent(getActivity(), WebBrowserActivity1.class));
       }
     });
   }
