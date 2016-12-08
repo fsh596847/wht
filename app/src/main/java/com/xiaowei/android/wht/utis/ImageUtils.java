@@ -2,6 +2,8 @@ package com.xiaowei.android.wht.utis;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import android.widget.ImageView;
 
 /**
  * Created by HIPAA on 2016/11/22.
@@ -47,4 +49,20 @@ public class ImageUtils {
   //  Log.d("d", "压缩后的大小=" + b.length);//1.5M的压缩后在100Kb以内，测试得值,压缩后的大小=94486,压缩后的大小=74473
   //  return Base64.encode(b, Base64.DEFAULT);
   //}
+
+  public static <V extends ImageView> void setImageBitmap(V v, Bitmap bitmap) {
+    checkNotNull(v, "v cannot be null.");
+    v.setImageBitmap(bitmap);
+  }
+
+  public static <T> void checkNotNull(T value, String message) {
+    if (value == null) {
+      if (TextUtils.isEmpty(message)) {
+        throw new IllegalArgumentException();
+      } else {
+        throw new IllegalArgumentException(message);
+      }
+      //throw new NullPointerException(message);
+    }
+  }
 }

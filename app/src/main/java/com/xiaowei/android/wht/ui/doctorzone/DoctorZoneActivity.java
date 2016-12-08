@@ -122,7 +122,6 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
     tv_talk.setOnClickListener(this);
     tv_zone.setOnClickListener(this);
   }
-
   TranslateAnimation transAnim;
   private void initViews() {
     viewParent = (RelativeLayout) findViewById(R.id.lyt_my_invite);

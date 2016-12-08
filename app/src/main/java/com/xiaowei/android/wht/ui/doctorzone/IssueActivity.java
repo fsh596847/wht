@@ -215,7 +215,6 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
         break;
     }
   }
-
   /**
    * 拍照结束后
    */
@@ -279,8 +278,11 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
     startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
   }
 
+
   /**
    * 检查SD卡是否存在
+   *
+   * @return
    */
   public final boolean checkSDcard() {
     boolean flag = Environment.getExternalStorageState().equals(
@@ -292,11 +294,9 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   }
 
   String compressPath = "";
-
   protected final void selectImage() {
-    if (!checkSDcard()) {
+    if (!checkSDcard())
       return;
-    }
     String[] selectPicTypeStr = {"照相机", "相册"};
     AlertDialog alertDialog = new AlertDialog.Builder(this)
         .setItems(selectPicTypeStr,
@@ -350,7 +350,6 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
 
   String imagePaths;
   Uri cameraUri;
-
   /**
    * 打开照相机
    */

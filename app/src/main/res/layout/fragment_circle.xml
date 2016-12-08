@@ -42,8 +42,8 @@
         android:clickable="true"
         android:layout_marginRight="10dp"
         android:layout_alignParentRight="true"
-        android:textColor="@color/color_deep_gray"
-        android:textSize="@dimen/activity_tab"/>
+        android:textColor="@color/color_major"
+        android:textSize="@dimen/activity_main"/>
   </RelativeLayout>
   <ListView
       android:layout_marginTop="1dp"

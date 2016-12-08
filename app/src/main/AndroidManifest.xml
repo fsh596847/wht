@@ -399,6 +399,12 @@
         android:name=".ui.doctorzone.BrandCaseActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--支付方式-->
+    <activity
+        android:name=".ui.doctorzone.PaySelectTyepActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+
     <!--视频-->
     <activity
         android:name=".ui.doctorzone.VideoActivity"
@@ -468,7 +474,6 @@
         android:name=".ui.doctorzone.Html5Activity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
-    Html5Activity
     <service android:name=".exception.ExceptionCollectorService">
     </service>
 
