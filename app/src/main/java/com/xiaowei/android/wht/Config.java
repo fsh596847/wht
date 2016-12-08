@@ -216,4 +216,9 @@ public class Config {
 	 */
 	public static final String queryCircledocUrl = SETTING + "/phone_queryBranch.action";
 	public static final String queryCompanydocUrl = SETTING + "/phone_queryCompanyGroup.action";
+	/**
+	 * 打赏
+	 */
+	public static final String weiChatPayAreward = SETTING + "/weixin/weixin_getGive.action";
+	public static final String ailPayPayAreward = SETTING + "/alipay/alipay_getGive.action";
 }

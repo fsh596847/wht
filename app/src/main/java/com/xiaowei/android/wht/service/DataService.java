@@ -203,6 +203,42 @@ public class DataService  {
 		String s = HttpUtil.postUrl(context, Config.getAliPayUrl, params);
 		return s;
 	}
+
+	/**
+	 * 打赏支付宝支付
+	 *
+	 * @throws Exception
+	 */
+	public static String getAliPayAreward(Context context, String userid, String caseid, double mny)
+			throws Exception {
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		if (userid != null && caseid != null && mny > 0) {
+			params.put("userid", userid);
+			params.put("mny", String.valueOf(mny));
+			params.put("caseid", caseid);
+		} else {
+			return null;
+		}
+		String s = HttpUtil.postUrl(context, Config.ailPayPayAreward, params);
+		return s;
+	}
+
+	/**
+	 * 打赏微信支付
+	 */
+	public static String getwetChatAreward(Context context, String userid, String caseid, double mny)
+			throws Exception {
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		if (userid != null && caseid != null && mny > 0) {
+			params.put("userid", userid);
+			params.put("mny", String.valueOf(mny));
+			params.put("caseid", caseid);
+		} else {
+			return null;
+		}
+		String s = HttpUtil.postUrl(context, Config.weiChatPayAreward, params);
+		return s;
+	}
 	
 	/**
 	 * 会议报名

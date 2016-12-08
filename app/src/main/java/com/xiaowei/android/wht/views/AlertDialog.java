@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,6 +33,7 @@ public class AlertDialog implements MultiActionClickableSpan.OnTextClickedListen
   private Button btn_neg;
   private Button btn_pos;
   private ImageView img_line;
+  private EditText price;
   private final Display display;
   private boolean showTitle = false;
   private boolean showMsg = false;
@@ -53,7 +55,7 @@ public class AlertDialog implements MultiActionClickableSpan.OnTextClickedListen
     lLayout_bg = (LinearLayout) view.findViewById(R.id.lLayout_bg);
     txt_title = (TextView) view.findViewById(R.id.txt_title);
     multiActionTextView = (MultiActionTextView) view.findViewById(R.id.multitv);
-
+    price = (EditText) view.findViewById(R.id.price);
     txt_title.setVisibility(View.GONE);
     txt_msg = (TextView) view.findViewById(R.id.txt_msg);
     txt_msg.setVisibility(View.GONE);
@@ -88,6 +90,12 @@ public class AlertDialog implements MultiActionClickableSpan.OnTextClickedListen
     txt_msg.setGravity(Gravity.CENTER);
     txt_msg.setText(msg);
     return this;
+  }
+
+  public String getPrice() {
+    String mny = price.getText().toString();
+
+    return mny;
   }
 
   public AlertDialog setMultiActionTextView(String msg, int start, int end) {
