@@ -157,10 +157,26 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
    * 分享js调用的方法
    */
   public class JavaScriptInterface {
+
     @JavascriptInterface
     public void zoomImageIntent(String url) {
       Log.d(CommentActivity.class.getSimpleName(), url);
       RotationSampleActivity.getIntent(activity, url);
+    }
+
+    @JavascriptInterface
+    public void reportIntent(String caseId) {
+      Log.d(CommentActivity.class.getSimpleName(), caseId);
+      Bundle bundle = new Bundle();
+      bundle.putString(ReportActivity.KEY_INTENT_CASEID, caseId);
+      startActivityWithBundle(ReportActivity.class, bundle);
+    }
+
+    @JavascriptInterface
+    public void tipDiag() {
+      Bundle bundle = new Bundle();
+      bundle.putString("caseid", mCaseId);
+      startActivityWithBundle(PaySelectTyepActivity.class, bundle);
     }
   }
 

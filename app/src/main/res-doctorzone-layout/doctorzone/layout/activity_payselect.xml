@@ -19,6 +19,7 @@
         android:layout_centerVertical="true"
         android:contentDescription="@null"
         android:padding="12dp"
+        android:onClick="backClick"
         android:scaleType="fitCenter"
         android:src="@drawable/back_b"/>
 
@@ -64,25 +65,16 @@
         android:textColor="@color/color_major"
         android:textSize="20sp"/>
 
-    <TextView
+    <EditText
         android:id="@+id/price_textView"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="0"
+        android:background="@drawable/bg_round"
         android:textColor="@color/color_major"
         android:textSize="40sp"/>
 
-    <TextView
-        android:id="@+id/price1_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/price_textView"
-        android:layout_marginBottom="5dp"
-        android:layout_toRightOf="@+id/price_textView"
-        android:text=".00"
-        android:textColor="@color/color_major"
-        android:textSize="20sp"/>
   </RelativeLayout>
 
 

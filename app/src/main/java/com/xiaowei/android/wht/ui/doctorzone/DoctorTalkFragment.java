@@ -139,5 +139,13 @@ public class DoctorTalkFragment extends BaseFragment {
     public void doctorHeadInfo(String doctorid) {//评论  详情
       startActivity(DoctorHeadInfoActivity.class);
     }
+
+    @JavascriptInterface
+    public void reportIntent(String caseId) {
+      Log.d(CommentActivity.class.getSimpleName(), caseId);
+      Bundle bundle = new Bundle();
+      bundle.putString(ReportActivity.KEY_INTENT_CASEID, caseId);
+      startActivityWithBundle(ReportActivity.class, bundle);
+    }
   }
 }

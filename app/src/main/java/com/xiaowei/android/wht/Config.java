@@ -221,4 +221,11 @@ public class Config {
 	 */
 	public static final String weiChatPayAreward = SETTING + "/weixin/weixin_getGive.action";
 	public static final String ailPayPayAreward = SETTING + "/alipay/alipay_getGive.action";
+
+	/**
+	 * 举报
+	 */
+	public static final String report =
+			SETTING + "/phone_report.action?userid={USID}&caseid={CASEID}";
+
 }
