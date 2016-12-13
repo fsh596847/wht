@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:text="打赏"
         android:padding="10dp"
+        android:visibility="gone"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:textColor="@color/color_deep_gray"

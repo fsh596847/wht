@@ -591,7 +591,8 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
     view.findViewById(R.id.btn_homepage_doctor_zone).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        startActivity(new Intent(getActivity(), DoctorZoneActivity.class));
+        //startActivity(new Intent(getActivity(), DoctorZoneActivity.class));
+        DoctorZoneActivity.CallIntent(getActivity(), DoctorZoneActivity.INTENT_KEY_TYPE_RECOMMEND);
       }
     });
     //更多

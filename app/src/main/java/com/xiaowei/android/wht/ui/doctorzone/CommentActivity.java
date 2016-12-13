@@ -56,7 +56,7 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
     tvTitle = (TextFont) findViewById(R.id.tv_title);
-    tvTitle.setText("评论详情");
+    tvTitle.setText("病例详情");
     mWebView = new Html5WebView(activity);
     mWebView.addJavascriptInterface(new JavaScriptInterface(),
         "Android");
@@ -189,19 +189,7 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
         new View.OnClickListener() {
           @Override public void onClick(View v) {
             if (PAY_TYPE == AILPAY) {
-              mny = Double.parseDouble(alertDialog.getPrice());
-              if (mny > 0) {
-                doAliPay();
-              } else {
-                Toast.makeText(CommentActivity.this, "请输入有效金额", Toast.LENGTH_SHORT).show();
-              }
-            } else if (PAY_TYPE == WETCHAT_PAY) {
-              mny = Double.parseDouble(alertDialog.getPrice());
-              if (mny > 0) {
-                doWeixinPay();
-              } else {
-                Toast.makeText(CommentActivity.this, "请输入有效金额", Toast.LENGTH_SHORT).show();
-              }
+
             }
           }
         });

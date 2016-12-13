@@ -12,7 +12,6 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
-import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.ui.CourseActivity;
 import com.xiaowei.android.wht.ui.doctorzone.able.IWxShare;
 import com.xiaowei.android.wht.ui.doctorzone.able.WxShare;
@@ -24,6 +23,9 @@ public class DoctorTalkFragment extends BaseFragment {
   private LinearLayout mLayout;
   private WebView mWebView;
   private SharePopupwindow popup;
+  /**
+   * 分享病例的url
+   */
   private String mUrl;
   public static DoctorTalkFragment newInstance() {
     DoctorTalkFragment f = new DoctorTalkFragment();
@@ -42,7 +44,6 @@ public class DoctorTalkFragment extends BaseFragment {
   @Override
   protected void init(View container, Bundle savedInstanceState) {
     mLayout = (LinearLayout) container.findViewById(R.id.web_layout);
-    String userid = new SpData(mContext.getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
             .MATCH_PARENT);
@@ -51,9 +52,8 @@ public class DoctorTalkFragment extends BaseFragment {
         "Android");
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
-    Log.d(DoctorTalkFragment.class.getSimpleName(), Config.getDoctorTalk + "" + userid);
-    mWebView.loadUrl(Config.getDoctorTalk.replace("{USID}", userid));
-    mUrl = Config.issueCaseDetaile.replace("{userid}", userid);
+    mWebView.loadUrl(DoctorZoneActivity.tabUrl);
+    mUrl = Config.issueCaseDetaile.replace("{userid}", ((DoctorZoneActivity) mActivity).userid);
   }
 
   @Override

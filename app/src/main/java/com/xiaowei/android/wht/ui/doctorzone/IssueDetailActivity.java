@@ -42,10 +42,13 @@ public class IssueDetailActivity extends BaseActivity {
             .MATCH_PARENT);
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
+    //求助
     if (getIntent().getStringExtra(IssueActivity.INTENT_KEY_CASE)
         .equals(DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE)) {
       mUrl = Config.issueCaseIss.replace("{USID}", userid);
-    } else {
+      //分享
+    } else if (getIntent().getStringExtra(IssueActivity.INTENT_KEY_CASE)
+        .equals(DoctorZoneActivity.INTENT_KEY_TYPE_SHARE)) {
       mUrl = Config.issueCaseShare.replace("{USID}", userid);
     }
 

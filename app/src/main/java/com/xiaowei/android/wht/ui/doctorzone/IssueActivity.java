@@ -1,8 +1,8 @@
 package com.xiaowei.android.wht.ui.doctorzone;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -20,15 +20,19 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import com.mylhyl.acp.Acp;
+import com.mylhyl.acp.AcpListener;
+import com.mylhyl.acp.AcpOptions;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
+import com.xiaowei.android.wht.views.AlertDialog;
 import com.xiaowei.android.wht.views.Html5WebView;
 import com.xiaowei.android.wht.views.TextFont;
 import java.io.File;
+import java.util.List;
 
 import static com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE;
-import static com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity.INTENT_KEY_TYPE_SHARE;
 
 /**
  * Created by HIPAA on 2016/11/29. 发布
@@ -40,7 +44,6 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   private TextFont tvTitle;
   public static String INTENT_KEY_CASE = "casetype";
   private String intentKeyValue;
-
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_issue);
@@ -79,7 +82,10 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
 
   @TargetApi(Build.VERSION_CODES.KITKAT)
   public void submitClick(View view) {
+    showDialog();
+  }
 
+  private void submit() {
     try {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
         mWebView.evaluateJavascript("fsubmit()", new ValueCallback<String>() {
@@ -91,14 +97,18 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
                 Log.e(IssueActivity.class.getSimpleName(), "onReceiveValue value=" + value);
                 if (value.equals("1")) {
                   if (getIntent().getStringExtra(INTENT_KEY_CASE).equals(INTENT_KEY_TYPE_ISSUE)) {
-                    IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
+                    //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
+                    DoctorZoneActivity.CallIntent(activity,
+                        DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE);
                   } else {
-                    IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
+                    //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
+                    DoctorZoneActivity.CallIntent(activity,
+                        DoctorZoneActivity.INTENT_KEY_TYPE_SHARE);
                   }
+                  finish();
                 }
               }
             });
-
           }
         });
       } else {
@@ -107,10 +117,13 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
           public void run() {
             mWebView.loadUrl("javascript:fsubmit()");
             if (getIntent().getStringExtra(INTENT_KEY_CASE).equals(INTENT_KEY_TYPE_ISSUE)) {
-              IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
+              //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
+              DoctorZoneActivity.CallIntent(activity, DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE);
             } else {
-              IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
+              //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
+              DoctorZoneActivity.CallIntent(activity, DoctorZoneActivity.INTENT_KEY_TYPE_SHARE);
             }
+            finish();
           }
         });
       }
@@ -124,24 +137,44 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
     finish();
   }
 
-  private long mOldTime;
-
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK) {
-      if (System.currentTimeMillis() - mOldTime < 1500) {
-        mWebView.clearHistory();
-        mWebView.loadUrl(mUrl);
-      } else if (mWebView.canGoBack()) {
-        mWebView.goBack();
-      } else {
-        IssueActivity.this.finish();
-      }
-      mOldTime = System.currentTimeMillis();
+
+      showDialogFinsih();
+
       return true;
     }
 
     return super.onKeyDown(keyCode, event);
+  }
+
+  public void showDialog() {
+    AlertDialog alertDialog = new AlertDialog(activity).builder();
+    alertDialog.setTitle("温馨提示");
+    alertDialog.setMsg("确认发布病例？");
+    alertDialog.setMultiActionTextView(getString(R.string.select_pay_ail), 9, 11);
+    alertDialog.setPositiveButton(getString(R.string.text_custom_view_btn_positive),
+        new View.OnClickListener() {
+          @Override public void onClick(View v) {
+            submit();
+          }
+        });
+    alertDialog.setNegativeButton(getString(R.string.text_custom_view_btn_negative)).show();
+  }
+
+  public void showDialogFinsih() {
+    AlertDialog alertDialog = new AlertDialog(activity).builder();
+    alertDialog.setTitle("温馨提示");
+    alertDialog.setMsg("确认放弃本次病例编辑？");
+    alertDialog.setMultiActionTextView(getString(R.string.select_pay_ail), 9, 11);
+    alertDialog.setPositiveButton(getString(R.string.text_custom_view_btn_positive),
+        new View.OnClickListener() {
+          @Override public void onClick(View v) {
+            IssueActivity.this.finish();
+          }
+        });
+    alertDialog.setNegativeButton(getString(R.string.text_custom_view_btn_negative)).show();
   }
 
   @Override
@@ -161,6 +194,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   private ValueCallback<Uri> mUploadMessage;//回调图片选择，4.4以下
   private ValueCallback<Uri[]> mUploadCallbackAboveL;//回调图片选择，5.0以上
   private static final int REQ_CAMERA = FILE_SELECT_CODE + 1;
+
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -215,6 +249,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
         break;
     }
   }
+
   /**
    * 拍照结束后
    */
@@ -278,11 +313,8 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
     startActivityForResult(Intent.createChooser(i, "File Chooser"), FILE_SELECT_CODE);
   }
 
-
   /**
    * 检查SD卡是否存在
-   *
-   * @return
    */
   public final boolean checkSDcard() {
     boolean flag = Environment.getExternalStorageState().equals(
@@ -293,12 +325,33 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
     return flag;
   }
 
+  private void permission() {
+    Acp.getInstance(this).request(new AcpOptions.Builder()
+            .setPermissions(Manifest.permission.CAMERA
+
+            )
+            .build(),
+        new AcpListener() {
+          @Override
+          public void onGranted() {
+            openCarcme();
+          }
+
+          @Override
+          public void onDenied(List<String> permissions) {
+
+          }
+        });
+  }
+
   String compressPath = "";
+
   protected final void selectImage() {
-    if (!checkSDcard())
+    if (!checkSDcard()) {
       return;
+    }
     String[] selectPicTypeStr = {"照相机", "相册"};
-    AlertDialog alertDialog = new AlertDialog.Builder(this)
+    android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(this)
         .setItems(selectPicTypeStr,
             new DialogInterface.OnClickListener() {
               @Override
@@ -307,7 +360,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
                 switch (which) {
                   // 相机拍摄
                   case 0:
-                    openCarcme();
+                    permission();
                     break;
                   // 手机相册
                   case 1:
@@ -350,6 +403,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
 
   String imagePaths;
   Uri cameraUri;
+
   /**
    * 打开照相机
    */

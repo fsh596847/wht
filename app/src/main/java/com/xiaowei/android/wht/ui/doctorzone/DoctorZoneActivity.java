@@ -2,6 +2,8 @@ package com.xiaowei.android.wht.ui.doctorzone;
 
 import android.MyBaseAdapterHelper;
 import android.MyQuickAdapter;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -9,7 +11,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -17,7 +18,9 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.xiaowei.android.wht.ApplicationTool;
+import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
+import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.ui.doctorzone.able.IWxShare;
 import com.xiaowei.android.wht.ui.doctorzone.able.WxShare;
 import com.xiaowei.android.wht.utis.DisplayUtil;
@@ -42,6 +45,8 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
   private SharePopupwindow popup;
   private RelativeLayout viewParent;
 
+  public String userid;
+
   @Override
   protected void setContentView() {
     setContentView(R.layout.activity_doctor_zone);
@@ -51,6 +56,7 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
   @Override
   public void init(Bundle savedInstanceState) {
     initViews();
+
     fragmentManager = this.getSupportFragmentManager();
     transaction = fragmentManager.beginTransaction();
     setTabSelection(0);
@@ -79,17 +85,28 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
     });
   }
 
+  public static void CallIntent(Context context, String value) {
+    Intent intent = new Intent(context, DoctorZoneActivity.class);
+    intent.putExtra(INTENT_KEY_TYPE_TAB_KEY, value);
+    context.startActivity(intent);
+  }
+
   public void backClick(View view) {
     finish();
   }
 
   public static String INTENT_KEY_TYPE_ISSUE = "1";//求助
   public static String INTENT_KEY_TYPE_SHARE = "0";// 分享
+  public static String INTENT_KEY_TYPE_RECOMMEND = "2";//推荐
+  private static String INTENT_KEY_TYPE_TAB_KEY = "tabkey";
+  private static String INTENT_KEY_TYPE_TAB_VALUE;
+  public static String tabUrl;
   //if (data.get(position).id.equals(INTENT_KEY_TYPE_ISSUE)) {
   //  IssueActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
   //} else {
   //  IssueActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
   //}
+
   /**
    * 分享
    */
@@ -100,7 +117,7 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
   }
 
   /**
-   * 发布
+   * 求助
    */
   public void issueClick(View view) {
     IssueActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
@@ -114,7 +131,6 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
     } else {
       lytCase.setVisibility(View.VISIBLE);
     }
-
   }
 
   @Override
@@ -122,21 +138,21 @@ public class DoctorZoneActivity extends BaseActivity implements View.OnClickList
     tv_talk.setOnClickListener(this);
     tv_zone.setOnClickListener(this);
   }
-  TranslateAnimation transAnim;
+
   private void initViews() {
+    userid = new SpData(activity.getApplicationContext()).getStringValue(SpData.keyId, null);
     viewParent = (RelativeLayout) findViewById(R.id.lyt_my_invite);
     tv_zone = (TextView) findViewById(R.id.tv_zone);
     tv_talk = (TextView) findViewById(R.id.tv_talk);
     lytCase = (LinearLayout) findViewById(R.id.lyt_share);
-    int height = lytCase.getHeight();
-    height = DisplayUtil.dp2Px_Int(height, activity);
-    transAnim = new TranslateAnimation(0, 0, 0, height);
-    transAnim.setDuration(300);
-    lytCase.setAnimation(transAnim);
-    //AssetManager mgr = getAssets();//得到AssetManager
-    //Typeface tf = Typeface.createFromAsset(mgr, "tvfont.ttf");//根据路径得到Typeface
-    //tv_zone.setTypeface(tf);
-    //tv_talk.setTypeface(tf);
+    String value = getIntent().getStringExtra(INTENT_KEY_TYPE_TAB_KEY);
+    if (value.equals(INTENT_KEY_TYPE_ISSUE)) {
+      tabUrl = Config.issueCaseIss.replace("{USID}", userid);
+    } else if (value.equals(INTENT_KEY_TYPE_SHARE)) {
+      tabUrl = Config.issueCaseShare.replace("{USID}", userid);
+    } else if (value.equals(INTENT_KEY_TYPE_RECOMMEND)) {
+      tabUrl = Config.getDoctorTalk.replace("{USID}", userid);
+    }
   }
 
   @Override

@@ -196,11 +196,11 @@ public class Config {
 	public static final String issueCase =
 			SETTING + "/phone_releaseCaseIndex.action?userid={USID}&caseclass={TYPE}";
 	/**
-	 * 发布
+	 * 求助
 	 */
 	public static final String issueCaseIss = SETTING + "/phone_querydiscuss.action?userid={USID}";
 	/**
-	 * 发布
+	 * 分享
 	 */
 	public static final String issueCaseShare = SETTING + "/phone_queryshare.action?userid={USID}";
 
