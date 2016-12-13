@@ -148,10 +148,12 @@ public class MyInfoActivity extends Activity {
                     String[] Groupids = doctorPerson.getGroupids().split(",");
                     for (int i = 0; i < Groupname.length; i++) {
                       mGroup.put(Groupids[i], Groupname[i]);
-                      CirCleBean.CirCleItemBean ci = new CirCleBean.CirCleItemBean();
-                      ci.setId(Groupids[i]);
-                      ci.setGroupname(Groupname[i]);
-                      listCompany.add(ci);
+                      //CirCleBean.CirCleItemBean ci = new CirCleBean.CirCleItemBean();
+                      //ci.setId(Groupids[i]);
+                      //ci.setGroupname(Groupname[i]);
+                      //listCompany.add(ci);
+                      mCompanyId.append(Groupids[i] + ",");
+                      mCompanyName.append(Groupname[i] + ",");
                     }
                   }
                   tvGroup.setText(
@@ -401,15 +403,19 @@ public class MyInfoActivity extends Activity {
           @Override public void onClick(DialogInterface dialog, int which) {
             if (which == 0) {
               Intent intent = new Intent(MyInfoActivity.this, CircleCompanyFragment.class);
-              if (!TextUtils.isEmpty(doctorPerson.getGroupids())) {
-                intent.putExtra(INTENT_COMANY_KEY, doctorPerson.getGroupids());
+              if (mCompanyId.toString().length() > 0) {
+                Bundle b = new Bundle();
+                b.putString(INTENT_COMANY_KEY, mCompanyId.toString());
+                intent.putExtras(b);
               }
               startActivityForResult(intent, REQUEST_COMANY_CODE);
               //overridePendingTransition(R.anim.in_right, 0);
             } else {
               Intent intent = new Intent(MyInfoActivity.this, CircleOrgnizeFragment.class);
-              if (!TextUtils.isEmpty(doctorPerson.getGroupids())) {
-                intent.putExtra(INTENT_ORGNIZE_KEY, doctorPerson.getGroupids());
+              if (mCompanyId.toString().length() > 0) {
+                Bundle b = new Bundle();
+                b.putString(INTENT_ORGNIZE_KEY, mCompanyId.toString());
+                intent.putExtras(b);
               }
               startActivityForResult(intent, REQUEST_ORGNIZE_CODE);
               //overridePendingTransition(R.anim.in_right, 0);
@@ -667,13 +673,10 @@ public class MyInfoActivity extends Activity {
   }
 
   private List<CirCleBean.CirCleItemBean> listCompany = new ArrayList<>();
-  //private List<CirCleBean.CirCleItemBean> listOrgnize = new ArrayList<>();
-  private StringBuffer mCompanyId;
-  private StringBuffer mCompanyName;
+  private StringBuffer mCompanyId = new StringBuffer();
+  private StringBuffer mCompanyName = new StringBuffer();
   private Map<String, String> mGroup = new HashMap<>();
 
-  //private StringBuffer mOrginzeId=new StringBuffer();
-  //private StringBuffer mOrginzeName=new StringBuffer();
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -683,11 +686,9 @@ public class MyInfoActivity extends Activity {
     if (requestCode == REQUEST_COMANY_CODE) {
       listCompany.addAll((List<CirCleBean.CirCleItemBean>) data.getSerializableExtra(
           CircleCompanyFragment.KEY_INTENT_LIST_COMPANY));
-
     } else if (requestCode == REQUEST_ORGNIZE_CODE) {
       listCompany.addAll((List<CirCleBean.CirCleItemBean>) data.getSerializableExtra(
           CircleOrgnizeFragment.KEY_INTENT_LIST_ORGINZE));
-
     }
     for (CirCleBean.CirCleItemBean cirCleItemBean : listCompany) {
       if (cirCleItemBean.isCheck()) {

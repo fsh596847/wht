@@ -44,10 +44,12 @@ public class ApplicationTool extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
 		wxApi = WXAPIFactory.createWXAPI(this, null);
 		wxApi.registerApp("wx2b867b7a6651c5fd");
 		
 		CrashHandler crashHandler = CrashHandler.getInstance();
+		Thread.setDefaultUncaughtExceptionHandler(crashHandler);
 		// 注册crashHandler
 		crashHandler.init(getApplicationContext());
 		mInstance = this;
