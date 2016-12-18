@@ -22,6 +22,7 @@ import com.xiaowei.android.wht.beans.DoctorPerson;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.service.DataService4Patient;
+import com.xiaowei.android.wht.ui.mycenter.MyCaseActivity;
 import com.xiaowei.android.wht.ui.mycenter.MyInfoActivity;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
@@ -88,6 +89,16 @@ public class FragmentMy extends Fragment {
 			public void onClick(View v) {
 
 				startActivity(new Intent(getActivity(),MyPatientActivity.class));
+			}
+		});
+
+		//我的病例
+		view.findViewById(R.id.lyt_case).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				startActivity(new Intent(getActivity(), MyCaseActivity.class));
 			}
 		});
 		

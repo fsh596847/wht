@@ -72,7 +72,7 @@
     </EditText>
         
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -97,7 +97,7 @@
             android:background="#ffffff"
             android:layout_marginBottom="1dp"
             android:orientation="horizontal" >
-            
+
             <EditText
             android:id="@+id/et_register_code"
             android:layout_width="0dp"
@@ -127,11 +127,11 @@
             android:textColor="@color/color_deep_gray"
             android:textStyle="bold"
             android:text="获取验证码" />
-            
+
         </LinearLayout>
-        
+
     </LinearLayout>
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="0dp"

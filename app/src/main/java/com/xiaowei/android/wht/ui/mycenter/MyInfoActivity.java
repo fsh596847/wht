@@ -683,6 +683,7 @@ public class MyInfoActivity extends Activity {
     if (data == null) {
       return;
     }
+    listCompany.clear();
     if (requestCode == REQUEST_COMANY_CODE) {
       listCompany.addAll((List<CirCleBean.CirCleItemBean>) data.getSerializableExtra(
           CircleCompanyFragment.KEY_INTENT_LIST_COMPANY));
@@ -693,6 +694,8 @@ public class MyInfoActivity extends Activity {
     for (CirCleBean.CirCleItemBean cirCleItemBean : listCompany) {
       if (cirCleItemBean.isCheck()) {
         mGroup.put(cirCleItemBean.getId(), cirCleItemBean.getGroupname());
+      } else if (!cirCleItemBean.isCheck() && mGroup.containsKey(cirCleItemBean.getId())) {
+        mGroup.remove(cirCleItemBean.getId());
       }
     }
     if (mGroup.size() > 0) {

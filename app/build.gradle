@@ -53,7 +53,7 @@ android {
       shrinkResources false
       //debug调试
       debuggable true
-      resValue "string", "app_name", "华佗来了"
+      resValue "string", "app_name", "水光e族"
       //日志控制
       buildConfigField "boolean", "RELEASED", "true"
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -70,7 +70,7 @@ android {
       shrinkResources false
       //debug调试
       debuggable true
-      resValue "string", "app_name", "华佗来了debug"
+      resValue "string", "app_name", "水光e族debug"
       //日志控制
       buildConfigField "boolean", "RELEASED", "true"
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'

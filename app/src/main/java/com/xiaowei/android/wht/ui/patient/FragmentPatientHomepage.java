@@ -130,8 +130,7 @@ public class FragmentPatientHomepage extends Fragment implements OnPageChangeLis
 				scrollView.smoothScrollTo(0, y);
 				break;
 			}
-
-		};  
+		}
 	}; 
 	
 	private void initExpert(View view) {
@@ -275,7 +274,8 @@ public class FragmentPatientHomepage extends Fragment implements OnPageChangeLis
 				default:
 					break;
 				}
-			};};
+			}
+		};
 
 		List<HealthLore> list = new ArrayList<HealthLore>();
 		ListView mListView;
@@ -788,10 +788,15 @@ public class FragmentPatientHomepage extends Fragment implements OnPageChangeLis
 		getActivity().overridePendingTransition(R.anim.in_right,0);
 	}
 
+	/**
+	 * 牛皮癣
+	 */
 	private void toSickLog() {
-		Intent it = new Intent(getActivity(),PatientSickRecordActivity.class);
-		startActivity(it);
-		getActivity().overridePendingTransition(R.anim.in_right,0);
+		//Intent it = new Intent(getActivity(),PatientSickRecordActivity.class);
+		//startActivity(it);
+		//getActivity().overridePendingTransition(R.anim.in_right,0);
+		Intent intent = new Intent(getActivity(), PsoraActivity.class);
+		startActivity(intent);
 	}
 
 

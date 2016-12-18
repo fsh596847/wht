@@ -178,6 +178,12 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
       bundle.putString("caseid", mCaseId);
       startActivityWithBundle(PaySelectTyepActivity.class, bundle);
     }
+
+    @JavascriptInterface
+    public void doctorHeadInfo(String doctorid) {//评论  详情
+      Log.d(DoctorTalkFragment.class.getSimpleName(), "doctorHeadInfo" + doctorid);
+      DoctorHeadInfoActivity.CallIntent(activity, doctorid);
+    }
   }
 
   public void showDialog() {

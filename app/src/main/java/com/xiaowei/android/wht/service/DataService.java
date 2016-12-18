@@ -747,14 +747,14 @@ public class DataService  {
 			throws Exception{
 		Map<String,String> params = new LinkedHashMap<String, String>();
 		/*if(mobile != null){*/
-			params.put("mobile", mobile);
+		params.put("mobile", mobile); //13303417200,
 			params.put("doctorid", doctorid);
 			params.put("detpname", detpname);
 			params.put("areaid", areaid);
 			params.put("doctorname", doctorname);
 			params.put("hospital", hospital);
-			params.put("p", String.valueOf(p));
-			params.put("pagesize", String.valueOf(pagesize));
+		params.put("p", String.valueOf(p));//1
+		params.put("pagesize", String.valueOf(pagesize));//15
 		/*}else{
 			return null;
 		}*/

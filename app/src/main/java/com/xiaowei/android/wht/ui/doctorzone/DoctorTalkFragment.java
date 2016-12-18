@@ -137,7 +137,8 @@ public class DoctorTalkFragment extends BaseFragment {
 
     @JavascriptInterface
     public void doctorHeadInfo(String doctorid) {//评论  详情
-      startActivity(DoctorHeadInfoActivity.class);
+      Log.d(DoctorTalkFragment.class.getSimpleName(), "doctorHeadInfo" + doctorid);
+      DoctorHeadInfoActivity.CallIntent(mActivity, doctorid);
     }
 
     @JavascriptInterface

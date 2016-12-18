@@ -1,29 +1,33 @@
-package com.xiaowei.android.wht.ui.doctorzone;
+package com.xiaowei.android.wht.ui.mycenter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
+import com.xiaowei.android.wht.SpData;
+import com.xiaowei.android.wht.ui.doctorzone.BaseActivity;
+import com.xiaowei.android.wht.ui.doctorzone.CaseDetailActivity;
+import com.xiaowei.android.wht.ui.doctorzone.DoctorHeadInfoActivity;
+import com.xiaowei.android.wht.ui.doctorzone.DoctorTalkFragment;
 import com.xiaowei.android.wht.views.Html5WebView;
 import com.xiaowei.android.wht.views.TextFont;
 
 /**
- * Created by HIPAA on 2016/11/24.  发布病例人头像
+ * Created by HIPAA on 2016/11/24.  邀请评论
  */
 
-public class DoctorHeadInfoActivity extends BaseActivity {
+public class ShareCaseActivity extends BaseActivity {
   private WebView mWebView;
   private LinearLayout mLayout;
   private String mUrl;
   private TextFont tvTitle;
-  private static String INTENT_KEY_ID = "id";
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_brandcase);
@@ -31,24 +35,20 @@ public class DoctorHeadInfoActivity extends BaseActivity {
 
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
-    tvTitle = (TextFont) findViewById(R.id.tv_title);
-    tvTitle.setText("医生详情");
     mWebView = new Html5WebView(activity);
+    tvTitle = (TextFont) findViewById(R.id.tv_title);
+    tvTitle.setText("分享病例");
+    String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
             .MATCH_PARENT);
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
-    mUrl =
-        Config.issueCaseHeadDetaile.replace("{userid}", getIntent().getStringExtra(INTENT_KEY_ID));
+    mWebView.addJavascriptInterface(new JavaScriptInterface(activity),
+        "Android");
+    mUrl = Config.shareCase.replace("{USID}", userid).replace("{TYPE}", "0");
     Log.d(DoctorTalkFragment.class.getSimpleName(), mUrl);
     mWebView.loadUrl(mUrl);
-  }
-
-  public static void CallIntent(Context context, String id) {
-    Intent intent = new Intent(context, DoctorHeadInfoActivity.class);
-    intent.putExtra(INTENT_KEY_ID, id);
-    context.startActivity(intent);
   }
 
   @Override public void setListener() {
@@ -70,7 +70,7 @@ public class DoctorHeadInfoActivity extends BaseActivity {
       } else if (mWebView.canGoBack()) {
         mWebView.goBack();
       } else {
-        DoctorHeadInfoActivity.this.finish();
+        ShareCaseActivity.this.finish();
       }
       mOldTime = System.currentTimeMillis();
       return true;
@@ -90,5 +90,30 @@ public class DoctorHeadInfoActivity extends BaseActivity {
       mWebView = null;
     }
     super.onDestroy();
+  }
+
+  /**
+   * 分享js调用的方法
+   */
+  public class JavaScriptInterface {
+
+    Context context;
+
+    JavaScriptInterface(Context context) {
+      this.context = context;
+    }
+
+    @JavascriptInterface
+    public void commentntent(String id) {//评论  详情
+      Log.d(DoctorTalkFragment.class.getSimpleName(), "commentntent" + id);
+      //CommentActivity.getIntent(mActivity, id);
+      startActivity(CaseDetailActivity.class);
+    }
+
+    @JavascriptInterface
+    public void doctorHeadInfo(String doctorid) {//评论  详情
+      Log.d(DoctorTalkFragment.class.getSimpleName(), "doctorHeadInfo" + doctorid);
+      DoctorHeadInfoActivity.CallIntent(activity, doctorid);
+    }
   }
 }

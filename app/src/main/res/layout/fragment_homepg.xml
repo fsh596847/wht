@@ -3,237 +3,238 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_gray_default"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <RelativeLayout
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:background="#ffffff">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_tab"/>
+  </RelativeLayout>
+
+  <ScrollView
+      android:id="@+id/scrollView_homepg"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:scrollbars="none"
+      android:layout_weight="8">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#ffffff" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/app_name"
-            android:textColor="@color/color_deep_gray"
-            android:textSize="@dimen/activity_tab" />
-    </RelativeLayout>
-
-    <ScrollView
-        android:id="@+id/scrollView_homepg"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbars="none"
-        android:layout_weight="8" >
+      <RelativeLayout
+          android:id="@+id/rl_homepage_meeting"
+          android:layout_width="match_parent"
+          android:layout_height="180dp">
 
         <LinearLayout
+            android:id="@+id/viewGroup_homepage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <RelativeLayout
-                android:id="@+id/rl_homepage_meeting"
-                android:layout_width="match_parent"
-                android:layout_height="180dp" >
-
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/viewPager_homepage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-                <LinearLayout
-                    android:id="@+id/viewGroup_homepage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="4dp" >
-                </LinearLayout>
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_homepage_meetname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="#ffffff"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingTop="16dp" >
-
-                <TextView
-                    android:id="@+id/tv_homepage_meetname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:textColor="@color/color_deep_gray"
-                    android:textSize="@dimen/activity_main_x" />
-
-                <TextView
-                    android:id="@+id/tv_homepage_host"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:textColor="@color/color_divider_gray"
-                    android:textSize="@dimen/activity_main"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:gravity="center_vertical"
-                android:paddingBottom="16dp"
-                android:paddingTop="16dp" >
-
-                <Button
-                    android:id="@+id/btn_homepage_transfer_treatment"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_referral"
-                    android:gravity="center_horizontal"
-                    android:text="在线转诊"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-
-                <Button
-                    android:id="@+id/btn_homepage_doctor_zone"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_community"
-                    android:gravity="center_horizontal"
-                    android:text="病例研讨"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-
-                <Button
-                    android:id="@+id/btn_homepage_chat"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_chat"
-                    android:gravity="center_horizontal"
-                    android:text="在线聊天"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-
-                <Button
-                    android:id="@+id/btn_homepage_expert_known"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_expert"
-                    android:gravity="center_horizontal"
-                    android:text="知名专家"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="#ffffff"
-                android:gravity="center_vertical"
-                android:paddingBottom="16dp"
-                android:paddingTop="16dp" >
-
-                <Button
-                    android:id="@+id/btn_homepage_meeting_notice"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_meeting"
-                    android:gravity="center_horizontal"
-                    android:text="会议通知"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-
-                <Button
-                    android:id="@+id/btn_homepage_doctor_service"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_serve"
-                    android:gravity="center_horizontal"
-                    android:text="医生服务"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-
-                <Button
-                    android:id="@+id/btn_homepage_meeting_course"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_data"
-                    android:gravity="center_horizontal"
-                    android:text="课程资料"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-
-                <Button
-                    android:id="@+id/btn_homepage_more"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:drawablePadding="8dp"
-                    android:drawableTop="@drawable/h_b_more"
-                    android:gravity="center_horizontal"
-                    android:text="其它更多"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main" />
-            </LinearLayout>
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:layout_marginBottom="1dp"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:gravity="center"
-                    android:background="#ffffff"
-                    android:textColor="@color/color_light_gray"
-                    android:textSize="@dimen/activity_main"
-                    android:text="推荐专家" />
-
-            <com.xiaowei.android.wht.views.ListViewInScrollView
-                android:id="@+id/listview_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:divider="@color/color_gray_default"
-                android:dividerHeight="1dp"
-                android:scrollbars="none" >
-            </com.xiaowei.android.wht.views.ListViewInScrollView>
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="4dp">
         </LinearLayout>
-    </ScrollView>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_homepage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
+      </RelativeLayout>
+
+      <LinearLayout
+          android:id="@+id/ll_homepage_meetname"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="8dp"
+          android:background="#ffffff"
+          android:gravity="center_vertical"
+          android:orientation="vertical"
+          android:paddingBottom="16dp"
+          android:paddingLeft="16dp"
+          android:paddingRight="16dp"
+          android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/tv_homepage_meetname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/color_deep_gray"
+            android:textSize="@dimen/activity_main_x"/>
+
+        <TextView
+            android:id="@+id/tv_homepage_host"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/color_divider_gray"
+            android:textSize="@dimen/activity_main"
+            android:visibility="gone"/>
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="#ffffff"
+          android:gravity="center_vertical"
+          android:paddingBottom="16dp"
+          android:paddingTop="16dp">
+
+
+        <Button
+            android:id="@+id/btn_homepage_doctor_zone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/h_b_community"
+            android:gravity="center_horizontal"
+            android:text="病例研讨"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+        <Button
+            android:id="@+id/btn_homepage_meeting_notice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/h_b_meeting"
+            android:gravity="center_horizontal"
+            android:text="会议通知"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+
+        <Button
+            android:id="@+id/btn_homepage_meeting_course"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/h_b_data"
+            android:gravity="center_horizontal"
+            android:text="课程资料"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+        <Button
+            android:id="@+id/btn_homepage_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/h_b_chat"
+            android:gravity="center_horizontal"
+            android:text="在线聊天"
+            android:visibility="gone"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="8dp"
+          android:background="#ffffff"
+          android:gravity="center_vertical"
+          android:paddingBottom="16dp"
+          android:paddingTop="16dp">
+
+        <Button
+            android:id="@+id/btn_homepage_transfer_treatment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/h_b_referral"
+            android:gravity="center_horizontal"
+            android:text="转诊预约"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+
+        <Button
+            android:id="@+id/btn_homepage_doctor_service"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/h_b_serve"
+            android:gravity="center_horizontal"
+            android:text="医生服务"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+
+        <Button
+            android:id="@+id/btn_homepage_expert_known"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/h_b_expert"
+            android:gravity="center_horizontal"
+            android:text="专家医生"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+        <Button
+            android:id="@+id/btn_homepage_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="8dp"
+            android:visibility="gone"
+            android:drawableTop="@drawable/h_b_more"
+            android:gravity="center_horizontal"
+            android:text="其它更多"
+            android:textColor="@color/color_light_gray"
+            android:textSize="@dimen/activity_main"/>
+      </LinearLayout>
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="16dp"
+          android:layout_marginBottom="1dp"
+          android:ellipsize="end"
+          android:singleLine="true"
+          android:gravity="center"
+          android:background="#ffffff"
+          android:textColor="@color/color_light_gray"
+          android:textSize="@dimen/activity_main"
+          android:text="推荐专家"/>
+
+      <com.xiaowei.android.wht.views.ListViewInScrollView
+          android:id="@+id/listview_home"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="#ffffff"
+          android:divider="@color/color_gray_default"
+          android:dividerHeight="1dp"
+          android:scrollbars="none">
+      </com.xiaowei.android.wht.views.ListViewInScrollView>
+    </LinearLayout>
+  </ScrollView>
 
 </LinearLayout>

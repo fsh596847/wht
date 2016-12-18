@@ -384,9 +384,55 @@
         android:theme="@android:style/Theme.Translucent"
         android:windowSoftInputMode="adjustUnspecified|stateHidden">
     </activity>
+    <!--   患者    -->
+    <activity
+        android:name=".ui.patient.PsoraActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--   医生      -->
+    <!--打赏-->
+    <activity
+        android:name=".ui.mycenter.PayCaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--分享病例-->
+    <activity
+        android:name=".ui.mycenter.ShareCaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--邀请讨论-->
+    <activity
+        android:name=".ui.mycenter.InviteCommentActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--我的讨论-->
+    <activity
+        android:name=".ui.mycenter.MyCommentActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--搜藏病例-->
+    <activity
+        android:name=".ui.mycenter.SaveCaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--求助病例-->
+    <activity
+        android:name=".ui.mycenter.HelpCaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--分享病例-->
+    <activityase
+        android:name=".ui.mycenter.CaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--医生社区-->
     <activity
         android:name=".ui.doctorzone.DoctorZoneActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--医生头像详情-->
+    <activity
+        android:name=".ui.doctorzone.DoctorHeadInfoActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--病例详情-->
@@ -443,6 +489,11 @@
     <!-- 发布详情-->
     <activity
         android:name=".ui.doctorzone.IssueDetailActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!-- 我的病例-->
+    <activity
+        android:name=".ui.mycenter.MyCaseActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
 
