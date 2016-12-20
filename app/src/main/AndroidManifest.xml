@@ -385,8 +385,14 @@
         android:windowSoftInputMode="adjustUnspecified|stateHidden">
     </activity>
     <!--   患者    -->
+    <!--牛皮藓吧-->
     <activity
         android:name=".ui.patient.PsoraActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--发布-->
+    <activity
+        android:name=".ui.patient.IssueActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--   医生      -->
@@ -464,6 +470,16 @@
     <!--病例详情-->
     <activity
         android:name=".ui.doctorzone.CommentActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--患者病例详情-->
+    <activity
+        android:name=".ui.patient.CommentActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--患者头像详情-->
+    <activity
+        android:name=".ui.patient.PatientHeadInfoActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--圈子公司-->

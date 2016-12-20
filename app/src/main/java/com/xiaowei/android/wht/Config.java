@@ -188,7 +188,12 @@ public class Config {
    */
   public static final String classifyCase = SETTING + "/phone_queryclassify.action?userid=";
   /**
-   * 发布
+   * 医生发布
+   */
+  public static final String issueCasePatient =
+      SETTING + "/phone_patientReleaseCaseIndex.action?userid={USID}";
+  /**
+   * 患者发布
    */
   public static final String issueCase =
       SETTING + "/phone_releaseCaseIndex.action?userid={USID}&caseclass={TYPE}";
@@ -208,6 +213,11 @@ public class Config {
       SETTING + "/phone_queryCaseinfo.action?id={id}&userid={userid}";
   public static final String issueCaseHeadDetaile =
       SETTING + "/phone_myinfo.action?userid={userid}";
+  /**
+   * 患者病例详情
+   */
+  public static final String issueCaseDetailePatient =
+      SETTING + "/phone_queryPatientCaseinfo.action?userid={userid}&id={id}";
   /**
    * 圈子
    */
@@ -250,4 +260,8 @@ public class Config {
    */
   public static final String tip =
       SETTING + "/phone_myReward.action?userid={USID}";
+
+  //======================================患者==================================================
+
+
 }

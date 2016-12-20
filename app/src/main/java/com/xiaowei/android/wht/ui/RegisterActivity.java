@@ -56,9 +56,9 @@ public class RegisterActivity extends Activity {
 		    	//String sender=smsMessage.getDisplayOriginatingAddress();
 		    	String content=smsMessage.getMessageBody();
 		    	//如果短信来自10690365737609129173,获取验证码
-		    	if(content.contains("华佗来了")){
-		    		
-		    		if(content.contains("：")){
+					 if (content.contains(getResources().getString(R.string.app_name))) {
+
+						 if(content.contains("：")){
 		    			content = content.substring(content.indexOf("：")+1, content.indexOf("：")+5);
 		    			etCode.setText(content);
 		    		}

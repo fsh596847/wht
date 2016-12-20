@@ -44,7 +44,7 @@ public class WxShare implements IWxShare {
     WXWebpageObject webpage = new WXWebpageObject();
     webpage.webpageUrl = "http://fir.im/4d53";
     WXMediaMessage msg = new WXMediaMessage(webpage);
-    msg.title = "华佗来了";
+    msg.title = context.getResources().getString(R.string.app_name);
     msg.description = "您的私人医生！";
     //这里替换一张自己工程里的图片资源
     Bitmap thumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.app_share);
@@ -68,7 +68,7 @@ public class WxShare implements IWxShare {
     WXWebpageObject webpage = new WXWebpageObject();
     webpage.webpageUrl = url;
     WXMediaMessage msg = new WXMediaMessage(webpage);
-    msg.title = "华佗来了";
+    msg.title = context.getResources().getString(R.string.app_name);
     msg.description = "您的私人医生！";
     //这里替换一张自己工程里的图片资源
     Bitmap thumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.app_share);
