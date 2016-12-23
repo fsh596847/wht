@@ -561,8 +561,8 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
       @Override
       public void onClick(View v) {
 
-        //ExpertKnownActivity
-        startActivity(new Intent(getActivity(), PatientMyDoctorActivity.class));
+        //PatientMyDoctorActivity
+        startActivity(new Intent(getActivity(), ExpertKnownActivity.class));
         getActivity().overridePendingTransition(R.anim.in_right, 0);
       }
     });

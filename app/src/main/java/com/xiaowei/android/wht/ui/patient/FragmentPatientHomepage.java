@@ -1,5 +1,6 @@
 package com.xiaowei.android.wht.ui.patient;
 
+import com.xiaowei.android.wht.ui.ExpertKnownActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -783,7 +784,8 @@ public class FragmentPatientHomepage extends Fragment implements OnPageChangeLis
 	}
 
 	private void toMyDoctor() {
-		Intent it = new Intent(getActivity(),PatientMyDoctorActivity.class);
+		//ExpertKnownActivity PatientMyDoctorActivity
+		Intent it = new Intent(getActivity(), ExpertKnownActivity.class);
 		startActivity(it);
 		getActivity().overridePendingTransition(R.anim.in_right,0);
 	}
