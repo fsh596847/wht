@@ -390,6 +390,12 @@
         android:name=".ui.patient.PsoraActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--健康咨询-->
+    <activity
+        android:name=".ui.HealthActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+
     <!--发布-->
     <activity
         android:name=".ui.patient.IssueActivity"
