@@ -1,10 +1,9 @@
-package com.xiaowei.android.wht.ui.doctorzone;
+package com.xiaowei.android.wht.ui.patient;
 
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -26,13 +25,12 @@ import com.mylhyl.acp.AcpOptions;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
+import com.xiaowei.android.wht.ui.doctorzone.BaseActivity;
 import com.xiaowei.android.wht.views.AlertDialog;
 import com.xiaowei.android.wht.views.Html5WebView;
 import com.xiaowei.android.wht.views.TextFont;
 import java.io.File;
 import java.util.List;
-
-import static com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE;
 
 /**
  * Created by HIPAA on 2016/11/29. 发布
@@ -42,8 +40,6 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   private LinearLayout mLayout;
   private String mUrl;
   private TextFont tvTitle;
-  public static String INTENT_KEY_CASE = "casetype";
-  private String intentKeyValue;
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_issue);
@@ -60,9 +56,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
             .MATCH_PARENT);
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
-    intentKeyValue = getIntent().getStringExtra(INTENT_KEY_CASE);
-    mUrl = Config.issueCase.replace("{USID}", userid)
-        .replace("{TYPE}", intentKeyValue);
+    mUrl = Config.issueCasePatient.replace("{USID}", userid);
     Log.d(IssueActivity.class.getSimpleName(), mUrl);
     ((Html5WebView) mWebView).setCallBack(this);
     mWebView.loadUrl(mUrl);
@@ -74,12 +68,6 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
 
   }
 
-  public static void getIntent(Context context, String key) {
-    Intent intent = new Intent(context, IssueActivity.class);
-    intent.putExtra(INTENT_KEY_CASE, key);
-    context.startActivity(intent);
-  }
-
   @TargetApi(Build.VERSION_CODES.KITKAT)
   public void submitClick(View view) {
     showDialog();
@@ -88,41 +76,33 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   private void submit() {
     try {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-        mWebView.evaluateJavascript("fsubmit()", new ValueCallback<String>() {
+        mWebView.post(new Runnable() {
           @Override
-          public void onReceiveValue(final String value) {
-            mWebView.post(new Runnable() {
-              @Override
-              public void run() {
-                Log.e(IssueActivity.class.getSimpleName(), "onReceiveValue value=" + value);
-                if (value.equals("1")) {
-                  if (getIntent().getStringExtra(INTENT_KEY_CASE).equals(INTENT_KEY_TYPE_ISSUE)) {
-                    //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
-                    DoctorZoneActivity.CallIntent(activity,
-                        DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE);
-                  } else {
-                    //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
-                    DoctorZoneActivity.CallIntent(activity,
-                        DoctorZoneActivity.INTENT_KEY_TYPE_SHARE);
-                  }
-                  finish();
-                }
-              }
-            });
+          public void run() {
+            mWebView.loadUrl("javascript:fsubmit()");
+            startActivity(PsoraActivity.class);
+            finish();
           }
         });
+        //mWebView.evaluateJavascript("fsubmit()", new ValueCallback<String>() {
+        //  @Override
+        //  public void onReceiveValue(final String value) {
+        //    mWebView.post(new Runnable() {
+        //      @Override
+        //      public void run() {
+        //        Log.e(IssueActivity.class.getSimpleName(), "onReceiveValue value=" + value);
+        //          startActivity(PsoraActivity.class);
+        //          finish();
+        //      }
+        //    });
+        //  }
+        //});
       } else {
         mWebView.post(new Runnable() {
           @Override
           public void run() {
             mWebView.loadUrl("javascript:fsubmit()");
-            if (getIntent().getStringExtra(INTENT_KEY_CASE).equals(INTENT_KEY_TYPE_ISSUE)) {
-              //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_ISSUE);
-              DoctorZoneActivity.CallIntent(activity, DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE);
-            } else {
-              //IssueDetailActivity.getIntent(activity, INTENT_KEY_TYPE_SHARE);
-              DoctorZoneActivity.CallIntent(activity, DoctorZoneActivity.INTENT_KEY_TYPE_SHARE);
-            }
+            startActivity(PsoraActivity.class);
             finish();
           }
         });

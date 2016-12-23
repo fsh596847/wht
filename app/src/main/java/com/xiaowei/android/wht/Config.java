@@ -235,6 +235,11 @@ public class Config {
   public static final String report =
       SETTING + "/phone_report.action?userid={USID}&caseid={CASEID}";
   /**
+   * 举报
+   */
+  public static final String patienteport =
+      SETTING + "/phone_report.action?userid={USID}&caseid={CASEID}&shiledtype=1";
+  /**
    * 牛皮鲜
    */
   public static final String psora =
@@ -262,6 +267,10 @@ public class Config {
       SETTING + "/phone_myReward.action?userid={USID}";
 
   //======================================患者==================================================
-
+  /**
+   * 打赏
+   */
+  public static final String patientCase =
+      SETTING + "/phone_myPatientCases.action?userid={USID}";
 
 }

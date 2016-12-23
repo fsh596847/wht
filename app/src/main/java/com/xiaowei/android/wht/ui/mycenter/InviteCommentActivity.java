@@ -13,9 +13,9 @@ import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.ui.doctorzone.BaseActivity;
-import com.xiaowei.android.wht.ui.doctorzone.CaseDetailActivity;
 import com.xiaowei.android.wht.ui.doctorzone.DoctorHeadInfoActivity;
 import com.xiaowei.android.wht.ui.doctorzone.DoctorTalkFragment;
+import com.xiaowei.android.wht.ui.doctorzone.CommentActivity;
 import com.xiaowei.android.wht.views.Html5WebView;
 import com.xiaowei.android.wht.views.TextFont;
 
@@ -105,14 +105,13 @@ public class InviteCommentActivity extends BaseActivity {
 
     @JavascriptInterface
     public void commentntent(String id) {//评论  详情
-      Log.d(DoctorTalkFragment.class.getSimpleName(), "commentntent" + id);
-      //CommentActivity.getIntent(mActivity, id);
-      startActivity(CaseDetailActivity.class);
+      Log.d(InviteCommentActivity.class.getSimpleName(), "commentntent" + id);
+      CommentActivity.getIntent(activity, id);
     }
 
     @JavascriptInterface
     public void doctorHeadInfo(String doctorid) {//评论  详情
-      Log.d(DoctorTalkFragment.class.getSimpleName(), "doctorHeadInfo" + doctorid);
+      Log.d(InviteCommentActivity.class.getSimpleName(), "doctorHeadInfo" + doctorid);
       DoctorHeadInfoActivity.CallIntent(activity, doctorid);
     }
   }

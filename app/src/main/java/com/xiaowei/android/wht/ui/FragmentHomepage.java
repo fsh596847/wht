@@ -47,6 +47,7 @@ import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity;
 import com.xiaowei.android.wht.ui.doctorzone.Html5Activity;
 import com.xiaowei.android.wht.ui.doctorzone.WebViewDemo;
+import com.xiaowei.android.wht.ui.patient.PatientMyDoctorActivity;
 import com.xiaowei.android.wht.utils.Util;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
@@ -560,7 +561,8 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
       @Override
       public void onClick(View v) {
 
-        startActivity(new Intent(getActivity(), ExpertKnownActivity.class));
+        //ExpertKnownActivity
+        startActivity(new Intent(getActivity(), PatientMyDoctorActivity.class));
         getActivity().overridePendingTransition(R.anim.in_right, 0);
       }
     });

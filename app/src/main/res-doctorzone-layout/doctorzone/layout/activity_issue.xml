@@ -12,15 +12,16 @@
       android:background="#ffffff"
       android:layout_marginBottom="2dp">
 
-    <ImageView
+    <TextView
         android:onClick="backClick"
         android:id="@+id/iv_approve_back"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        android:paddingRight="10dp"
         android:contentDescription="@null"
-        android:src="@drawable/back_b"/>
+        android:text="取消"/>
 
     <com.xiaowei.android.wht.views.TextFont
         android:id="@+id/tv_title"

@@ -319,10 +319,7 @@ public class RegisterActivity extends Activity {
 	 * 获取后台图片信息
 	 */
 	private void getCode(final String mobile){
-		if(isGetCodeING){
-			return;
-		}
-		isGetCodeING = true;
+
 		reload("正在努力加载……");
 		new Thread(new Runnable() {
 
@@ -336,48 +333,39 @@ public class RegisterActivity extends Activity {
 						final HttpResult hr = JSON.parseObject(s,HttpResult.class);
 						if (hr != null){
 							if  (hr.isSuccess()){
-									runOnUiThread(new Runnable(){  
-										@Override  
-										public void run() {  
-											readSms();
+								runOnUiThread(new Runnable() {
+									@Override
+									public void run() {
+										//readSms();
 											Toast.makeText(getApplicationContext(), "获取验证码成功！", Toast.LENGTH_SHORT).show();
 											getCodeUIThread();
-										}  
+									}
 									});
 							}else{
-								runOnUiThread(new Runnable(){  
-									@Override  
-									public void run() {  
+								runOnUiThread(new Runnable() {
+									@Override
+									public void run() {
 										Toast.makeText(getApplicationContext(), hr.getData().toString(), Toast.LENGTH_SHORT).show();
-									}  
+									}
 								});
 							}
 						}else{
-							runOnUiThread(new Runnable(){  
-								@Override  
-								public void run() {  
+							runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
 									Toast.makeText(getApplicationContext(), "请求失败，请重试！", Toast.LENGTH_SHORT).show();
-								}  
+								}
 							});
 						}
-					}else{
-						runOnUiThread(new Runnable(){  
-							@Override  
-							public void run() {  
-								Toast.makeText(getApplicationContext(), "请检查网络后重试！", Toast.LENGTH_SHORT).show();
-							}  
-						});
 					}
 				}catch (Exception he) {
 					he.printStackTrace();
 				}
 				closeLoadingDialog();
-				isGetCodeING = false;
 			}
 		}).start();
 	}
-	boolean isGetCodeING = false;
-	
+
 	/**
 	 * 倒计时60秒，60秒内不允许获取验证码,按钮上显示倒计时
 	 */
@@ -429,7 +417,7 @@ public class RegisterActivity extends Activity {
 	
 	private Dialog loadingDialog = null;
 	private void closeLoadingDialog() {
-		if(null != loadingDialog) {	 
+		if (null != loadingDialog) {
 			loadingDialog.dismiss();
 			loadingDialog = null;
 		}

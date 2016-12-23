@@ -477,6 +477,17 @@
         android:name=".ui.patient.CommentActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--患者我的病例-->
+    <activity
+        android:name=".ui.patient.MyCaseActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--患者举报-->
+    <activity
+        android:name=".ui.patient.ReportActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
+
     <!--患者头像详情-->
     <activity
         android:name=".ui.patient.PatientHeadInfoActivity"
