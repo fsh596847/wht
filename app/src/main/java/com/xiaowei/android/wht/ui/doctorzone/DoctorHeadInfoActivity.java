@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import com.xiaowei.android.wht.Config;
@@ -39,6 +40,8 @@ public class DoctorHeadInfoActivity extends BaseActivity {
             .MATCH_PARENT);
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
+    mWebView.addJavascriptInterface(new JavaScriptInterface(activity),
+        "Android");
     mUrl =
         Config.issueCaseHeadDetaile.replace("{userid}", getIntent().getStringExtra(INTENT_KEY_ID));
     Log.d(DoctorTalkFragment.class.getSimpleName(), mUrl);
@@ -90,5 +93,23 @@ public class DoctorHeadInfoActivity extends BaseActivity {
       mWebView = null;
     }
     super.onDestroy();
+  }
+
+  /**
+   * 分享js调用的方法
+   */
+  public class JavaScriptInterface {
+
+    Context context;
+
+    JavaScriptInterface(Context context) {
+      this.context = context;
+    }
+
+    @JavascriptInterface
+    public void commentntent(String id) {//评论  详情
+      Log.d(DoctorTalkFragment.class.getSimpleName(), "commentntent" + id);
+      CommentActivity.getIntent(activity, id);
+    }
   }
 }

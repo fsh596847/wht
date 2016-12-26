@@ -3,6 +3,7 @@ package com.xiaowei.android.wht.ui;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -48,8 +50,12 @@ public class HealthActivity extends BaseActivity {
     setContentView(R.layout.activity_health);
   }
 
+  public void backClick(View view) {
+    finish();
+  }
+
   @Override public void init(Bundle savedInstanceState) {
-    listExpert = new ArrayList<HealthLore>();
+    listExpert = new ArrayList<>();
     scrollView = (ScrollView) findViewById(R.id.scrollView_homepg);
     lvExpert = (ListViewInScrollView) findViewById(R.id.listview_patient_homepage);
     expertAdapter = new MyExpertAdapter(activity, lvExpert);
@@ -66,6 +72,17 @@ public class HealthActivity extends BaseActivity {
       public void onError(Integer t) {
       }
     });
+    lvExpert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+      @Override
+      public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+          long arg3) {
+        startActivity(new Intent(activity, WebHealthActivity.class)
+            .putExtra("url",
+                listExpert.get(arg2).getDetailurl() + "?id=" + listExpert.get(arg2).getId()));
+      }
+    });
+
   }
 
   @Override public void setListener() {

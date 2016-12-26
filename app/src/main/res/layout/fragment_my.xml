@@ -136,76 +136,70 @@
         android:drawableRight="@drawable/go_gs"/>
 
   </RelativeLayout>
-  <LinearLayout
-      android:orientation="vertical"
-      android:layout_weight="2"
-      android:clickable="true"
-      android:background="#ffffff"
+
+  <RelativeLayout
+      android:id="@+id/rl_my_patient"
       android:layout_width="match_parent"
-      android:layout_height="0dp">
-    <RelativeLayout
-        android:id="@+id/rl_my_patient"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#ffffff">
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:layout_marginBottom="1dp"
+      android:background="#ffffff">
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
-          android:layout_centerVertical="true"
-          android:drawableLeft="@drawable/my_patient"
-          android:gravity="center_vertical"
-          android:drawablePadding="16dp"
-          android:layout_marginLeft="16dp"
-          android:textSize="@dimen/activity_main"
-          android:textColor="@color/color_light_gray"
-          android:text="我的患者"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/my_patient"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="我的患者"/>
 
-      <ImageView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentRight="true"
-          android:layout_centerVertical="true"
-          android:layout_marginRight="16dp"
-          android:contentDescription="@null"
-          android:src="@drawable/go_gs"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/lyt_case"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:onClick="caseClick"
-        android:background="#ffffff">
+  </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/lyt_case"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:clickable="true"
+      android:onClick="caseClick"
+      android:background="#ffffff">
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
-          android:layout_centerVertical="true"
-          android:drawableLeft="@drawable/my_patient"
-          android:gravity="center_vertical"
-          android:drawablePadding="16dp"
-          android:layout_marginLeft="16dp"
-          android:textSize="@dimen/activity_main"
-          android:textColor="@color/color_light_gray"
-          android:text="我的病例"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/mycase"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="我的病例"/>
 
-      <ImageView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentRight="true"
-          android:layout_centerVertical="true"
-          android:layout_marginRight="16dp"
-          android:contentDescription="@null"
-          android:src="@drawable/go_gs"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
 
-    </RelativeLayout>
-  </LinearLayout>
+  </RelativeLayout>
 
 
   <RelativeLayout
@@ -282,19 +276,6 @@
       android:layout_marginBottom="1dp">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:drawableLeft="@drawable/my_message"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
-        android:layout_marginLeft="16dp"
-        android:textSize="@dimen/activity_main"
-        android:textColor="@color/color_light_gray"
-        android:text="我的消息"/>
-
-    <TextView
         android:id="@+id/tv_my_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -306,6 +287,18 @@
         android:textSize="@dimen/activity_default"
         android:text=""
         android:drawableRight="@drawable/go_gs"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/my_message"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="我的消息" android:layout_alignBaseline="@+id/tv_my_message"
+        android:layout_alignBottom="@+id/tv_my_message" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" android:layout_marginStart="16dp"/>
 
   </RelativeLayout>
 
@@ -358,9 +351,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:drawableLeft="@drawable/my_money"
+        android:drawableLeft="@drawable/about"
         android:gravity="center_vertical"
-        android:drawablePadding="12dp"
+        android:drawablePadding="16dp"
         android:layout_marginLeft="16dp"
         android:textSize="@dimen/activity_main"
         android:textColor="@color/color_light_gray"

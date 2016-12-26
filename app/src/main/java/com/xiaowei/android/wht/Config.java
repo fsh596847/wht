@@ -214,6 +214,11 @@ public class Config {
   public static final String issueCaseHeadDetaile =
       SETTING + "/phone_myinfo.action?userid={userid}";
   /**
+   * 海外病例
+   */
+  public static final String overSeasCase =
+      SETTING + "/phone_overseasCases.action?userid=={userid}";
+  /**
    * 患者病例详情
    */
   public static final String issueCaseDetailePatient =
@@ -244,7 +249,6 @@ public class Config {
    */
   public static final String psora =
       SETTING + "/phone_patientCaseIndex.action?userid={USID}";
-
   /**
    * 分享病例
    */

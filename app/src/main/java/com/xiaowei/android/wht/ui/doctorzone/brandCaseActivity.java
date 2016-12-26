@@ -99,11 +99,18 @@ public class BrandCaseActivity extends BaseActivity {
       this.context = context;
     }
 
+
     @JavascriptInterface
     public void commentntent(String id) {//评论  详情
       Log.d(DoctorTalkFragment.class.getSimpleName(), "commentntent" + id);
-      //CommentActivity.getIntent(mActivity, id);
-      startActivity(CaseDetailActivity.class);
+      CommentActivity.getIntent(activity, id);
+      //startActivity(CommentActivity.class);
+    }
+
+    @JavascriptInterface
+    public void doctorHeadInfo(String doctorid) {//评论  详情
+      Log.d(DoctorTalkFragment.class.getSimpleName(), "doctorHeadInfo" + doctorid);
+      DoctorHeadInfoActivity.CallIntent(activity, doctorid);
     }
   }
 }

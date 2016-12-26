@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,10 +28,13 @@ import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.ui.MeetingApply;
+import com.xiaowei.android.wht.ui.doctorzone.able.IWxShare;
+import com.xiaowei.android.wht.ui.doctorzone.able.WxShare;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
 import com.xiaowei.android.wht.views.AlertDialog;
 import com.xiaowei.android.wht.views.Html5WebView;
+import com.xiaowei.android.wht.views.SharePopupwindow;
 import com.xiaowei.android.wht.views.TextFont;
 import java.util.Map;
 
@@ -48,6 +52,7 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
   private String mUserid;
   private String mCaseId;
   private double mny;
+  private SharePopupwindow popup;
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_brandcase);
@@ -74,7 +79,28 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
   }
 
   @Override public void setListener() {
+    popup = new SharePopupwindow(activity);
+    popup.setOutsideTouchable(true);
+    popup.setCallBack(new SharePopupwindow.CallBack() {
 
+      @Override
+      public void group() {
+        IWxShare iWxShare = WxShare.getInstance(activity);
+        iWxShare.wxShare(1, mUrl);
+        //wxShare(1);
+      }
+
+      @Override
+      public void friend() {
+        IWxShare iWxShare = WxShare.getInstance(activity);
+        iWxShare.wxShare(0, mUrl);
+        //wxShare(0);
+      }
+
+      @Override
+      public void dismiss() {
+      }
+    });
   }
 
   public static void getIntent(Context context, String id) {
@@ -157,7 +183,16 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
    * 分享js调用的方法
    */
   public class JavaScriptInterface {
-
+    @JavascriptInterface
+    public void showSharePopuJs(String caseUrl) {
+      mUrl = mUrl.replace("{id}", caseUrl);
+      activity.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+          popup.showAtLocation(mLayout, Gravity.BOTTOM, 0, 0);
+        }
+      });
+    }
     @JavascriptInterface
     public void zoomImageIntent(String url) {
       Log.d(CommentActivity.class.getSimpleName(), url);

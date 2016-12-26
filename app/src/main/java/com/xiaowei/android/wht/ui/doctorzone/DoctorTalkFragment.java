@@ -48,7 +48,7 @@ public class DoctorTalkFragment extends BaseFragment {
         new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
             .MATCH_PARENT);
     mWebView = new Html5WebView(mActivity);
-    mWebView.addJavascriptInterface(new DoctorTalkFragment.JavaScriptInterface(mActivity),
+    mWebView.addJavascriptInterface(new JavaScriptInterface(mActivity),
         "Android");
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);

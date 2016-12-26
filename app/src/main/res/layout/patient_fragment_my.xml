@@ -4,337 +4,372 @@
     android:layout_height="match_parent"
 
     android:background="@color/color_gray_default"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/title_div"
+  <FrameLayout
+      android:id="@+id/title_div"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/color_major">
+
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="vertical">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:gravity="center">
+        <com.xiaowei.android.wht.views.CircularImage
+            android:id="@+id/headPic_imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_head">
+        </com.xiaowei.android.wht.views.CircularImage>
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/name_textView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="8dp"
+          android:text=""
+          android:textColor="#ffffff"
+          android:textSize="@dimen/activity_tab"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/phone_imageView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/color_major" >
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:src="@drawable/btn_phone"/>
+  </FrameLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|center_horizontal"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center" >
-                <com.xiaowei.android.wht.views.CircularImage
-                    android:id="@+id/headPic_imageView"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/ic_head" >
-                </com.xiaowei.android.wht.views.CircularImage>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/name_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text=""
-                android:textColor="#ffffff"
-                android:textSize="@dimen/activity_tab" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/phone_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:padding="8dp"
-            android:src="@drawable/btn_phone" />
-    </FrameLayout>
-
-    <RelativeLayout
-        android:id="@+id/record_div"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title_div"
-        android:layout_marginBottom="2dp"
-        android:background="#ffffff"
-        android:padding="10dp"
-        android:visibility="gone" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawableLeft="@drawable/icon_msg"
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="看诊记录"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:contentDescription="@null"
-            android:src="@drawable/go_gs" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/myInfo_div"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/record_div"
-        android:layout_marginBottom="2dp"
-        android:background="#ffffff"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawableLeft="@drawable/my_info"
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="常用信息"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="@null"
-            android:src="@drawable/go_gs" />
-    </RelativeLayout>
-    
-    <RelativeLayout
-        android:id="@+id/myMessage_div"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myInfo_div"
-        android:layout_marginBottom="2dp"
-        android:background="#ffffff"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawableLeft="@drawable/my_message"
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="我的消息"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main" />
-        <TextView
-            android:id="@+id/tv_patient_my_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:textColor="#ee5775"
-            android:textSize="@dimen/activity_default"
-            android:text=""
-            android:drawableRight="@drawable/go_gs" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/lyt_doctor"
-        android:onClick="myDoctorClick"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myInfo_div"
-        android:layout_marginBottom="2dp"
-        android:background="#ffffff"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawableLeft="@drawable/my_message"
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="我的医生"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main"/>
-
-        <TextView
-            android:id="@+id/tv_patient_my_docotor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:textColor="#ee5775"
-            android:textSize="@dimen/activity_default"
-            android:text=""
-            android:drawableRight="@drawable/go_gs"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/lyt_case"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myInfo_div"
-
-        android:layout_marginBottom="2dp"
-        android:clickable="true"
-        android:onClick="caseClick"
-        android:background="#ffffff"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawableLeft="@drawable/my_message"
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="我的病例"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main"/>
-
-        <TextView
-            android:id="@+id/tv_patient_my_case"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:textColor="#ee5775"
-            android:textSize="@dimen/activity_default"
-            android:text=""
-            android:drawableRight="@drawable/go_gs"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/money_div"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myMessage_div"
-        android:layout_marginBottom="2dp"
-        android:background="#ffffff"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawableLeft="@drawable/my_money"
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="支付记录"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="@null"
-            android:src="@drawable/go_gs" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/transRole_div"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/money_div"
-        android:layout_marginBottom="2dp"
-        android:background="#ffffff"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawableLeft="@drawable/my_switch"
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="切换身份"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main" />
-
-        <TextView
-            android:id="@+id/role_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:drawablePadding="5dp"
-            android:drawableRight="@drawable/go_gs"
-            android:gravity="center_vertical"
-            android:text="我是患者"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_default_x" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/about_div"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/transRole_div"
-        android:layout_marginBottom="2dp"
-        android:background="#ffffff"
-        android:padding="10dp" >
-<!-- android:drawableLeft="@drawable/my_about"-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-
-            android:drawablePadding="16dp"
-            android:gravity="center_vertical"
-            android:text="关于我们"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_main" />
-
-        <TextView
-            android:id="@+id/ver_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:drawablePadding="5dp"
-            android:drawableRight="@drawable/go_gs"
-            android:gravity="center_vertical"
-            android:text="当前版本"
-            android:textColor="@color/color_light_gray"
-            android:textSize="@dimen/activity_default_x" />
-    </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/record_div"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/title_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp"
+      android:visibility="gone">
 
     <TextView
-        android:id="@+id/exitApp_textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/icon_msg"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="看诊记录"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
-        android:background="@color/color_major"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="退出账号"
-        android:textColor="@color/color_white"
-        android:textSize="@dimen/activity_title_text" />
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:id="@+id/myInfo_div"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/record_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/my_info"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="常用信息"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+  </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/money_div"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/myMessage_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/my_money"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="支付记录"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+  </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/myMessage_div"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/myInfo_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/my_message"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="我的消息"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+    <TextView
+        android:id="@+id/tv_patient_my_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:textColor="#ee5775"
+        android:textSize="@dimen/activity_default"
+        android:text=""
+        android:drawableRight="@drawable/go_gs"/>
+  </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/lyt_case"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/myInfo_div"
+      android:layout_marginBottom="2dp"
+      android:clickable="true"
+      android:onClick="caseClick"
+      android:background="#ffffff"
+      android:padding="10dp"
+  >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/mycase"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="我的病例"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <TextView
+        android:id="@+id/tv_patient_my_case"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:textColor="#ee5775"
+        android:textSize="@dimen/activity_default"
+        android:text=""
+        android:drawableRight="@drawable/go_gs"/>
+  </RelativeLayout>
+
+
+  <RelativeLayout
+      android:id="@+id/lyt_doctor"
+      android:onClick="myDoctorClick"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/myInfo_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/mydoctor"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="我的医生"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <TextView
+        android:id="@+id/tv_patient_my_docotor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:textColor="#ee5775"
+        android:textSize="@dimen/activity_default"
+        android:text=""
+        android:drawableRight="@drawable/go_gs"/>
+  </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/lyt_zz"
+      android:onClick="myDoctorClick"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/myInfo_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/myzzyy"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="我的转诊/预约"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <TextView
+        android:id="@+id/tv_patient_my_booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:textColor="#ee5775"
+        android:textSize="@dimen/activity_default"
+        android:text=""
+        android:drawableRight="@drawable/go_gs"/>
+  </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/transRole_div"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/money_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/my_switch"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="切换身份"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <TextView
+        android:id="@+id/role_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:drawablePadding="5dp"
+        android:drawableRight="@drawable/go_gs"
+        android:gravity="center_vertical"
+        android:text="我是患者"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_default_x"/>
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:id="@+id/about_div"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/transRole_div"
+      android:layout_marginBottom="2dp"
+      android:background="#ffffff"
+      android:padding="10dp"
+  >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@drawable/about"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="关于我们"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_main"/>
+
+    <TextView
+        android:id="@+id/ver_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:drawablePadding="5dp"
+        android:drawableRight="@drawable/go_gs"
+        android:gravity="center_vertical"
+        android:text="当前版本"
+        android:textColor="@color/color_light_gray"
+        android:textSize="@dimen/activity_default_x"/>
+  </RelativeLayout>
+
+  <TextView
+      android:id="@+id/exitApp_textView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      android:background="@color/color_major"
+      android:gravity="center_horizontal"
+      android:padding="10dp"
+      android:text="退出账号"
+      android:textColor="@color/color_white"
+      android:textSize="@dimen/activity_title_text"/>
 
 </LinearLayout>
