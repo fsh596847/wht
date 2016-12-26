@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/color_bg_default_activity"
+    android:layout_height="match_parent">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginBottom="2dp">
+
+    <ImageView
+        android:onClick="backClick"
+        android:id="@+id/iv_approve_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:contentDescription="@null"
+        android:src="@drawable/back_b"/>
+
+    <com.xiaowei.android.wht.views.TextFont
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="我的病例"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_tab"/>
+
+  </RelativeLayout>
+  <RelativeLayout
+      android:onClick="shareClick"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginTop="1dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="分享病例"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+
+  </RelativeLayout>
+  <RelativeLayout
+      android:onClick="helpClick"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginTop="1dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="求助病例"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+
+  </RelativeLayout>
+  <RelativeLayout
+      android:onClick="saveClick"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginTop="1dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="收藏病例"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+
+  </RelativeLayout>
+  <RelativeLayout
+      android:onClick="MycommentClick"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginTop="1dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="我的评论"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+
+  </RelativeLayout>
+  <RelativeLayout
+      android:onClick="pleaseCommentClick"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginTop="1dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="邀请讨论"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+
+  </RelativeLayout>
+  <RelativeLayout
+      android:onClick="tipClick"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginTop="1dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="打赏"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+
+  </RelativeLayout>
+
+</LinearLayout>

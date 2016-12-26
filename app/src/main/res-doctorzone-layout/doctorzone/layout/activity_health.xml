@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/color_bg_default_activity"
+    android:layout_height="match_parent">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginBottom="2dp">
+
+    <ImageView
+        android:onClick="backClick"
+        android:id="@+id/iv_approve_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:contentDescription="@null"
+        android:src="@drawable/back_b"/>
+
+    <com.xiaowei.android.wht.views.TextFont
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="健康知识"
+        android:textColor="@color/color_deep_gray"
+        android:textSize="@dimen/activity_tab"/>
+  </RelativeLayout>
+  <ScrollView
+      android:id="@+id/scrollView_homepg"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="none">
+    <com.xiaowei.android.wht.views.ListViewInScrollView
+        android:id="@+id/listview_patient_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:divider="@color/color_gray_default"
+        android:dividerHeight="1dp"
+        android:scrollbars="none">
+    </com.xiaowei.android.wht.views.ListViewInScrollView>
+  </ScrollView>
+</LinearLayout>
