@@ -76,6 +76,7 @@
       android:layout_below="@id/rlt_top"
       android:background="@color/color_bg_default_activity"
       android:layout_width="match_parent"
+      android:clickable="true"
       android:orientation="vertical"
       android:visibility="gone"
       android:layout_height="wrap_content">
@@ -94,6 +95,7 @@
           android:layout_weight="1"
           android:layout_marginLeft="10dp"
           android:gravity="center"
+          android:onClick="shareClick"
           android:clickable="true"
           android:textSize="16sp"
           android:textColor="@color/color_light_gray"
@@ -124,6 +126,7 @@
           android:drawablePadding="10dp"
           android:layout_marginLeft="10dp"
           android:gravity="center"
+          android:onClick="issueClick"
           android:layout_centerVertical="true"
           android:clickable="true"
           android:textColor="@color/color_light_gray"

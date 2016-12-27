@@ -109,6 +109,23 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
     context.startActivity(intent);
   }
 
+  @Override protected void onResume() {
+    super.onResume();
+    mWebView.loadUrl("javascript:givemoney()");
+  }
+
+  //@Subscribe
+  //public void OtherMessageEvent(){
+  //  mWebView.post(new Runnable() {
+  //    @Override
+  //    public void run() {
+  //      mWebView.loadUrl("javascript:givemoney()");
+  //
+  //    }
+  //  });
+  //}
+
+
   public void backClick(View view) {
     finish();
   }
@@ -265,7 +282,7 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
             //Toast.makeText(PayActivity.this, "支付成功", Toast.LENGTH_LONG).show();
             //WebBrowserActivity.payOk = true;
             setResult(MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
-            //finish();
+            finish();
           } else {
             // 判断resultStatus 为非“9000”则代表可能支付失败
             // “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）

@@ -22,9 +22,12 @@ import com.xiaowei.android.wht.SpData;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.ui.MeetingApply;
+import com.xiaowei.android.wht.ui.enevnt.MessageEvent;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
 import java.util.Map;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import static com.xiaowei.android.wht.ui.doctorzone.CommentActivity.AILPAY;
 import static com.xiaowei.android.wht.ui.doctorzone.CommentActivity.WETCHAT_PAY;
@@ -61,8 +64,23 @@ public class PaySelectTyepActivity extends BaseActivity {
     mCaseId = getIntent().getStringExtra("caseid");
   }
 
-  public void backClick(View view) {
+  @Override
+  public void onStart() {
+    super.onStart();
+    EventBus.getDefault().register(this);
+  }
+
+  @Override
+  public void onStop() {
+    EventBus.getDefault().unregister(this);
+    super.onStop();
+  }
+
+  @Subscribe
+  public void onMessageEvent(MessageEvent event) {
+    Toast.makeText(PaySelectTyepActivity.this, "支付成功！", Toast.LENGTH_SHORT).show();
     finish();
+    //EventBus.getDefault().post(new MessageEvent());
   }
 
   @Override public void setListener() {
@@ -102,7 +120,6 @@ public class PaySelectTyepActivity extends BaseActivity {
         Toast.makeText(PaySelectTyepActivity.this, "请输入有效金额", Toast.LENGTH_SHORT).show();
       }
     } else if (PAY_TYPE == WETCHAT_PAY) {
-
       mny = Double.parseDouble(tvPrice.getText().toString());
       if (mny > 0) {
         doWeixinPay();
@@ -140,7 +157,7 @@ public class PaySelectTyepActivity extends BaseActivity {
             //Toast.makeText(PayActivity.this, "支付成功", Toast.LENGTH_LONG).show();
             //WebBrowserActivity.payOk = true;
             setResult(MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
-            //finish();
+            finish();
           } else {
             // 判断resultStatus 为非“9000”则代表可能支付失败
             // “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
