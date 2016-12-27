@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="知名专家"
+            android:text="专家医生"
             android:textColor="@color/color_deep_gray"
             android:textSize="@dimen/activity_tab" />
     </RelativeLayout>

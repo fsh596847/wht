@@ -62,7 +62,7 @@ public class CommentActivity extends BaseActivity implements AlertDialog.CallPay
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
     tvTitle = (TextFont) findViewById(R.id.tv_title);
-    tvTitle.setText("病例详情");
+    tvTitle.setText("病历详情");
     mWebView = new Html5WebView(activity);
     mWebView.addJavascriptInterface(new JavaScriptInterface(),
         "Android");

@@ -48,7 +48,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   @Override public void init(Bundle savedInstanceState) {
     mLayout = (LinearLayout) findViewById(R.id.web_layout);
     tvTitle = (TextFont) findViewById(R.id.tv_title);
-    tvTitle.setText("填写病例");
+    tvTitle.setText("填写病历");
     mWebView = new Html5WebView(activity);
     String userid = new SpData(getApplicationContext()).getStringValue(SpData.keyId, null);
     LinearLayout.LayoutParams params =

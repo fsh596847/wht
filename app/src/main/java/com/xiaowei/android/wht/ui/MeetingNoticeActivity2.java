@@ -29,6 +29,7 @@ public class MeetingNoticeActivity2 extends FragmentActivity {
   private ImageView imageView;
   private TextView tvMeetingName1, tvMeetingName2;
   double mny;
+  private TextView tvTitle;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,10 @@ public class MeetingNoticeActivity2 extends FragmentActivity {
     imageView = (ImageView) findViewById(R.id.ImageView_doc_meeting_notice);
     tvMeetingName1 = (TextView) findViewById(R.id.textView_doc_meeting_notice_name1);
     tvMeetingName2 = (TextView) findViewById(R.id.textView_doc_meeting_notice_name2);
+    tvTitle = (TextView) findViewById(R.id.tv_title);
     tvMeetingName1.setText(homeImg.getMeetname());
     tvMeetingName2.setText(homeImg.getMeetname());
-
+    tvTitle.setText(homeImg.getMeetname());
     //返回
     findViewById(R.id.iv_doc_meeting_notice_back).setOnClickListener(new OnClickListener() {
 
