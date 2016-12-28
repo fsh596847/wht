@@ -3,6 +3,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
         android:background="@color/color_gray_default"
         android:orientation="vertical" >
 
@@ -26,11 +27,11 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="30dp"
                 android:singleLine="true"
                 android:layout_centerInParent="true"
-                android:text="会议"
+                tools:text="会if交流发电机立法机构拉丝机咖喱鸡啊结果"
                 android:textColor="@color/color_deep_gray"
                 android:textSize="@dimen/activity_tab" />
         </RelativeLayout>

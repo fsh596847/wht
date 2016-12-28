@@ -176,6 +176,37 @@
 
   </RelativeLayout>
   <RelativeLayout
+      android:onClick="helpPatientClick"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:layout_marginTop="1dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="@dimen/activity_main"
+        android:textColor="@color/color_light_gray"
+        android:text="患者求助"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/go_gs"/>
+
+  </RelativeLayout>
+
+
+  <RelativeLayout
       android:onClick="tipClick"
       android:layout_width="match_parent"
       android:layout_height="50dp"

@@ -483,6 +483,11 @@
         android:name=".ui.patient.CommentActivity"
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    <!--患者求助-->
+    <activity
+        android:name=".ui.mycenter.HelpPatientActivity"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Black.NoTitleBar"/>
     <!--患者我的病例-->
     <activity
         android:name=".ui.patient.MyCaseActivity"

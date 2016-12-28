@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -60,6 +61,8 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
             .MATCH_PARENT);
     mWebView.setLayoutParams(params);
     mLayout.addView(mWebView);
+    mWebView.addJavascriptInterface(new JavaScriptInterface(activity),
+        "Android");
     intentKeyValue = getIntent().getStringExtra(INTENT_KEY_CASE);
     mUrl = Config.issueCase.replace("{USID}", userid)
         .replace("{TYPE}", intentKeyValue);
@@ -78,6 +81,25 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
     Intent intent = new Intent(context, IssueActivity.class);
     intent.putExtra(INTENT_KEY_CASE, key);
     context.startActivity(intent);
+  }
+
+  /**
+   * 分享js调用的方法
+   */
+  public class JavaScriptInterface {
+
+    Context context;
+
+    JavaScriptInterface(Context context) {
+      this.context = context;
+    }
+
+    // 4.4 z之前的返回值 由js调用我的本地方法
+    //function sumToJava(number1, number2){ window.control.onSumResult(number1 + number2) }
+    @JavascriptInterface
+    public void onSumResult(int result) {
+    }
+
   }
 
   @TargetApi(Build.VERSION_CODES.KITKAT)

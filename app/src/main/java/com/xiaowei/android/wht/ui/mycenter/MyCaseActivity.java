@@ -50,4 +50,9 @@ public class MyCaseActivity extends BaseActivity {
   public void tipClick(View view) {
     startActivity(PayCaseActivity.class);
   }
+
+  public void helpPatientClick(View view) {
+    startActivity(HelpPatientActivity.class);
+  }
+
 }

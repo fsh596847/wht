@@ -76,27 +76,27 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   private void submit() {
     try {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-        mWebView.post(new Runnable() {
-          @Override
-          public void run() {
-            mWebView.loadUrl("javascript:fsubmit()");
-            startActivity(PsoraActivity.class);
-            finish();
-          }
-        });
-        //mWebView.evaluateJavascript("fsubmit()", new ValueCallback<String>() {
+        //mWebView.post(new Runnable() {
         //  @Override
-        //  public void onReceiveValue(final String value) {
-        //    mWebView.post(new Runnable() {
-        //      @Override
-        //      public void run() {
-        //        Log.e(IssueActivity.class.getSimpleName(), "onReceiveValue value=" + value);
-        //          startActivity(PsoraActivity.class);
-        //          finish();
-        //      }
-        //    });
+        //  public void run() {
+        //    mWebView.loadUrl("javascript:fsubmit()");
+        //    startActivity(PsoraActivity.class);
+        //    finish();
         //  }
         //});
+        mWebView.evaluateJavascript("fsubmit()", new ValueCallback<String>() {
+          @Override
+          public void onReceiveValue(final String value) {
+            mWebView.post(new Runnable() {
+              @Override
+              public void run() {
+                Log.e(IssueActivity.class.getSimpleName(), "onReceiveValue value=" + value);
+                startActivity(PsoraActivity.class);
+                finish();
+              }
+            });
+          }
+        });
       } else {
         mWebView.post(new Runnable() {
           @Override
@@ -132,7 +132,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   public void showDialog() {
     AlertDialog alertDialog = new AlertDialog(activity).builder();
     alertDialog.setTitle("温馨提示");
-    alertDialog.setMsg("确认发布病例？");
+    alertDialog.setMsg("确认发布病历？");
     alertDialog.setMultiActionTextView(getString(R.string.select_pay_ail), 9, 11);
     alertDialog.setPositiveButton(getString(R.string.text_custom_view_btn_positive),
         new View.OnClickListener() {
@@ -146,7 +146,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   public void showDialogFinsih() {
     AlertDialog alertDialog = new AlertDialog(activity).builder();
     alertDialog.setTitle("温馨提示");
-    alertDialog.setMsg("确认放弃本次病例编辑？");
+    alertDialog.setMsg("确认放弃本次病历编辑？");
     alertDialog.setMultiActionTextView(getString(R.string.select_pay_ail), 9, 11);
     alertDialog.setPositiveButton(getString(R.string.text_custom_view_btn_positive),
         new View.OnClickListener() {

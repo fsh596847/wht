@@ -68,17 +68,13 @@ public class ChooseWindowActivity extends Activity {
 				return;
 			}
 		}*/
-		
 		setContentView(R.layout.window_login_auto);
 		ApplicationTool.getInstance().activitis.add(this);//把当前Activity放入集合中
-
 		versionName = Utils.getVersionName(this);
-		
 		if(getIntent().getBooleanExtra("comeGuide", false)){
 			h.sendEmptyMessage(0);
 		}
 		else if(versionName.isEmpty()){
-			
 			intersection();
 		}
 		else{
@@ -104,7 +100,7 @@ public class ChooseWindowActivity extends Activity {
 							}  
 						});
 					}
-				};  
+				}
 			}.start(); 
 		}
 	}
@@ -254,22 +250,6 @@ public class ChooseWindowActivity extends Activity {
 		}
 	}
 
-	/*private void reload(String text){
-		if (loadingDialog == null){
-			loadingDialog = Utils.createLoadingDialog(this, text);
-		}
-		if (!loadingDialog.isShowing()){
-			loadingDialog.show();
-		}
-	}
-
-	private Dialog loadingDialog = null;
-	private void closeLoadingDialog() {
-		if(null != loadingDialog) {	 
-			loadingDialog.dismiss();
-			loadingDialog = null;
-		}
-	}*/
 
 	boolean isDestroy = false;
 	@Override
@@ -299,11 +279,8 @@ public class ChooseWindowActivity extends Activity {
 						sp.setStringValue(SpData.keyId, user.getId());
 						queryDoctorNoAudit(mobile, user.getId());
 						return true;
-					}else{
 					}
-				}else{
 				}
-			}else{
 			}
 		}catch (Exception he) {
 			he.printStackTrace();
@@ -400,75 +377,8 @@ public class ChooseWindowActivity extends Activity {
 	 * 下载新版本
 	 * @param spec
 	 */
-	void downFile(final String spec) {   
-		/*pBar = new ProgressDialog(ChooseWindowActivity.this);    //进度条，在下载的时候实时更新进度，提高用户友好度  
-		pBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);  
-		pBar.setTitle("正在下载");  
-		pBar.setMessage("请稍候...");  
-		pBar.setProgress(0);  
-		pBar.show();  
-		new Thread() {  
-			public void run() {          
-				URL url = null;  
-				InputStream in = null;  
-				FileOutputStream out = null;  
-				HttpURLConnection conn = null;  
-				pBar.setMax(100);  
-				try { 
-					url = new URL(spec);  
-					conn = (HttpURLConnection) url.openConnection();  
-					conn.setRequestMethod("GET"); 
-					conn.connect();  
-					in = conn.getInputStream();  
-					File filePath = new File(FILE_PATH);  
-					if(!filePath.exists()) {  
-						filePath.mkdir();  
-					}  
-					out = new FileOutputStream(new File(FILE_NAME));  
-					byte[] buffer = new byte[1024];  
-					int len = 0;  
-					long readedLength = 0l;  
-					len = in.read(buffer);
-					mLog.d("MainActivity", "len:"+len);
-					while(len != -1) {  
-						out.write(buffer, 0, len);  
-						readedLength += len;  
-						mLog.d("MainActivity", "readedLength:"+readedLength);
-						curProgress = (int) (((float) readedLength/1024/1024 / 4.2F) * 100);  
-						handler.sendEmptyMessage(UPDARE_TOKEN); 
-						len = in.read(buffer);
-					}  
-
-					handler.sendEmptyMessage(INSTALL_TOKEN); 
-
-				} catch (Exception e) {  
-					e.printStackTrace();  
-					intersection();
-				}  
-				finally {  
-					if(out != null) {  
-						try {  
-							out.close();  
-						} catch (IOException e) {  
-							e.printStackTrace();  
-						}  
-					}  
-					if(in != null) {  
-						try {  
-							in.close();  
-						} catch (IOException e) {  
-							e.printStackTrace();  
-						}  
-					}  
-					if(conn != null) {  
-						conn.disconnect();  
-					}  
-				} 
-			}  
-
-		}.start();*/  
-		
-		handler.sendEmptyMessage(UPDARE_START); 
+	void downFile(final String spec) {
+		handler.sendEmptyMessage(UPDARE_START);
 		/*new Thread() {
 			public void run() { */       
 				HttpClient client = new DefaultHttpClient();
@@ -570,8 +480,7 @@ public class ChooseWindowActivity extends Activity {
 				update();  
 				break;  
 			}
-
-		};  
+		}
 	}; 
 
 	private String versionName;

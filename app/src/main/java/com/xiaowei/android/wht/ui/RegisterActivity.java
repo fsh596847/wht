@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -262,7 +263,7 @@ public class RegisterActivity extends Activity {
                 finish();
 
 								/*if(!isDestroy && user.getId() != null && user.getMobile() != null){
-									queryDoctorNoAudit(user.getMobile(), user.getId());
+                  queryDoctorNoAudit(user.getMobile(), user.getId());
 								}*/
               } else {
                 new SpData(getApplicationContext()).setIntValue(SpData.KeyApprovestate, 0);
@@ -353,7 +354,7 @@ public class RegisterActivity extends Activity {
                 runOnUiThread(new Runnable() {
                   @Override
                   public void run() {
-                    //readSms();
+                    readSms();
                     Toast.makeText(getApplicationContext(), "获取验证码成功！", Toast.LENGTH_SHORT).show();
                     getCodeUIThread();
                   }
@@ -466,6 +467,17 @@ public class RegisterActivity extends Activity {
     }).start();
   }
 
+  /**
+   * 获取电话号码
+   */
+  public String getNativePhoneNumber() {
+    String NativePhoneNumber = null;
+    TelephonyManager telephonyManager = (TelephonyManager) this
+        .getSystemService(Context.TELEPHONY_SERVICE);
+    NativePhoneNumber = telephonyManager.getLine1Number();
+    return NativePhoneNumber;
+  }
+
   private Uri SMS_INBOX = Uri.parse("content://sms/");
   Date sendDate = null;
 
@@ -473,8 +485,12 @@ public class RegisterActivity extends Activity {
     ContentResolver cr = getContentResolver();
     String[] projection = new String[] {"body", "_id", "address", "person", "date", "type"};//
     String where = " body like '%华佗来了%' ";
+    if (null == projection) {
+      return false;
+    }
     Cursor cur = cr.query(SMS_INBOX, projection, where, null, "date desc");
     if (null == cur) {
+
       return false;
     }
     if (cur.moveToNext()) {
@@ -497,6 +513,7 @@ public class RegisterActivity extends Activity {
               }
             }
           });
+          cur.close();
           return true;
         }
       }

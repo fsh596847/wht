@@ -276,5 +276,9 @@ public class Config {
    */
   public static final String patientCase =
       SETTING + "/phone_myPatientCases.action?userid={USID}";
-
+  /**
+   * 患者求助
+   */
+  public static final String patientHelpCase =
+      SETTING + "/phone_myPatientinvite.action?userid={USID}";
 }
