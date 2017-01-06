@@ -269,6 +269,16 @@ public class Config {
    */
   public static final String tip =
       SETTING + "/phone_myReward.action?userid={USID}";
+  /**
+   * 医生服务
+   */
+  public static final String doctorService =
+      SETTING + "/phone_doctorServceIndex.action?userid={USID}";
+  /**
+   * 课程资料
+   */
+  public static final String coursMaterials =
+      SETTING + "/phone_getAllMeetResource.action";
 
   //======================================患者==================================================
   /**

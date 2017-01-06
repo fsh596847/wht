@@ -108,6 +108,6 @@ dependencies {
   compile rootProject.ext.dependencies["photoview"]
   compile rootProject.ext.dependencies["universal-image-loader"]
   provided 'org.projectlombok:lombok:1.12.6'
-  compile 'com.mylhyl:acp:1.1.7'
   compile 'org.greenrobot:eventbus:3.0.0'
+  compile project(':lib')
 }

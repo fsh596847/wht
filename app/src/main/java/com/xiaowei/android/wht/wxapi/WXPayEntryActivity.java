@@ -78,7 +78,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
         WebBrowserActivity.payOk = true;//设置以便显示支付成功的结果
         sendBroadcast(new Intent(ACTION_PAY_SUCCESS));
         finish();
-        EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
+        EventBus.getDefault().post(new MessageEvent(""));
         //handler.postDelayed(new Runnable() {
         //
         //  @Override

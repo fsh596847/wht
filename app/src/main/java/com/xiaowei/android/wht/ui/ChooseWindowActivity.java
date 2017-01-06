@@ -59,15 +59,6 @@ public class ChooseWindowActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		/*if(!isTaskRoot()){
-			Intent intent = getIntent();
-			String action = intent.getAction();
-			if(intent.hasCategory(Intent.CATEGORY_LAUNCHER) && action.equals(Intent.ACTION_MAIN)){
-				
-				finish();
-				return;
-			}
-		}*/
 		setContentView(R.layout.window_login_auto);
 		ApplicationTool.getInstance().activitis.add(this);//把当前Activity放入集合中
 		versionName = Utils.getVersionName(this);
@@ -78,7 +69,6 @@ public class ChooseWindowActivity extends Activity {
 			intersection();
 		}
 		else{
-			
 			//reload("正在努力加载……");
 			//检查版本更新
 			new Thread() {  
@@ -91,7 +81,7 @@ public class ChooseWindowActivity extends Activity {
 					if(versions !=null && isUpdataNewVersion(versionName, versions.getVersionname()) && versions.getDownUrl() != null){
 						//有新版本,强制更新
 						updateVersions(versions.getDownUrl());
-					}else{
+					} else {
 						runOnUiThread(new Runnable(){  
 							@Override  
 							public void run() { 
@@ -156,8 +146,15 @@ public class ChooseWindowActivity extends Activity {
 		//没有登录过,显示选择
 		else{
 			//showLogin();
-			startActivity(new Intent(ChooseWindowActivity.this, GuideActivity.class));
-			finish();
+			setContentView(R.layout.window_login_auto);
+			h.postDelayed(new Runnable() {
+				@Override public void run() {
+					showLogin();
+				}
+			}, 3000);
+			// ChooseWindowActivity
+			//startActivity(new Intent(ChooseWindowActivity.this, GuideActivity.class));
+			//finish();
 			//h.sendEmptyMessage(0);
 		}
 	}

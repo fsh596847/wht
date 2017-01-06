@@ -21,9 +21,6 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import com.mylhyl.acp.Acp;
-import com.mylhyl.acp.AcpListener;
-import com.mylhyl.acp.AcpOptions;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
@@ -31,7 +28,7 @@ import com.xiaowei.android.wht.views.AlertDialog;
 import com.xiaowei.android.wht.views.Html5WebView;
 import com.xiaowei.android.wht.views.TextFont;
 import java.io.File;
-import java.util.List;
+import rx.functions.Action1;
 
 import static com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity.INTENT_KEY_TYPE_ISSUE;
 
@@ -48,6 +45,16 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
 
   @Override protected void setContentView() {
     setContentView(R.layout.activity_issue);
+    rxPermissions.request(Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
+      @Override public void call(Boolean permission) {
+        if (permission) {
+
+        } else {
+
+        }
+      }
+    });
   }
 
   @Override public void init(Bundle savedInstanceState) {
@@ -99,7 +106,6 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
     @JavascriptInterface
     public void onSumResult(int result) {
     }
-
   }
 
   @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -348,25 +354,31 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   }
 
   private void permission() {
-    Acp.getInstance(this).request(new AcpOptions.Builder()
-            .setPermissions(Manifest.permission.CAMERA
-
-            )
-            .build(),
-        new AcpListener() {
-          @Override
-          public void onGranted() {
-            openCarcme();
-          }
-
-          @Override
-          public void onDenied(List<String> permissions) {
-
-          }
-        });
+    //openCarcme();
+    //rxPermissions.requestEach(Manifest.permission.CAMERA,
+    //    Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Permission>() {
+    //  @Override public void call(Permission permission) {
+    //    if (permission.granted) {
+    //      openCarcme();
+    //    } else if (permission.shouldShowRequestPermissionRationale) {
+    //
+    //    }
+    //  }
+    //});
+    rxPermissions.request(Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
+      @Override public void call(Boolean granted) {
+        if (granted) {
+          openCarcme();
+        } else {
+          Toast.makeText(IssueActivity.this, "请同意软件的权限，才能继续提供服务", Toast.LENGTH_LONG).show();
+          // At least one permission is denied
+        }
+      }
+    });
   }
 
-  String compressPath = "";
+  //String compressPath = "";
 
   protected final void selectImage() {
     if (!checkSDcard()) {
@@ -383,6 +395,7 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
                   // 相机拍摄
                   case 0:
                     permission();
+                    //dialog.dismiss();
                     break;
                   // 手机相册
                   case 1:
@@ -395,17 +408,18 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
                       startActivityForResult(Intent.createChooser(i, "File Chooser"),
                           FILE_SELECT_CODE);
                     }
+                    //dialog.dismiss();
                     break;
                   default:
                     break;
                 }
-                compressPath = Environment
-                    .getExternalStorageDirectory()
-                    .getPath()
-                    + "/wht";
-                new File(compressPath).mkdirs();
-                compressPath = compressPath + File.separator
-                    + "compress.jpg";
+                //compressPath = Environment
+                //    .getExternalStorageDirectory()
+                //    .getPath()
+                //    + "/wht";
+                //new File(compressPath).mkdirs();
+                //compressPath = compressPath + File.separator
+                //    + "compress.jpg";
               }
             }).setOnCancelListener(new DialogInterface.OnCancelListener() {
           @Override

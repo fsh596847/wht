@@ -44,6 +44,8 @@ import com.xiaowei.android.wht.beans.MeetingNoticeDoctor;
 import com.xiaowei.android.wht.beans.RegisterInfo;
 import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.service.DataService;
+import com.xiaowei.android.wht.ui.doctorzone.CoursMaterialsActivity;
+import com.xiaowei.android.wht.ui.doctorzone.DoctorServiceActivity;
 import com.xiaowei.android.wht.ui.doctorzone.DoctorZoneActivity;
 import com.xiaowei.android.wht.ui.doctorzone.WebViewDemo;
 import com.xiaowei.android.wht.utils.Util;
@@ -570,9 +572,7 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
 
       @Override
       public void onClick(View v) {
-
-        startActivity(new Intent(getActivity(), CourseActivity.class));
-        getActivity().overridePendingTransition(R.anim.in_right, 0);
+        startActivity(new Intent(getActivity(), CoursMaterialsActivity.class));
       }
     });
     //医生服务
@@ -580,11 +580,8 @@ public class FragmentHomepage extends Fragment implements OnPageChangeListener {
 
       @Override
       public void onClick(View v) {
-        //Intent intent = new Intent(getActivity(), Html5Activity.class);
-        //Bundle bundle = new Bundle();
-        //bundle.putString("url", "http://www.baidu.com");
-        //intent.putExtra("bundle", bundle);
-        //startActivity(intent);
+        Intent intent = new Intent(getActivity(), DoctorServiceActivity.class);
+        startActivity(intent);
       }
     });
     //医生社区

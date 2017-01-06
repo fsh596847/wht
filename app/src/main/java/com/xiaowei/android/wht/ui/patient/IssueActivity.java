@@ -19,9 +19,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import com.mylhyl.acp.Acp;
-import com.mylhyl.acp.AcpListener;
-import com.mylhyl.acp.AcpOptions;
+import com.tbruyelle.rxpermissions.Permission;
 import com.xiaowei.android.wht.Config;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
@@ -30,7 +28,7 @@ import com.xiaowei.android.wht.views.AlertDialog;
 import com.xiaowei.android.wht.views.Html5WebView;
 import com.xiaowei.android.wht.views.TextFont;
 import java.io.File;
-import java.util.List;
+import rx.functions.Action1;
 
 /**
  * Created by HIPAA on 2016/11/29. 发布
@@ -65,7 +63,16 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   }
 
   @Override public void setListener() {
+    rxPermissions.requestEach(Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Permission>() {
+      @Override public void call(Permission permission) {
+        if (permission.granted) {
 
+        } else if (permission.shouldShowRequestPermissionRationale) {
+
+        }
+      }
+    });
   }
 
   @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -91,8 +98,10 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
               @Override
               public void run() {
                 Log.e(IssueActivity.class.getSimpleName(), "onReceiveValue value=" + value);
-                startActivity(PsoraActivity.class);
-                finish();
+                if (value.equals("1")) {
+                  startActivity(PsoraActivity.class);
+                  finish();
+                }
               }
             });
           }
@@ -306,22 +315,28 @@ public class IssueActivity extends BaseActivity implements Html5WebView.WebCall 
   }
 
   private void permission() {
-    Acp.getInstance(this).request(new AcpOptions.Builder()
-            .setPermissions(Manifest.permission.CAMERA
 
-            )
-            .build(),
-        new AcpListener() {
-          @Override
-          public void onGranted() {
-            openCarcme();
-          }
+    //rxPermissions.requestEach(Manifest.permission.CAMERA,
+    //    Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Permission>() {
+    //  @Override public void call(Permission permission) {
+    //    if (permission.granted) {
+    //      openCarcme();
+    //    } else if (permission.shouldShowRequestPermissionRationale) {
+    //    }
+    //  }
+    //});
+    rxPermissions.request(Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
+      @Override public void call(Boolean granted) {
+        if (granted) {
+          openCarcme();
+        } else {
+          Toast.makeText(IssueActivity.this, "请同意软件的权限，才能继续提供服务", Toast.LENGTH_LONG).show();
+          // At least one permission is denied
+        }
+      }
+    });
 
-          @Override
-          public void onDenied(List<String> permissions) {
-
-          }
-        });
   }
 
   String compressPath = "";

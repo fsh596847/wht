@@ -18,9 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
-import com.mylhyl.acp.Acp;
-import com.mylhyl.acp.AcpListener;
-import com.mylhyl.acp.AcpOptions;
+import com.tbruyelle.rxpermissions.Permission;
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.xiaowei.android.wht.ApplicationTool;
 import com.xiaowei.android.wht.R;
 import com.xiaowei.android.wht.SpData;
@@ -33,16 +32,16 @@ import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
 import com.xiaowei.android.wht.utis.Utils;
 import java.util.Date;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import rx.functions.Action1;
 
 public class RegisterActivity extends Activity {
 
   private EditText etMobile;
   private EditText etCode;
   private Button btnGetCode;
-
+  RxPermissions rxPermissions;
   private int clientType;
   public static final int clientTypeDoctor = 0;
   public static final int clientTypePatient = 1;
@@ -77,9 +76,15 @@ public class RegisterActivity extends Activity {
     setContentView(R.layout.activity_register);
     ApplicationTool.getInstance().activitis.add(this);//把当前Activity放入集合中
     clientType = getIntent().getIntExtra("type", clientTypeDoctor);
-
+    rxPermissions = new RxPermissions(this);
     initViews();
-
+    rxPermissions.requestEach(Manifest.permission.READ_SMS).subscribe(new Action1<Permission>() {
+      @Override public void call(Permission permission) {
+        if (permission.granted) {
+        } else if (permission.shouldShowRequestPermissionRationale) {
+        }
+      }
+    });
     initListeners();
 
     //receiver = new EventReceiver();
@@ -126,28 +131,24 @@ public class RegisterActivity extends Activity {
   }
 
   private void permission() {
-    Acp.getInstance(this).request(new AcpOptions.Builder()
-            .setPermissions(Manifest.permission.READ_SMS
-            )
-            .build(),
-        new AcpListener() {
-          @Override
-          public void onGranted() {
-            if (ifCanGetCode) {
-              String mobile = etMobile.getText().toString().trim();
-              if (Utils.checkPhone(mobile)) {
-                getCode(mobile);
-              } else {
-                Toast.makeText(getApplicationContext(), "请输入正确的11位手机号码", Toast.LENGTH_SHORT).show();
-              }
+
+    rxPermissions.requestEach(Manifest.permission.READ_SMS).subscribe(new Action1<Permission>() {
+      @Override public void call(Permission permission) {
+        if (permission.granted) {
+          if (ifCanGetCode) {
+            String mobile = etMobile.getText().toString().trim();
+            if (Utils.checkPhone(mobile)) {
+              getCode(mobile);
+            } else {
+              Toast.makeText(getApplicationContext(), "请输入正确的11位手机号码", Toast.LENGTH_SHORT).show();
             }
           }
+        } else if (permission.shouldShowRequestPermissionRationale) {
 
-          @Override
-          public void onDenied(List<String> permissions) {
+        }
+      }
+    });
 
-          }
-        });
   }
 
   private void initViews() {

@@ -753,6 +753,9 @@ public class MyInfoActivity extends Activity {
           String addr = area.getAreaname();
           if (addr != null) {
             tv_area.setText(addr);
+            if (doctorPerson == null) {
+              doctorPerson = new DoctorPerson();
+            }
             doctorPerson.setAreaid(area.getId());
           }
         }

@@ -2,8 +2,6 @@ package com.xiaowei.android.wht.ui;
 
 
 
-import java.util.Map;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -20,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.alibaba.fastjson.JSON;
 import com.alipay.sdk.app.PayTask;
 import com.alipaysdk.PayResult;
@@ -35,12 +32,16 @@ import com.xiaowei.android.wht.model.HttpResult;
 import com.xiaowei.android.wht.model.OrderInfo;
 import com.xiaowei.android.wht.service.DataService;
 import com.xiaowei.android.wht.service.PayService;
+import com.xiaowei.android.wht.ui.enevnt.MessageEvent;
 import com.xiaowei.android.wht.uibase.BaseNoTitleBarActivity;
 import com.xiaowei.android.wht.utils.mLog;
 import com.xiaowei.android.wht.utis.HlpUtils;
 import com.xiaowei.android.wht.views.SildingFinishLayout;
 import com.xiaowei.android.wht.views.SildingFinishLayout.OnSildingFinishListener;
 import com.xiaowei.android.wht.wxapi.WXPayEntryActivity;
+import java.util.Map;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class PayActivity extends BaseNoTitleBarActivity implements 
 	View.OnClickListener{
@@ -174,7 +175,28 @@ public class PayActivity extends BaseNoTitleBarActivity implements
 		ylPay_div = (RelativeLayout)findViewById(R.id.ylPay_div);
 		ylPay_div.setOnClickListener(this);
 	}
-	
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		EventBus.getDefault().register(this);
+	}
+
+	@Override
+	public void onStop() {
+		EventBus.getDefault().unregister(this);
+		super.onStop();
+	}
+
+	@Subscribe
+	public void onMessageEvent(MessageEvent event) {
+		Toast.makeText(PayActivity.this, "支付成功！", Toast.LENGTH_SHORT).show();
+		startActivity(new Intent(PayActivity.this, MyMeetingActivity.class));
+		finish();
+		//EventBus.getDefault().post(new MessageEvent());
+	}
+
+
 	final public static int MsgCodeXXX = 1001;
 	final public static int msgQueryFail = 1002;
 	final public static int msgAliPayOk = 1003;
@@ -201,8 +223,11 @@ public class PayActivity extends BaseNoTitleBarActivity implements
 				if (TextUtils.equals(resultStatus, "9000")) {
 					//Toast.makeText(PayActivity.this, "支付成功", Toast.LENGTH_LONG).show();
 					//WebBrowserActivity.payOk = true;
-					setResult(MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
+					Toast.makeText(PayActivity.this, "支付成功！", Toast.LENGTH_SHORT).show();
+					startActivity(new Intent(PayActivity.this, MyMeetingActivity.class));
 					finish();
+					//setResult(MeetingApply.RESULTCODE_MeetingApply_ApplyOK);
+					//finish();
 				} else {
 					// 判断resultStatus 为非“9000”则代表可能支付失败
 					// “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
