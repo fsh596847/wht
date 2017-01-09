@@ -253,7 +253,7 @@ public class Utils {
 	// 手机号码验证
 	public static boolean checkPhone(String number) {
 		Pattern p = Pattern
-				.compile("^((13[0-9])|(15[^4,\\D])|(18[0-9])|(17[6-8]))\\d{8}$");
+				.compile("^1[0-9]{10}$");
 		Matcher m = p.matcher(number);
 		return m.matches();
 	}
@@ -675,11 +675,7 @@ public class Utils {
 	 */
 	static public boolean isImage(String fileName) {
 		String mimeType = getMIMEType(fileName);
-		if (mimeType != null && mimeType.startsWith("image")) {
-			return true;
-		} else {
-			return false;
-		}
+		return mimeType != null && mimeType.startsWith("image");
 	}
 
 	/**
@@ -690,11 +686,7 @@ public class Utils {
 	 */
 	static public boolean isVideo(String fileName) {
 		String mimeType = getMIMEType(fileName);
-		if (mimeType != null && mimeType.startsWith("video")) {
-			return true;
-		} else {
-			return false;
-		}
+		return mimeType != null && mimeType.startsWith("video");
 	}
 
 	/**
@@ -705,11 +697,7 @@ public class Utils {
 	 */
 	static public boolean isVoice(String fileName) {
 		String mimeType = getMIMEType(fileName);
-		if (mimeType != null && mimeType.startsWith("audio")) {
-			return true;
-		} else {
-			return false;
-		}
+		return mimeType != null && mimeType.startsWith("audio");
 	}
 
 	/**
@@ -814,8 +802,8 @@ public class Utils {
 	 * @throws
 	 */
 	static public int compareStr(String o1, String o2) {
-		String s1 = (String) o1;
-		String s2 = (String) o2;
+		String s1 = o1;
+		String s2 = o2;
 		int len1 = s1.length();
 		int len2 = s2.length();
 		int n = Math.min(len1, len2);
@@ -1206,10 +1194,7 @@ public class Utils {
 		SharedPreferences sp = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		String flag = sp.getString("bind_flag", "");
-		if ("ok".equalsIgnoreCase(flag)) {
-			return true;
-		}
-		return false;
+		return "ok".equalsIgnoreCase(flag);
 	}
 
 	public static void setBind1(Context context, boolean flag) {
@@ -1232,12 +1217,8 @@ public class Utils {
 		ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
 		String currentPackageName = cn.getPackageName();
 		String currenActivityName = cn.getClassName();
-		if (!TextUtils.isEmpty(currenActivityName)
-				&& currenActivityName.equals(activityName)) {
-			return true;
-		}
-
-		return false;
+		return !TextUtils.isEmpty(currenActivityName)
+				&& currenActivityName.equals(activityName);
 	}
 
 	/**

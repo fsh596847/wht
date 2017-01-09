@@ -20,7 +20,7 @@
         android:id="@+id/tv_login_auto_ver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1.2.52版本"
+            android:text="@string/versionName"
         android:background="@drawable/expert_box_w"
         android:paddingLeft="16dp"
         android:paddingTop="4dp"

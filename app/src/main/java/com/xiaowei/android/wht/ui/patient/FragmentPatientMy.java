@@ -49,6 +49,7 @@ public class FragmentPatientMy extends Fragment implements View.OnClickListener 
 
   private RelativeLayout lytDocoor;
   private RelativeLayout lytCase;
+  private RelativeLayout lytZz;
   RequestQueue mQueue = null;
   LruImageCache lruImageCache = null;
   ImageLoader imageLoader = null;
@@ -81,8 +82,10 @@ public class FragmentPatientMy extends Fragment implements View.OnClickListener 
     money_div.setOnClickListener(this);
     myInfo_div = (RelativeLayout) v.findViewById(R.id.myInfo_div);
     myMessage_div = (RelativeLayout) v.findViewById(R.id.myMessage_div);
+    lytZz = (RelativeLayout) v.findViewById(R.id.lyt_zz);
     myInfo_div.setOnClickListener(this);
     myMessage_div.setOnClickListener(this);
+    lytZz.setOnClickListener(this);
     ver_textView.setText("当前版本：" + Utils.getVersionName(getActivity()));
 
     phone_imageView = (ImageView) v.findViewById(R.id.phone_imageView);
@@ -319,6 +322,11 @@ public class FragmentPatientMy extends Fragment implements View.OnClickListener 
         break;
       case R.id.lyt_doctor:
         startActivity(new Intent(getActivity(), PatientMyDoctorActivity.class));
+        getActivity().overridePendingTransition(R.anim.in_right, 0);
+        break;
+      case R.id.lyt_zz:
+        startActivity(new Intent(getActivity(), PatientMyReferralActivity.class));
+        getActivity().overridePendingTransition(R.anim.in_right, 0);
         break;
     }
   }
@@ -326,6 +334,11 @@ public class FragmentPatientMy extends Fragment implements View.OnClickListener 
   public void myDoctorClick(View view) {
     startActivity(new Intent(getActivity(), PatientMyDoctorActivity.class));
     getActivity().overridePendingTransition(R.anim.in_right, 0);
+  }
+
+  public void myZzClick(View view) {
+    //startActivity(new Intent(getActivity(), PatientMyDoctorActivity.class));
+    //getActivity().overridePendingTransition(R.anim.in_right, 0);
   }
 
   public void caseClick(View view) {

@@ -2,5 +2,6 @@
 
    <!-- <string name="app_name">华佗来了</string>-->
 	<string name="options">操作</string>
+  <string name="versionName">1.2.90版本</string>
 
 </resources>
