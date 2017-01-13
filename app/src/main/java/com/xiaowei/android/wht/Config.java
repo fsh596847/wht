@@ -282,7 +282,7 @@ public class Config {
 
   //======================================患者==================================================
   /**
-   * 打赏
+   * 打赏/我的患者病例
    */
   public static final String patientCase =
       SETTING + "/phone_myPatientCases.action?userid={USID}";

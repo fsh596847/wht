@@ -44,7 +44,7 @@ public class DoctorHeadInfoActivity extends BaseActivity {
         "Android");
     mUrl =
         Config.issueCaseHeadDetaile.replace("{userid}", getIntent().getStringExtra(INTENT_KEY_ID));
-    Log.d(DoctorTalkFragment.class.getSimpleName(), mUrl);
+    Log.d(DoctorHeadInfoActivity.class.getSimpleName(), mUrl);
     mWebView.loadUrl(mUrl);
   }
 

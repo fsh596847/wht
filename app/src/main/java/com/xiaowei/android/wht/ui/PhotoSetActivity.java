@@ -1,5 +1,7 @@
 package com.xiaowei.android.wht.ui;
 
+import android.Manifest;
+import com.tbruyelle.rxpermissions.RxPermissions;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +29,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import rx.functions.Action1;
 
 /**
  * 
@@ -92,6 +95,18 @@ public class PhotoSetActivity extends Activity {
 		// touchView
 		LinearLayout view = (LinearLayout) findViewById(R.id.ll_photo_set);
 		mSildingFinishLayout.setTouchView(view);
+		RxPermissions rxPermissions = new RxPermissions(this);
+		rxPermissions.request(Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+				Manifest.permission.CAMERA,
+				Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
+			@Override public void call(Boolean permission) {
+				if (permission) {
+
+				} else {
+
+				}
+			}
+		});
 	}
 
 	private void initListeners() {
